@@ -8,4 +8,5 @@ Team design, implementation and testing of a large software project.<br/>
     <li>Jerome Dotson</li>
     <li>Julio Lama</li>
     <li>Miko Stulajter</li>
+    <li>Wesley Albury</li>
 </ul>
