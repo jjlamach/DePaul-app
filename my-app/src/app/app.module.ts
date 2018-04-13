@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+/* Importing the Service.  JL*/
+import { DataService } from './Data.service';
+
 import { AppComponent } from './app.component';
 import { StudentComponent } from './student/student.component';
 import { ViewProfileComponent } from './view-profile/view-profile.component';
@@ -44,6 +47,7 @@ import { AllpagesComponent } from './allpages/allpages.component';
 import { AccountcreationComponent } from './accountcreation/accountcreation.component';
 import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 import { AddUserComponent } from './add-user/add-user.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'allpages', pathMatch: 'full' },
@@ -72,7 +76,7 @@ const appRoutes: Routes = [
   { path: 'view-profile5', component: AviewProfileStuComponent },
   { path: 'list-students', component: AstudentsComponent },
   { path: 'start-plan3', component: AstartPlanComponent },
-  { path: 'SearchID3', component: AsearchIdComponent },
+  { path: 'SearchID3', component: AsearchIdComponent },           // WORKING ON THIS COMPONENT
   { path: 'requirements3', component: ArequirementsComponent },
   { path: 'remove', component: AremoveUserComponent },
   { path: 'allpages', component: AllpagesComponent },
@@ -136,12 +140,13 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes
     )
   ],
-  providers: [],
+  providers: [DataService], // <= Provider added
   bootstrap: [AppComponent]
 })
 
