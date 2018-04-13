@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demographics</title>
+
+    <link rel="stylesheet" href="log_in.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#sigInForm :text:first').focus();
+            $('form').submit(function () {
+                var subButton = $(this).find(':submit');
+                subButton.prop('disabled', true);
+                subButton.val('...sending information');
+            });
+        });
+    </script>
+
+    <link rel="icon" href="dy.jpg">
+
+</head>
+
+
+
+<p id="please">Please enter your DePaul ID number:
+
+<form id="sigInForm">
+
+    <input type="text" name="IDArea" autocomplete="off" placeholder="DePaul ID"><br/><br/>
+<p id="please">Please enter your first and last name:<br/><br/>
+    <input type="text" name="NameArea" autocomplete="off" placeholder="Name"><br/><br/>
+<p id="please">Please enter your address:<br/><br/>
+
+    <input type="text" name="AddressNumArea" autocomplete="off" placeholder="Address Number">
+
+    <input type="text" name="AddressArea" autocomplete="off" placeholder="Street Name">
+
+    <input type="text" name="StreetArea" autocomplete="off" placeholder="Street Type">
+
+    <br/><br/><input type="submit" name="submitButtonArea" id="submitBttnID" value="Finish"><br/>
+</form>
+
+
+<div id="footerPlaceHolder">
+    <footer>
+        <a href="https://www.depaul.edu/Pages/default.aspx">Contact</a>
+        <a href=https://offices.depaul.edu/information-services/support/Pages/get-help.aspx>Help</a>
+        <a href="https://www.depaul.edu/Pages/disclaimer.aspx">Disclaimer</a>
+    </footer>
+</div>
+
+</body>
+</html>
