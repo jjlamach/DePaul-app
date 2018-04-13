@@ -1,0 +1,20 @@
+
+
+<form class="form-signin">
+  <img class="mb-4" src="{{depaulLogo}}" alt="" width="250" height="200">
+  <h3 class="h3 mb-3 font-weight-normal">Please enter your Campus Connect user ID and password.</h3>
+  <input type="text" id="inputID" class="form-control" placeholder="User ID" required autofocus #userID><br/>
+  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required><br/>
+  <div class="checkbox mb-3">
+    <label>
+      <input type="checkbox" value="remember-me"> Remember me
+    </label>
+  </div>
+  <!-- Got access to whatever the user typed by using #userID
+  then an function event got linked to this userID-->
+  <button (click)="showStuff(userID)" id="buttonID" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+</form>
+
+<p>
+  'The thing you typed will show here:'{{userID.value}}
+</p>
