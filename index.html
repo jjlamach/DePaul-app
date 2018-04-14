@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Plan your Masters at DePaul University</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="js/some_scripts.js"></script>
+        <link rel="stylesheet" href="css/main_page_styles.css">
+    </head>
+    <body>
+        <div class="firstBox">
+            <div class="textStyles">
+            Please fill out the following form:<br><br>
+                Do you have a Bachelors in Computer Science or Information Systems?<br><br>
+                <select id="selHasBachelorsCSorIS">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+                <br><br>
+                Which degree program would you like to enroll in?<br><br>
+                <select id="selDegree">
+                    <option value="compSci">Computer Science</option>
+                    <option value="infSysBASA">Information Systems: Business Analysis/Systems Analysis</option>
+                    <option value="infSysBI">Information Systems: Business Intelligence</option>
+                    <option value="infSysDA">Information Systems: Database Administration</option>
+                    <option value="infSysITEM">Information Systems: IT Enterprise Management</option>
+                    <option value="infSysStd">Information Systems: Standard</option>
+                </select>
+                <br><br>
+                Which quarter would you like to begin?<br><br>
+                <select id="selStrtQtr">
+                    <option value="autumn">Autumn</option>
+                    <option value="winter">Winter</option>
+                    <option value="spring">Spring</option>
+                    <option value="summer">Summer</option>
+                </select>
+                <br><br>
+                How many classes do you want to take a quarter?<br><br>
+                <select id="selNumClassPerQtr">
+                    <option value="one">1</option>
+                    <option value="two">2</option>
+                    <option value="three">3</option>
+                </select>
+                <br><br>
+            </div>
+            <input type="submit" onclick="giveCourseOptions()"> 
+        </div>
+        <div class="textStyles">
+            <br>
+            <div id="prereqs">
+            </div>
+            <div id="reqs">   
+            </div>
+            <div id ="courseoptions">
+            </div>
+            <br>
+        </div>
+        
+    </body>
+</html>
