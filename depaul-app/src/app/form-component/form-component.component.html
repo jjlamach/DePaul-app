@@ -1,3 +1,10 @@
-<p>
-  form-component works!
-</p>
+<div>
+  <form #f= "ngForm" (ngSubmit)="onLogIn(f.value)"> 
+    <input type="text" name="username" id="userID" placeholder="Username ID" ngModel #usernameInput> <br/>
+
+    <input type="password" name="password" id="passID" placeholder="Password" ngModel #passWord> <br/>
+    <button (click)="checkFields(usernameInput.value,passWord.value)" type="submit" name="submitButton" id="buttonID">Sign In</button>
+  </form>
+</div>
+
+
