@@ -28,6 +28,10 @@ export class FormComponentComponent implements OnInit {
 
   }
 
+  goToFaculty() {
+    this.router.navigateByUrl('/faculty');
+  }
+
 
   onLogIn(form: any): void {
     this.theForm = form;
@@ -41,7 +45,7 @@ export class FormComponentComponent implements OnInit {
     } else if (password.length <= 0) {
       alert('Password field cannot be empty.');
     } else {
-      this.router.navigateByUrl('/faculty');
+      this.goToFaculty();
     }
   }
 
