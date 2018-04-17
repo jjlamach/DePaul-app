@@ -11,10 +11,10 @@ import {FormControl, Validators} from '@angular/forms';
 
 
 export class FormComponentComponent implements OnInit {
-  myForm: FormControl;
+  theForm: FormControl;
 
   constructor() {
-    this.myForm = new FormControl(Validators.required);
+    this.theForm = new FormControl(Validators.required);
   }
 
   ngOnInit() {
@@ -23,7 +23,7 @@ export class FormComponentComponent implements OnInit {
 
 
   onLogIn(form: any): void {
-    this.myForm = form;
+    this.theForm = form;
   }
 
   checkFields(username, password) {
