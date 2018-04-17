@@ -1,9 +1,9 @@
 <app-header></app-header>
 <div class="text-center">
   <form class="form-horizontal" #f= "ngForm" (ngSubmit)="onLogIn(f.value)">
-    <input type="text" name="username" id="userID" placeholder="Username ID" ngModel #usernameInput> <br/>
+    <input class="form-control-sm" type="text" name="username" id="userID" placeholder="Username ID" ngModel #usernameInput> <br/>
 
-    <input type="password" name="password" id="passID" placeholder="Password" ngModel #passWord> <br/> <br/>
+    <input  class="form-control-sm" type="password" name="password" id="passID" placeholder="Password" ngModel #passWord> <br/> <br/>
     <button data-dismiss="alert" class="btn btn-primary" (click)="checkFields(usernameInput.value,passWord.value)"
              type="submit" name="submitButton" id="buttonID">Sign In</button>
   </form>
