@@ -3,9 +3,11 @@
     <input type="text" name="username" id="userID" placeholder="Username ID" ngModel #usernameInput> <br/>
 
     <input type="password" name="password" id="passID" placeholder="Password" ngModel #passWord> <br/> <br/>
-    <button class="btn btn-primary" (click)="checkFields(usernameInput.value,passWord.value)"
+    <button data-dismiss="alert" class="btn btn-primary" (click)="checkFields(usernameInput.value,passWord.value)"
              type="submit" name="submitButton" id="buttonID">Sign In</button>
   </form>
 </div>
+
+
 
 

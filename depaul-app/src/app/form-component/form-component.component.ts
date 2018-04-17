@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -10,12 +11,18 @@ import {FormControl, Validators} from '@angular/forms';
 
 
 
+
+
 export class FormComponentComponent implements OnInit {
   theForm: FormControl;
 
-  constructor() {
+
+  /* Inject dependency of Router to this component.*/
+  constructor(private router: Router) {
     this.theForm = new FormControl(Validators.required);
   }
+
+
 
   ngOnInit() {
 
@@ -28,12 +35,16 @@ export class FormComponentComponent implements OnInit {
 
   checkFields(username, password) {
     if (username.length <= 0 && password.length <= 0) {
-      console.log('Fields cannot be empty.');
+      alert('Fields cannot be empty.');
     } else if (username.length <= 0) {
-      console.log('Username field cannot be empty.');
+      alert('Username field cannot be empty.');
     } else if (password.length <= 0) {
-      console.log('Password field cannot be empty.');
+      alert('Password field cannot be empty.');
+    } else {
+      this.router.navigateByUrl('/faculty');
     }
   }
+
+
 
 }

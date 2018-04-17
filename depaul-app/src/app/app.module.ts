@@ -8,17 +8,32 @@ import { FormComponentComponent } from './form-component/form-component.componen
 // the Forms module to use.
 import {FormsModule} from '@angular/forms';
 import { HeaderComponent } from './header/header.component';
+import { FacultyComponent } from './faculty/faculty.component';
+import {Routes} from '@angular/router';
+import {RouterModule} from '@angular/router';
 
+/* All the routes from Sign In to faculty. */
+const allRoutes: Routes = [
+
+  {path: 'home', component: FormComponentComponent},
+  {path: 'faculty', component: FacultyComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'faculty', component: FacultyComponent}
+
+
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponentComponent,
-    HeaderComponent
+    HeaderComponent,
+    FacultyComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(allRoutes,{enableTracing: true})
   ],
   providers: [],
   bootstrap: [AppComponent] // <- render the app starting from this component
