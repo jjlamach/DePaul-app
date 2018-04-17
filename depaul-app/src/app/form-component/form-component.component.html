@@ -1,9 +1,10 @@
-<div>
-  <form #f= "ngForm" (ngSubmit)="onLogIn(f.value)"> 
+<div class="text-center">
+  <form class="form-horizontal" #f= "ngForm" (ngSubmit)="onLogIn(f.value)">
     <input type="text" name="username" id="userID" placeholder="Username ID" ngModel #usernameInput> <br/>
 
-    <input type="password" name="password" id="passID" placeholder="Password" ngModel #passWord> <br/>
-    <button (click)="checkFields(usernameInput.value,passWord.value)" type="submit" name="submitButton" id="buttonID">Sign In</button>
+    <input type="password" name="password" id="passID" placeholder="Password" ngModel #passWord> <br/> <br/>
+    <button class="btn btn-primary" (click)="checkFields(usernameInput.value,passWord.value)"
+             type="submit" name="submitButton" id="buttonID">Sign In</button>
   </form>
 </div>
 
