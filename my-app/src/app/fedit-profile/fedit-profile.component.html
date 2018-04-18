@@ -1,0 +1,140 @@
+<a class="logo" routerLink="/"> <h1 style="margin-bottom: 10px; color: #005FB2">DePaul University </h1></a>
+<h4 style="margin-bottom: 10px;margin-top: 0px">College of Computing and Digital Media</h4>
+<img src='assets/images/Logo_top.png' style='position:absolute; top:30px; right:30px;' width="140px" height="" alt='' />
+
+<nav role="navigation">
+  <div class="navigate">
+    <ul>
+      <li class="dropdown">
+        <a class="dropbtn">Plan your degree</a>
+        <div class="dropdown-content">
+          <a routerLink="/courses1">View courses</a>
+          <a routerLink="/requirements1">View degree requirements</a>
+          <a routerLink="/start-plan1">Start planning</a>
+          <a routerLink="/degree-progress1">Degree progress plan</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a class="dropbtn">Profile</a>
+        <div class="dropdown-content">
+          <a routerLink="/view-profile2">View profile</a>
+          <a routerLink="/view-profile1">View student's profile</a>
+          <a routerLink="/edit-profile1">Edit profile</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a class="dropbtn">Search</a>
+        <div class="dropdown-content">
+          <a routerLink="/SearchID">Search by ID</a>
+        </div>
+      </li>
+      <li style="float:right"><a routerLink="/logged-out">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<br>
+
+
+
+<div class="container">
+  <h2>Edit Profile</h2>
+  <hr>
+
+  <form class="form-horizontal" role="form">
+    <div class="form-group">
+      <label class="labeling">First name:</label>
+      <div class="labelbox">
+        <input class="form-control" type="text" value="Robert">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="labeling">Last name:</label>
+      <div class="labelbox">
+        <input class="form-control" type="text" value="Colbert">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="labeling">Address:</label>
+      <div class="labelbox">
+        <input class="form-control" type="text" value="494 Sycamore Road">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="labeling">City:</label>
+      <div class="labelbox">
+        <input class="form-control" type="text" value="Lebanon">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="labeling">State:</label>
+      <div class="labelbox">
+        <input class="form-control" type="text" value="OR">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="labeling">Zip Code:</label>
+      <div class="labelbox">
+        <input class="form-control" type="text" value="97355">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="labeling">DePaul ID:</label>
+      <div class="labox">
+        <p>1478654</p>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="labeling">Degree:</label>
+      <div class="labelbox">
+        <select id="user_degree" class="form-control">
+          <option value="CS">Computer Science</option>
+          <option value="IS">Information Technology</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="labeling">Email:</label>
+      <div class="labelbox">
+        <input class="form-control" type="text" value="rcolbert@gmail.com">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="labeling">Username:</label>
+      <div class="labox">
+        <p>rcolbert</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="labeling">Password:</label>
+      <div class="labelbox">
+        <input class="form-control" type="password" value="11111122333">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="labeling">Confirm password:</label>
+      <div class="labelbox">
+        <input class="form-control" type="password" value="11111122333">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="labeling"></label>
+      <div class="labelbutton">
+        <input class="button" type="button" value="Save Changes">
+        <span></span>
+        <input type="reset" class="button" value="Cancel">
+      </div>
+    </div>
+  </form>
+</div>
+
+<hr>
