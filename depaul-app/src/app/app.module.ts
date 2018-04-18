@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { FacultyComponent } from './faculty/faculty.component';
 import {Routes} from '@angular/router';
 import {RouterModule} from '@angular/router';
+import { ProfileComponent } from './profile/profile.component';
 
 /* All the routes from Sign In to faculty. */
 const allRoutes: Routes = [
@@ -28,7 +29,8 @@ const allRoutes: Routes = [
     AppComponent,
     FormComponentComponent,
     HeaderComponent,
-    FacultyComponent
+    FacultyComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

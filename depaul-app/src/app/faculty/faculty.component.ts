@@ -6,10 +6,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./faculty.component.css']
 })
 export class FacultyComponent implements OnInit {
+  buttonWasCliked = false;
+  viewProfileWasClicked = false;
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit() {
   }
+
+
+  editProfile(clicked: boolean) {
+    if (clicked) {
+      this.buttonWasCliked = clicked;
+      return;
+    }
+  }
+
+  viewProfile(clicked: boolean) {
+
+  }
+
+
 
 }
