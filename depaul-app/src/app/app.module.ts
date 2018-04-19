@@ -12,6 +12,7 @@ import { FacultyComponent } from './faculty/faculty.component';
 import {Routes} from '@angular/router';
 import {RouterModule} from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
+import { AdministratorComponent } from './administrator/administrator.component';
 
 /* All the routes from Sign In to faculty. */
 const allRoutes: Routes = [
@@ -19,7 +20,9 @@ const allRoutes: Routes = [
   {path: 'home', component: FormComponentComponent},
   {path: 'faculty', component: FacultyComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'faculty', component: FacultyComponent}
+  {path: 'faculty', component: FacultyComponent},
+  {path: 'profile', component: ProfileComponent},
+  {path: 'administrator', component: AdministratorComponent}
 
 
 ];
@@ -30,7 +33,8 @@ const allRoutes: Routes = [
     FormComponentComponent,
     HeaderComponent,
     FacultyComponent,
-    ProfileComponent
+    ProfileComponent,
+    AdministratorComponent
   ],
   imports: [
     BrowserModule,
