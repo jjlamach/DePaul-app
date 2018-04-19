@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
 import { AppComponent } from './app.component';
 import { FormComponentComponent } from './form-component/form-component.component';
 
@@ -13,6 +12,8 @@ import {Routes} from '@angular/router';
 import {RouterModule} from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { AdministratorComponent } from './administrator/administrator.component';
+
+
 
 /* All the routes from Sign In to faculty. */
 const allRoutes: Routes = [
