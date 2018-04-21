@@ -3,8 +3,10 @@
   color: crimson;
 }
 .jumbotron {
-  font-size: 70%;
+  font-size: 50%;
   width: auto;
+  height: 20%;
+  background-color: transparent;
 }
 
 h1 {
@@ -16,3 +18,20 @@ h1 {
   letter-spacing: -2px;
   line-height: .975;
 }
+
+
+#newsBox {
+  border-style: solid;
+}
+
+.card-title {
+  background-color: lightskyblue;
+}
+
+.navbar {
+  background-color: transparent;
+}
+
+
+
+
