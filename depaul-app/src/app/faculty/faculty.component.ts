@@ -9,9 +9,11 @@ import {Router} from '@angular/router';
 export class FacultyComponent implements OnInit {
   buttonWasCliked = false;
   myRouter: Router;
+  title: string;
 
   constructor(router: Router) {
     this.myRouter = router;
+    this.title = 'DePaul University';
   }
 
   ngOnInit() {

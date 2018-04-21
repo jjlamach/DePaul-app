@@ -1,40 +1,78 @@
-<div class="jumbotron">
-<h1>DePaul University</h1>
-  <h3>College of Computing and Digital Media</h3>
-  <nav class="navbar-collapse" role="navigation">
-    <!--<hr>-->
-    <div class="dropdown">
-      <!-- class="dropbtn" -->
-      <button class="btn-primary btn-sm dropdown-toggle">Plan your degree</button>
-      <div class="dropdown-content">
-        <a href="#">View courses</a>
-        <a href="#">View degree requirements</a>
-        <a href="#">Start planning</a>
-      </div>
-    </div>
-    <div class="dropdown">
-      <!--  class="dropbtn" -->
-      <button class="btn-primary btn-sm dropdown-toggle">Profile</button>
-      <div class="dropdown-content">
-
-        <!-- add href = -->
-        <a (click)="viewProfile(true)">View profile</a>
-
-
-        <!-- add href =  -->
-        <a (click)="editProfile(true)">Edit profile</a>
-      </div>
-    </div>
-    <div class="dropdown">
-      <!-- class="dropbtn" -->
-      <button class="btn-primary btn-sm dropdown-toggle">Logout</button>
+<!--<div class="jumbotron">-->
+<!--<h1>DePaul University</h1>-->
+  <!--<h3>College of Computing and Digital Media</h3>-->
+  <!--<nav class="navbar-collapse" role="navigation">-->
+    <!--&lt;!&ndash;<hr>&ndash;&gt;-->
+    <!--<div class="dropdown">-->
+      <!--&lt;!&ndash; class="dropbtn" &ndash;&gt;-->
+      <!--<button class="btn-primary btn-sm dropdown-toggle">Plan your degree</button>-->
       <!--<div class="dropdown-content">-->
+        <!--<a href="#">View courses</a>-->
+        <!--<a href="#">View degree requirements</a>-->
+        <!--<a href="#">Start planning</a>-->
       <!--</div>-->
-    </div>
-    <!--<hr>-->
-  </nav>
-</div>
+    <!--</div>-->
+    <!--<div class="dropdown">-->
+      <!--&lt;!&ndash;  class="dropbtn" &ndash;&gt;-->
+      <!--<button class="btn-primary btn-sm dropdown-toggle">Profile</button>-->
+      <!--<div class="dropdown-content">-->
+
+        <!--&lt;!&ndash; add href = &ndash;&gt;-->
+        <!--<a (click)="viewProfile(true)">View profile</a>-->
+
+
+        <!--&lt;!&ndash; add href =  &ndash;&gt;-->
+        <!--<a (click)="editProfile(true)">Edit profile</a>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="dropdown">-->
+      <!--&lt;!&ndash; class="dropbtn" &ndash;&gt;-->
+      <!--<button class="btn-primary btn-sm dropdown-toggle">Logout</button>-->
+      <!--&lt;!&ndash;<div class="dropdown-content">&ndash;&gt;-->
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--</div>-->
+    <!--&lt;!&ndash;<hr>&ndash;&gt;-->
+  <!--</nav>-->
+<!--</div>-->
 
 
 <!-- Show the component when clicked -->
 <!--<app-profile *ngIf="buttonWasCliked"></app-profile>-->
+<h1 style="margin-bottom: 10px; color: #005FB2">{{title}} </h1>
+<h4 style="margin-bottom: 10px;margin-top: 0px">College of Computing and Digital Media</h4>
+<img src='assets/images/Logo_top.png' style='position:absolute; top:30px; right:30px;' width="70px">
+<nav role="navigation">
+  <div class="navigate">
+    <ul>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Plan your degree</a>
+        <div class="dropdown-content">
+          <a href="#courses">View courses</a>
+          <a href="#requirements">View degree requirements</a>
+          <a href="#startplan">Start planning</a>
+        </div>
+      </li>
+      <li class="dropdown">
+        <a href="javascript:void(0)" class="dropbtn">Profile</a>
+        <div class="dropdown-content">
+          <a href="#viewprofile">View profile</a>
+          <a href="#editprofile">Edit Profile</a>
+        </div>
+      </li>
+      <li style="float:right"><a href="#Logout">Logout</a></li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+<div class="leftsidebar">
+  Good afternoon, "Faculty person??".
+  <br>
+  <br>
+  <ul>
+    <li>View your <a href="">degree progress plan</a> or <a href="">make a new plan</a>.</li>
+    <li>Contact an <a href="">advisor</a></li>
+  </ul>
+</div>
+
+

@@ -12,6 +12,7 @@ import {Routes} from '@angular/router';
 import {RouterModule} from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { AdministratorComponent } from './administrator/administrator.component';
+import { StudentComponent } from './student/student.component';
 
 
 
@@ -23,6 +24,7 @@ const allRoutes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'faculty', component: FacultyComponent},
   {path: 'profile', component: ProfileComponent},
+  {path: 'student', component: StudentComponent},
   {path: 'administrator', component: AdministratorComponent}
 
 
@@ -35,7 +37,8 @@ const allRoutes: Routes = [
     HeaderComponent,
     FacultyComponent,
     ProfileComponent,
-    AdministratorComponent
+    AdministratorComponent,
+    StudentComponent
   ],
   imports: [
     BrowserModule,
