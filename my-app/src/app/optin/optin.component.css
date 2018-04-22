@@ -1,0 +1,46 @@
+.logo{
+  text-decoration: none;
+}
+
+h1{
+  font-family: "Times New Roman", Times, serif;
+  font-size: 60px;
+}
+h4{
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+}
+
+hr{
+  background-color: #333;
+  border: 0 none;
+  color: #333;
+  height: 4px;
+
+}
+
+.Register{
+  font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 1px;
+  display: inline;
+  margin-left: 10px;
+  font-weight:normal;
+}
+
+input[type=checkbox] {
+  transform: scale(1.5) !important;
+  float: left;
+}
+
+input[type='checkbox']:checked {
+  background: #abd;
+}
+
+.Checkboxen{
+  margin: 6px;
+}
+
+input[type=submit] {
+  transform: scale(1.5) !important;
+}

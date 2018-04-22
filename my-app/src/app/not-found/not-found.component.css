@@ -1,0 +1,30 @@
+.logo{
+  text-decoration: none;
+}
+
+h1{
+  font-family: "Times New Roman", Times, serif;
+  font-size: 60px;
+}
+h4{
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+}
+
+hr{
+  background-color: #333;
+  border: 0 none;
+  color: #333;
+  height: 4px;
+
+}
+
+.Notfound{
+  font-size: 50px;
+  text-align: center;
+}
+
+.Notfoundsub{
+  font-size: 30px;
+  text-align: center;
+}
