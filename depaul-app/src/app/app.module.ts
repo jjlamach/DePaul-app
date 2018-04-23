@@ -1,20 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppComponent } from './app.component';
-import { FormComponentComponent } from './form-component/form-component.component';
-
-// the Forms module to use.
+import {ReactiveFormsModule} from '@angular/forms';
 import {FormsModule} from '@angular/forms';
-import { HeaderComponent } from './header/header.component';
-import { FacultyComponent } from './faculty/faculty.component';
 import {Routes} from '@angular/router';
 import {RouterModule} from '@angular/router';
+
+
+// components
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './header/header.component';
+import { FormComponentComponent } from './form-component/form-component.component';
+import { FacultyComponent } from './faculty/faculty.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AdministratorComponent } from './administrator/administrator.component';
 import { StudentComponent } from './student/student.component';
-
-
 
 /* All the routes from Sign In to faculty. */
 const allRoutes: Routes = [
@@ -43,7 +42,8 @@ const allRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
-    RouterModule.forRoot(allRoutes,{enableTracing: true})
+    ReactiveFormsModule,
+    RouterModule.forRoot(allRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent] // <- render the app starting from this component

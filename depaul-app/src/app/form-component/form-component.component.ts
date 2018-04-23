@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import {FormBuilder, Validators, FormGroup, AbstractControl} from '@angular/forms';
+import {NgModel} from '@angular/forms';
 import {Router} from '@angular/router';
 
 
@@ -11,44 +12,57 @@ import {Router} from '@angular/router';
 
 
 
-
-
 export class FormComponentComponent implements OnInit {
-  theForm: FormControl;
+
+  depaulForm: FormGroup;
 
 
-  /* Inject dependency of Router to this component.*/
-  constructor(private router: Router) {
-    this.theForm = new FormControl(Validators.required);
+
+  /**
+   Individually access so that it can be seen anywhere in the View.
+   */
+  username: AbstractControl;
+  password: AbstractControl;
+
+
+  constructor(private fb: FormBuilder, private router: Router) {
+
+    this.depaulForm = fb.group( {
+      // same as username: new FormControl('', Validators.required)
+      username: [null, Validators.required],
+      password: [null, Validators.required]
+    });
+
+    /* Setting the values of the username and password to the instance variables. */
+    this.username = this.depaulForm.controls['username'];
+    this.password = this.depaulForm.controls['password'];
   }
 
+  // reset form values
+  reset () {
+    this.depaulForm.reset();
+  }
+
+  // to see if it is valid and send to student page
+  checkForm(form: FormGroup) {
+    if (form.valid ) {
+      this.router.navigateByUrl('/student');
+      this.seeValues(form);
+    }
+  }
+
+  // to see what username and password the form got
+  seeValues(form: FormGroup) {
+    console.log(form.value);
+  }
 
 
   ngOnInit() {
 
   }
 
-  goToFaculty() {
-    this.router.navigateByUrl('/faculty');
-  }
-
-
-  onLogIn(form: any): void {
-    this.theForm = form;
-  }
-
-  checkFields(username, password) {
-    if (username.length <= 0 && password.length <= 0) {
-      alert('Fields cannot be empty.');
-    } else if (username.length <= 0) {
-      alert('Username field cannot be empty.');
-    } else if (password.length <= 0) {
-      alert('Password field cannot be empty.');
-    } else {
-      this.goToFaculty();
-    }
-  }
-
 
 
 }
+
+
