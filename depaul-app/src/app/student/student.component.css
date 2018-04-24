@@ -1,3 +1,40 @@
+.leftsidebar a{
+  color: #2972bb;
+  font-weight: bold;
+}
+
+.leftsidebar a:link {
+  text-decoration: none;
+}
+
+.leftsidebar a:visited {
+  text-decoration: none;
+}
+
+.leftsidebar a:hover {
+  border-bottom: 2px solid black;
+}
+
+.leftsidebar a:active {
+  border-bottom: 2px solid black;
+}
+
+.view li{
+  padding-bottom: 2px;
+  padding-top: 2px;
+}
+
+
+
+h1{
+  font-family: "Times New Roman", Times, serif;
+  font-size: 60px;
+}
+h4{
+  font-family: "Times New Roman", Times, serif;
+  color: black;
+}
+
 .navigate ul {
   list-style-type: none;
   margin: 0;
@@ -25,11 +62,15 @@
 }
 
 .navigate li a:hover {
-  background-color: #005FB2;;
+  background-color: #005FB2;
 }
 
 .dropdown li {
   display: inline-block;
+}
+
+.dropbtn{
+  cursor: default
 }
 
 .dropdown-content {
@@ -55,27 +96,6 @@
   display: block;
 }
 
-.leftsidebar a{
-  color: #2972bb;
-  font-weight: bold;
-}
-
-.leftsidebar a:link {
+.logo{
   text-decoration: none;
-}
-
-.leftsidebar a:visited {
-  text-decoration: none;
-}
-
-.leftsidebar a:hover {
-  border-bottom: 2px solid black;
-}
-
-.leftsidebar a:active {
-  border-bottom: 2px solid black;
-}
-
-.jumbotron {
-  background-color: transparent;
 }
