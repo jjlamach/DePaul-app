@@ -1,27 +1,56 @@
-.leftsidebar a{
-  color: #2972bb;
+
+.button {
+  background-color: #005FB2;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.labeling{
+  font-family: "Times New Roman", Times, serif;
+  display: inline-block;
+  font-size: 20px;
+  margin-bottom: 13px;
+  margin-top: 13px;
   font-weight: bold;
 }
 
-.leftsidebar a:link {
-  text-decoration: none;
+hr {
+  background-color: #09559c;
+  border: 0 none;
+  color: #333;
+  height: 4px;
 }
 
-.leftsidebar a:visited {
-  text-decoration: none;
+h2{
+  font-family: "Times New Roman", Times, serif;
+  font-size: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.leftsidebar a:hover {
-  border-bottom: 2px solid black;
+h3{
+  font-family: "Times New Roman", Times, serif;
+  display: inline-block;
+  font-size: 20px;
+  margin-bottom: 13px;
+  margin-top: 13px;
 }
 
-.leftsidebar a:active {
-  border-bottom: 2px solid black;
-}
-
-.view li{
-  padding-bottom: 2px;
-  padding-top: 2px;
+p{
+  font-family: "Times New Roman", Times, serif;
+  display: inline-block;
+  text-indent: 10px;
+  margin-bottom: 13px;
+  margin-top: 13px;
+  font-size: 15px;
 }
 
 
