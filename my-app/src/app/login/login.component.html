@@ -1,0 +1,90 @@
+
+<div class="body">
+<br>
+<br>
+
+<div class="text-center">
+  <figure class="center">
+    <img src='assets/images/depaul_logo.jpg' alt="DePaul"  width="100%" height="">
+  </figure>
+</div>
+
+<br>
+<br>
+<div class="text-center">
+
+  <small class="text-muted">Please enter your Campus Connect user ID and
+    password.</small>
+  <div class="labeling">
+
+  <form [formGroup]="depaulForm" (ngSubmit)="seeValues(depaulForm.value)">
+
+    <div class="forms-group">
+      <input type="text" class="form-control" id="username" placeholder="user ID" name="userID"
+             required minlength="5" [formControl]="depaulForm.controls['username']">
+    </div>
+    <div class="forms-group">
+      <input type="password" class="form-control" name="passwordField" id="password"
+             placeholder="Password" required minlength="7" [formControl]="depaulForm.controls['password']">
+    </div>
+    <!-- Button submit is not available until the form is valid -->
+    <button (click)="checkForm(depaulForm)" type="button" class="success-btn" [disabled]="!depaulForm.valid">Login</button>
+
+  </form>
+
+  <!-- Check username and password fields. -->
+  <div class="text-left">
+
+    <div class="container-fluid">
+      <div *ngIf="username.touched && username.hasError('minlength')"
+           class="alert alert-warning alert-dismissible fade show" role="alert">
+        Your username must be at least five characters long.
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div *ngIf="password.touched && password.hasError('minlength')" class="alert alert-warning alert-dismissible fade show"
+           role="alert">
+        Your password must be at least ten characters long.
+        <button type="button" class="close" data-dismiss="alert" aria-title="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+  </div>
+
+
+
+<div class="text-center-foot">
+  <div class="footer">
+    <div class="container">
+    <span class="text-muted"><a href="https://offices.depaul.edu/information-services/support/Pages/password-reset.aspx">
+      Recover password</a> </span>
+    </div>
+  </div>
+</div>
+</div>
+  <div class="push"></div>
+</div>
+
+
+<footer class="footer">
+<div class="bot-footer">
+  <hr style="margin: 0px;">
+</div>
+  <div class="color-footer"></div>
+<div class="bottom-footer">
+
+  <a href="https://www.depaul.edu/Pages/disclaimer.aspx">Disclaimer </a>|
+  <a href="https://www.depaul.edu/Pages/contact-us.aspx">Contact </a>|
+  <a href="https://offices.depaul.edu/is/support/Pages/get-help.aspx">Help </a>|
+  <a href="https://resources.depaul.edu/emergency-plan/Pages/default.aspx">Emergency Plan </a>|
+  <a href="https://www.depaul.edu/Pages/consumer-info.aspx">Consumer Info </a>|
+  <a href="http://complaints.ibhe.org/">IBHE </a>|
+  <a href="https://resources.depaul.edu/privacy/Pages/default.aspx">Privacy Statement </a>|
+  <a href="https://www.depaul.edu/Pages/terms-of-use.aspx">Terms of Use </a>
+</div>
+</footer>

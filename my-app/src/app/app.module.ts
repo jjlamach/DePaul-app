@@ -9,6 +9,13 @@ import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { OptinComponent } from './optin/optin.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RegistrationConfirmedComponent } from './registration-confirmed/registration-confirmed.component';
+import { FacultyComponent } from './faculty/faculty.component';
+import { SearchIDComponent } from './search-id/search-id.component';
+import { CoursesComponent } from './courses/courses.component';
+import { RequirementsComponent } from './requirements/requirements.component';
+import { StartplanComponent } from './startplan/startplan.component';
+import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,6 +24,12 @@ const appRoutes: Routes = [
   { path: 'edit-profile', component: EditProfileComponent },
   { path: 'optin', component: OptinComponent },
   { path: 'registration-complete', component: RegistrationConfirmedComponent },
+  { path: 'home-faculty', component: FacultyComponent },
+  { path: 'SearchID', component: SearchIDComponent },
+  { path: 'courses', component: CoursesComponent },
+  { path: 'requirements', component: RequirementsComponent },
+  { path: 'start-plan', component: StartplanComponent },
+  { path: 'Login', component: LoginComponent },
   { path: '**', component: NotFoundComponent }
 
 ];
@@ -29,10 +42,18 @@ const appRoutes: Routes = [
     EditProfileComponent,
     OptinComponent,
     NotFoundComponent,
-    RegistrationConfirmedComponent
+    RegistrationConfirmedComponent,
+    FacultyComponent,
+    SearchIDComponent,
+    CoursesComponent,
+    RequirementsComponent,
+    StartplanComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes
     )
