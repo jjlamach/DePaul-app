@@ -16,6 +16,7 @@ import { RequirementsComponent } from './requirements/requirements.component';
 import { StartplanComponent } from './startplan/startplan.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DegreeprogressComponent } from './degreeprogress/degreeprogress.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
   { path: 'requirements', component: RequirementsComponent },
   { path: 'start-plan', component: StartplanComponent },
   { path: 'Login', component: LoginComponent },
+  { path: 'degree-progress', component: DegreeprogressComponent},
   { path: '**', component: NotFoundComponent }
 
 ];
@@ -48,7 +50,8 @@ const appRoutes: Routes = [
     CoursesComponent,
     RequirementsComponent,
     StartplanComponent,
-    LoginComponent
+    LoginComponent,
+    DegreeprogressComponent
   ],
   imports: [
     BrowserModule,
