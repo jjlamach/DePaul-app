@@ -27,6 +27,15 @@
       <input type="password" class="form-control" name="passwordField" id="password"
              placeholder="Password" required minlength="7" [formControl]="depaulForm.controls['password']">
     </div>
+    <div class="text-center-foot" style="padding: 10px;">
+      <div class="footer">
+        <div class="container">
+    <span class="text-muted" ><a href="https://offices.depaul.edu/information-services/support/Pages/password-reset.aspx" style="font-size: 12px;">
+      Recover password</a> </span>
+        </div>
+      </div>
+    </div>
+
     <!-- Button submit is not available until the form is valid -->
     <button (click)="checkForm(depaulForm)" type="button" class="success-btn" [disabled]="!depaulForm.valid">Login</button>
 
@@ -61,8 +70,7 @@
 <div class="text-center-foot">
   <div class="footer">
     <div class="container">
-    <span class="text-muted"><a href="https://offices.depaul.edu/information-services/support/Pages/password-reset.aspx">
-      Recover password</a> </span>
+      <span class="text-muted" ><a routerLink="\optin" style="font-weight: bold;font-size: 18px;"> Create an account</a> </span>
     </div>
   </div>
 </div>
