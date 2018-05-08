@@ -17,7 +17,8 @@ parameter 1: your database connection
 parameter 2: the table you want to use
 */
 var database = mongojs('mongodb://jlama:juliolama@ds115360.mlab.com:15360/juliodb',['COURSES']);
-
+var databaseTwo = mongojs('mongodb://jlama:juliolama@ds115360.mlab.com:15360/juliodb',['COURSES_TWO']);
+var databaseThree = mongojs('mongodb://jlama:juliolama@ds115360.mlab.com:15360/juliodb',['USERS']);
 /* This gets all courses.
 http://localhost:3000/api/courses
 */
