@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 /* Course schema */
+// I was using mongoose initially but I changed to mongojs, I need to change this
 const CourseSchema = mongoose.Schema({
     CRSE_ID: {
         type: String,
