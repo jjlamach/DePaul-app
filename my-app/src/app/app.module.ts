@@ -17,9 +17,34 @@ import { StartplanComponent } from './startplan/startplan.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DegreeprogressComponent } from './degreeprogress/degreeprogress.component';
+import { FviewProfileComponent } from './fview-profile/fview-profile.component';
+import { FviewProfileStuComponent } from './fview-profile-stu/fview-profile-stu.component';
+import { FrequirementsComponent } from './frequirements/frequirements.component';
+import { FstartPlanComponent } from './fstart-plan/fstart-plan.component';
+import { FeditProfileComponent } from './fedit-profile/fedit-profile.component';
+import { FdegreeProgressComponent } from './fdegree-progress/fdegree-progress.component';
+import { LoggedOutComponent } from './logged-out/logged-out.component';
+import { AdminComponent } from './admin/admin.component';
+import { AdegreeProgressComponent } from './adegree-progress/adegree-progress.component';
+import { AeditProfileComponent } from './aedit-profile/aedit-profile.component';
+import { ArequirementsComponent } from './arequirements/arequirements.component';
+import { AstartPlanComponent } from './astart-plan/astart-plan.component';
+import { AviewProfileComponent } from './aview-profile/aview-profile.component';
+import { AviewProfileStuComponent } from './aview-profile-stu/aview-profile-stu.component';
+import { AviewProfileFacComponent } from './aview-profile-fac/aview-profile-fac.component';
+import { AcoursesComponent } from './acourses/acourses.component';
+import { FcoursesComponent } from './fcourses/fcourses.component';
+import { AenrollmentComponent } from './aenrollment/aenrollment.component';
+import { AclassesComponent } from './aclasses/aclasses.component';
+import { AprogramsComponent } from './aprograms/aprograms.component';
+import { AstudentsComponent } from './astudents/astudents.component';
+import { AremoveUserComponent } from './aremove-user/aremove-user.component';
+import { AsearchIdComponent } from './asearch-id/asearch-id.component';
+import { AllpagesComponent } from './allpages/allpages.component';
+import { AccountcreationComponent } from './accountcreation/accountcreation.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'allpages', pathMatch: 'full' },
   { path: 'home', component: StudentComponent },
   { path: 'view-profile', component: ViewProfileComponent },
   { path: 'edit-profile', component: EditProfileComponent },
@@ -30,10 +55,34 @@ const appRoutes: Routes = [
   { path: 'courses', component: CoursesComponent },
   { path: 'requirements', component: RequirementsComponent },
   { path: 'start-plan', component: StartplanComponent },
-  { path: 'Login', component: LoginComponent },
-  { path: 'degree-progress', component: DegreeprogressComponent},
+  { path: 'login', component: LoginComponent },
+  { path: 'degree-progress', component: DegreeprogressComponent },
+  { path: 'logged-out', component: LoggedOutComponent },
+  { path: 'view-profile1', component: FviewProfileStuComponent },
+  { path: 'view-profile2', component: FviewProfileComponent },
+  { path: 'start-plan1', component: FstartPlanComponent },
+  { path: 'requirements1', component: FrequirementsComponent },
+  { path: 'edit-profile1', component: FeditProfileComponent },
+  { path: 'degree-progress1', component: FdegreeProgressComponent },
+  { path: 'courses1', component: FcoursesComponent },
+  { path: 'view-profile3', component: AviewProfileComponent },
+  { path: 'view-profile4', component: AviewProfileFacComponent },
+  { path: 'view-profile5', component: AviewProfileStuComponent },
+  { path: 'list-students', component: AstudentsComponent },
+  { path: 'start-plan3', component: AstartPlanComponent },
+  { path: 'SearchID3', component: AsearchIdComponent },
+  { path: 'requirements3', component: ArequirementsComponent },
+  { path: 'remove', component: AremoveUserComponent },
+  { path: 'allpages', component: AllpagesComponent },
+  { path: 'programs', component: AprogramsComponent },
+  { path: 'enrollment', component: AenrollmentComponent },
+  { path: 'edit-profile3', component: AeditProfileComponent },
+  { path: 'home3', component: AdminComponent },
+  { path: 'degree-progress3', component: AdegreeProgressComponent },
+  { path: 'courses3', component: AcoursesComponent },
+  { path: 'classes', component: AclassesComponent },
+  { path: 'registration', component: AccountcreationComponent },
   { path: '**', component: NotFoundComponent }
-
 ];
 
 @NgModule({
@@ -51,7 +100,32 @@ const appRoutes: Routes = [
     RequirementsComponent,
     StartplanComponent,
     LoginComponent,
-    DegreeprogressComponent
+    DegreeprogressComponent,
+    FviewProfileComponent,
+    FviewProfileStuComponent,
+    FrequirementsComponent,
+    FstartPlanComponent,
+    FeditProfileComponent,
+    FdegreeProgressComponent,
+    LoggedOutComponent,
+    AdminComponent,
+    AdegreeProgressComponent,
+    AeditProfileComponent,
+    ArequirementsComponent,
+    AstartPlanComponent,
+    AviewProfileComponent,
+    AviewProfileStuComponent,
+    AviewProfileFacComponent,
+    AcoursesComponent,
+    FcoursesComponent,
+    AenrollmentComponent,
+    AclassesComponent,
+    AprogramsComponent,
+    AstudentsComponent,
+    AremoveUserComponent,
+    AsearchIdComponent,
+    AllpagesComponent,
+    AccountcreationComponent
   ],
   imports: [
     BrowserModule,
