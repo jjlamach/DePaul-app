@@ -78,3 +78,31 @@ h4{
 .logo{
   text-decoration: none;
 }
+
+h2{
+  font-family: "Times New Roman", Times, serif;
+  font-size: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+hr {
+  background-color: #09559c;
+  border: 0 none;
+  color: #333;
+  height: 4px;
+}
+
+h6{
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+  display: inline;
+}
+
+
+.program{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid darkgrey;
+  width: 350px;
+}
