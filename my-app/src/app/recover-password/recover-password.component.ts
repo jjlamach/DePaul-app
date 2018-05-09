@@ -3,28 +3,33 @@ import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/form
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-optin',
-  templateUrl: './optin.component.html',
-  styleUrls: ['./optin.component.css']
+  selector: 'app-recover-password',
+  templateUrl: './recover-password.component.html',
+  styleUrls: ['./recover-password.component.css']
 })
-export class OptinComponent implements OnInit {
-  depaulForm1: FormGroup;
+export class RecoverPasswordComponent implements OnInit {
+  resetpassForm: FormGroup;
 
-  agreement: AbstractControl;
+
+  email: AbstractControl;
+
 
   constructor(private fb: FormBuilder, private router: Router) {
 
-    this.depaulForm1 = fb.group( {
-      agreement: [null, Validators.required]
+    this.resetpassForm = fb.group( {
+      // same as username: new FormControl('', Validators.required)
+      email: [null, Validators.required],
     });
 
     /* Setting the values of the username and password to the instance variables. */
-    this.agreement = this.depaulForm1.controls['agreement'];
+    this.email = this.resetpassForm.controls['email'];
   }
 
+
+
+  // to see if it is valid and send to student page
   checkForm(form: FormGroup) {
-    if (form.valid ) {
-      this.router.navigateByUrl('/registration-complete');
+    if (form.valid ) {;
       this.seeValues(form);
     }
   }

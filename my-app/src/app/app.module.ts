@@ -42,6 +42,8 @@ import { AremoveUserComponent } from './aremove-user/aremove-user.component';
 import { AsearchIdComponent } from './asearch-id/asearch-id.component';
 import { AllpagesComponent } from './allpages/allpages.component';
 import { AccountcreationComponent } from './accountcreation/accountcreation.component';
+import { RecoverPasswordComponent } from './recover-password/recover-password.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'allpages', pathMatch: 'full' },
@@ -82,6 +84,8 @@ const appRoutes: Routes = [
   { path: 'courses3', component: AcoursesComponent },
   { path: 'classes', component: AclassesComponent },
   { path: 'registration', component: AccountcreationComponent },
+  { path: 'recover', component: RecoverPasswordComponent },
+  { path: 'add', component: AddUserComponent },
   { path: '**', component: NotFoundComponent }
 ];
 
@@ -125,7 +129,9 @@ const appRoutes: Routes = [
     AremoveUserComponent,
     AsearchIdComponent,
     AllpagesComponent,
-    AccountcreationComponent
+    AccountcreationComponent,
+    RecoverPasswordComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

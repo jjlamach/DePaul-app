@@ -41,6 +41,25 @@ input[type='checkbox']:checked {
   margin: 6px;
 }
 
-input[type=submit] {
-  transform: scale(1.5) !important;
+
+form{
+  padding-bottom: 50px;
+}
+
+.success-btn{
+  background-color: #005FB2;
+  border: none;
+  color: white;
+  padding: 15px 65px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+button:disabled,
+button[disabled] {
+  background-color: darkgrey;
 }

@@ -121,3 +121,8 @@
 .form-control{
   font-size: 15px;
 }
+
+button:disabled,
+button[disabled] {
+  background-color: darkgrey;
+}

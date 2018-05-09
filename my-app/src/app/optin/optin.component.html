@@ -1,4 +1,4 @@
-<a class="logo" routerLink="/"> <h1 style="margin-bottom: 10px; color: #005FB2">DePaul University </h1></a>
+<h1 style="margin-bottom: 10px; color: #005FB2">DePaul University </h1>
 <h4 style="margin-bottom: 10px;margin-top: 0px">College of Computing and Digital Media</h4>
 <img src='assets/images/Logo_top.png' style='position:absolute; top:30px; right:30px;' width="140px" height="" alt='' />
 
@@ -138,9 +138,10 @@
 </p>
 <hr>
 <h2 style="color:red">User Agreement</h2>
-<form action="/registration-complete">
-  <input class="Checkboxen" type="checkbox" id="registeraccount" name="register" required> <h6 class="Register">Check here to indicate that you have read and agree to the terms and conditions.</h6>
-  <input style="float: right; margin-right: 3em;" type="Submit" value="Finish Registration">
+<form>
+  <input class="Checkboxen" type="checkbox" id="registeraccount" name="register" required [formControl]="depaulForm1.controls['agreement']">
+  <h6 class="Register">Check here to indicate that you have read and agree to the terms and conditions.</h6>
+  <button (click)="checkForm(depaulForm1)" type="button" class="success-btn" [disabled]="!depaulForm1.valid" style="position:absolute; right:50px;;">Finish Registration</button>
 </form>
 
 

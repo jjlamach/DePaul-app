@@ -30,8 +30,7 @@
     <div class="text-center-foot" style="padding: 10px;">
       <div class="footer">
         <div class="container">
-    <span class="text-muted" ><a href="https://offices.depaul.edu/information-services/support/Pages/password-reset.aspx" style="font-size: 12px;">
-      Recover password</a> </span>
+    <span class="text-muted" ><a routerLink="/recover" style="font-size: 12px;"> Recover password</a> </span>
         </div>
       </div>
     </div>
@@ -48,17 +47,11 @@
       <div *ngIf="username.touched && username.hasError('minlength')"
            class="alert alert-warning alert-dismissible fade show" role="alert">
         Your username must be at least five characters long.
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
       </div>
 
       <div *ngIf="password.touched && password.hasError('minlength')" class="alert alert-warning alert-dismissible fade show"
            role="alert">
         Your password must be at least ten characters long.
-        <button type="button" class="close" data-dismiss="alert" aria-title="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
       </div>
     </div>
 
@@ -70,7 +63,7 @@
 <div class="text-center-foot">
   <div class="footer">
     <div class="container">
-      <span class="text-muted" ><a routerLink="\optin" style="font-weight: bold;font-size: 18px;"> Create an account</a> </span>
+      <span class="text-muted" ><a routerLink="/registration" style="font-weight: bold;font-size: 18px;"> Create an account</a> </span>
     </div>
   </div>
 </div>
