@@ -2,11 +2,11 @@ import { Injectable } from '@angular/core';
 import {Http, Response, Headers} from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {map} from 'rxjs/operators';
 
-// modeling data
+
 import {Course} from './course-list/Course';
-import {User} from './users/User';
-
+import { User } from './users/User.model';
 
 
 
@@ -20,14 +20,42 @@ export class DataServiceService {
 
   constructor(private http: HttpClient) { }
 
-  /* Fetch data from the backend.*/
+  /**
+   *
+   *
+   * @returns
+   * @memberof DataServiceService
+   */
   getCourses() {
-    return this.http.get<Course[]>(this.url); // interface
+    return this.http.get<Course[]>(this.url);
   }
 
 
-  /* get users.*/
-  getUsers() {
+  /**
+   *
+   *
+   * @returns {Observable<User[]>}
+   * @memberof DataServiceService
+   */
+  getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(this.url2);
+  }
+  /**
+   *
+   *
+   * @returns {Observable<User>}
+   * @memberof DataServiceService
+   */
+  getUser(): Observable<User> {
     return this.http.get<User>(this.url2);
   }
+
+  /*
+  TODO doing it
+  */
+  addUser(newUser) {
+
+  }
+
+
 }

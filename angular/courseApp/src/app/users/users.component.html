@@ -1,6 +1,7 @@
-<h1>CDM users</h1>
-<div>
-  <div *ngFor="let student of users">
-    {{student | json}}
-  </div>
-</div>
+<h1>CDM Students</h1>
+<table mat-table>
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let stu">{{stu.depaul_id}}</td>
+  </ng-container>
+</table>

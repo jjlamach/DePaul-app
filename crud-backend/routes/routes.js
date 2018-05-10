@@ -2,13 +2,15 @@ var express = require('express');
 var mongojs = require('mongojs');
 var router = express.Router();
 
-/* Use the Course Schema to model the data.*/
-const Course = require('../models/course');
+
+// /* Use the Course Schema to model the data.*/
+// const Course = require('../models/course');
 
 /*
     To run server:
     - Uses Nodemon to watch for changes.
     - Within the crud-backend directory, type: nodemon
+     http://localhost:3000/api/...some route
 */
 
 
@@ -19,9 +21,7 @@ parameter 2: the table you want to use
 var database = mongojs('mongodb://jlama:juliolama@ds115360.mlab.com:15360/juliodb',['COURSES']);
 var databaseTwo = mongojs('mongodb://jlama:juliolama@ds115360.mlab.com:15360/juliodb',['COURSES_TWO']);
 var databaseThree = mongojs('mongodb://jlama:juliolama@ds115360.mlab.com:15360/juliodb',['USERS']);
-/* This gets all courses.
-http://localhost:3000/api/courses
-*/
+
 router.get('/courses', function(req, res, next) {
     database.COURSES.find(function(error, course) {
         if(error) {
@@ -32,9 +32,8 @@ router.get('/courses', function(req, res, next) {
 });
 
 
-
 /*
-    Get all users
+Get all users
 */
 router.get('/users', function(req, res, next) {
     databaseThree.USERS.find(function(err, user) {
@@ -47,20 +46,32 @@ router.get('/users', function(req, res, next) {
 });
 
 
-
 /*
-Gets you one course
-http://localhost:3000/api/courses/5aee5bea3fdac107d26af2d6
-Gets you the course with 5aee5bea3fdac107d26af2d6 as ID.
+    Get a specified course
 */
 router.get('/course/:id', function(req, res, next) {
     database.COURSES.findOne({_id: mongojs.ObjectId(req.params.id)}, function(error, course){
         if(error) {
             res.send(error);
+        } else {
+            res.json(course);
         }
-        res.json(course);
     });
 });
+
+/*
+    Get a user
+*/
+router.get('/user/:id', function(req, res, next) {
+    databaseThree.USERS.findOne({_id:mongojs.ObjectId(req.params.id)}, function(error, user) {
+        if(error) {
+            res.send(error);
+        } else {
+            res.json(user);
+        }
+    });
+});
+
 
 /* Adding a Course. */
 router.post('/course', function(req, res, next) {
@@ -75,22 +86,18 @@ router.post('/course', function(req, res, next) {
 });
 
 /* adding a new user.*/
-router.post('/user', function(req, res, next) {
-    var newUser = req.body;  // the course 
-    if(!newUser.first_name || !newUser.depauld_id) {
-        res.status(400);
-        res.json({
-            "error":"user not added"
-        });
-    } else {
-        database.USERS.save(newUser, function(err, newUser) {
-            if(err) {
-                res.send(err);
-            } else {
-                res.json(newUser);
-            }
-        });
-    }
+router.post('/users', function(req, res, next) {
+    // we should get a new user through a form
+    const newUser = req.body;
+
+
+    databaseThree.USERS.save(newUser, function(error, newUser){
+        if(error) {
+            res.send(error);
+        } else {
+            res.json(newUser);
+        }
+    });
 });
 
 
@@ -104,10 +111,25 @@ router.delete('/course/:id', function(req, res, next) {
     });
 });
 
+
+/* Delete a user.*/
+router.delete('/user/:id', function(req, res, next){ 
+    databaseThree.COURSE.remove({_id: mongojs.ObjectId(req.params.id)}, function(error, user){
+        if(error) {
+            res.send(error);
+        } else {
+            res.json(user);
+        }
+    });
+});
+
+
+
+
 /* Update a course.*/
 router.put('/course/:id', function(req, res, next) {
     var someCourse = req.body;
-    var updatedCourse = {};
+    var updatedCourse = {}; // represents the updated course
     if(!updatedCourse) {
         res.send(400);  //error
         res.json({
