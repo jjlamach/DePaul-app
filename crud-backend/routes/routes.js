@@ -2,11 +2,6 @@ var express = require('express');
 var mongojs = require('mongojs');
 var router = express.Router();
 
-
-
-// /* Use the Course Schema to model the data.*/
-// const Course = require('../models/course');
-
 /*
     To run server:
     - Uses Nodemon to watch for changes.
