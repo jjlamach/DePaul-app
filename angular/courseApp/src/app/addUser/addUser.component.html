@@ -1,0 +1,10 @@
+<h1> Add user test </h1>
+<form class="form-signin" (submit)="addUser($event)">
+  <div class="form-group">
+    <input type="text"[(ngModel)]="user" name="user" placeholder="Enter new user">
+  </div>
+</form>
+
+<div>
+  <input type="button" value="Delete" class="button">
+</div>
