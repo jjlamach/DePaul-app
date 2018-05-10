@@ -6,7 +6,7 @@ import {map} from 'rxjs/operators';
 
 
 import {Course} from './course-list/Course';
-import { User } from './users/User.model';
+import { User } from './users/User';
 
 
 
