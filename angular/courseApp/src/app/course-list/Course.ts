@@ -20,4 +20,5 @@ export class Course {
   COURSE_TITLE_LONG: String;
   COMPONENT_PRIMARY: String;
   DESCRLONG: String;
+  constructor() { }
 }

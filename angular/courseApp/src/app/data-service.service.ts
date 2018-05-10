@@ -16,6 +16,7 @@ import { User } from './users/User';
 })
 export class DataServiceService {
 
+  // so far these two urls are the only ones that have our info
   private url = 'http://localhost:3000/api/courses';
   private url2 = 'http://localhost:3000/api/users';
 
@@ -62,4 +63,16 @@ export class DataServiceService {
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/api/user', JSON.stringify(newUser), {headers: headers});
   }
+
+  /**
+   *
+   *
+   * @param {any} newCourse
+   * @memberof DataServiceService
+   */
+  addCourse(newCourse) {
+
+  }
+
+
 }
