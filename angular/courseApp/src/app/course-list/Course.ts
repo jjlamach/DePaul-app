@@ -1,6 +1,5 @@
 
 export class Course {
-  _id?: string;
   CRSE_ID: Number;
   ACAD_GROUP: String;
   SUBJECT: String;

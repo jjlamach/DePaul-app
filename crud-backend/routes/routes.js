@@ -3,6 +3,7 @@ var mongojs = require('mongojs');
 var router = express.Router();
 
 
+
 // /* Use the Course Schema to model the data.*/
 // const Course = require('../models/course');
 
@@ -75,7 +76,29 @@ router.get('/user/:id', function(req, res, next) {
 
 /* Adding a Course. */
 router.post('/course', function(req, res, next) {
-    var newCourse = req.body;  // the course 
+    var newCourse = {
+    CRSE_ID: req.body.CRSE_ID,
+    ACAD_GROUP: req.body.ACAD_GROUP,
+    SUBJECT: req.body.SUBJECT,
+    CATALOG_NBR: req.body.CATALOG_NBR,
+    DESCR: req.body.DESCR,
+    EFFDT: req.body.EFFDT,
+    EFF_STATUS: req.body.EFF_STATUS,
+    EQUIV_CRSE_ID: req.body.EQUIV_CRSE_ID,
+    CONSENT: req.body.CONSENT,
+    ALLOW_MULT_ENROLL: req.body.ALLOW_MULT_ENROLL,
+    UNITS_ACAD_PROG: req.body.UNITS_ACAD_PROG,
+    CRSE_REPEATABLE: req.body.CRSE_REPEATABLE,
+    UNITS_REPEAT_LIMIT: req.body.UNITS_REPEAT_LIMIT,
+    CRSE_REPEAT_LIMIT: req.body.CRSE_REPEAT_LIMIT,
+    GRADING_BASIS: req.body.GRADING_BASIS,
+    GRADE_ROSTER_PRINT: req.body.GRADE_ROSTER_PRINT,
+    SSR_COMPONENT: req.body.SSR_COMPONENT,
+    COURSE_TITLE_LONG: req.body.COURSE_TITLE_LONG,
+    COMPONENT_PRIMARY: req.body.COMPONENT_PRIMARY,
+    DESCRLONG: req.body.DESCRLONG
+    };
+    
     database.COURSE.save(course, function(err, newCourse) {
         if(err) {
             res.send(err);
@@ -85,12 +108,15 @@ router.post('/course', function(req, res, next) {
     });
 });
 
-/* adding a new user.*/
-router.post('/users', function(req, res, next) {
-    // we should get a new user through a form
-    const newUser = req.body;
-
-
+/* Adding a new user.*/
+router.post('/user', function(req, res, next) {
+    var newUser = {
+        depaul_id: req.body.depaul_id,
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        password: req.body.password,
+        user_type: req.body.user_type
+    };
     databaseThree.USERS.save(newUser, function(error, newUser){
         if(error) {
             res.send(error);

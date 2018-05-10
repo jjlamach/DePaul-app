@@ -18,7 +18,7 @@ import { FormsModule } from '@angular/forms';
 const routes = [
   {path: 'users', component: UsersComponent},
   {path: 'courses', component: CourseListComponent},
-  {path: 'addUser', component: AddUserComponent}
+  {path: 'user', component: AddUserComponent}
 ];
 
 

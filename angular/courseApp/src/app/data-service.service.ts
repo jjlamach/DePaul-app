@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import {Http, Response, Headers} from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {map} from 'rxjs/operators';
+import { HttpHeaders } from '@angular/common/http';
+
 
 
 import {Course} from './course-list/Course';
 import { User } from './users/User';
-
 
 
 @Injectable({
@@ -50,12 +51,15 @@ export class DataServiceService {
     return this.http.get<User>(this.url2);
   }
 
-  /*
-  TODO doing it
-  */
-  addUser(newUser) {
-
+  /**
+   *
+   *
+   * @param {any} newUser
+   * @memberof DataServiceService
+   */
+    addUser(newUser) {
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/api/user', JSON.stringify(newUser), {headers: headers});
   }
-
-
 }
