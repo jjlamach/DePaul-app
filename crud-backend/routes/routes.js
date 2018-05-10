@@ -31,6 +31,23 @@ router.get('/courses', function(req, res, next) {
     });
 });
 
+
+
+/*
+    Get all users
+*/
+router.get('/users', function(req, res, next) {
+    databaseThree.USERS.find(function(err, user) {
+        if(err) {
+            res.send(err);
+        } else {
+            res.json(user);
+        }
+    });
+});
+
+
+
 /*
 Gets you one course
 http://localhost:3000/api/courses/5aee5bea3fdac107d26af2d6
@@ -56,6 +73,26 @@ router.post('/course', function(req, res, next) {
         }
     });
 });
+
+/* adding a new user.*/
+router.post('/user', function(req, res, next) {
+    var newUser = req.body;  // the course 
+    if(!newUser.first_name || !newUser.depauld_id) {
+        res.status(400);
+        res.json({
+            "error":"user not added"
+        });
+    } else {
+        database.USERS.save(newUser, function(err, newUser) {
+            if(err) {
+                res.send(err);
+            } else {
+                res.json(newUser);
+            }
+        });
+    }
+});
+
 
 /* Delete a course.*/
 router.delete('/course/:id', function(req, res, next) {

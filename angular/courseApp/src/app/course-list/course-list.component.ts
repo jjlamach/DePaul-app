@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Course} from '../Course';
+import {Course} from './Course';
 import {DataServiceService} from '../data-service.service';
-import {XCourse} from './xCourse';
 
 @ Component({
   selector: 'app-course-list',
@@ -9,10 +8,8 @@ import {XCourse} from './xCourse';
   styleUrls: ['./course-list.component.css']
 })
 export class CourseListComponent implements OnInit {
-  // courseList: Course[] = [];  // save service's response here
-  // public courseList: Course[] = [];
 
-  public courseList: XCourse; // using xCourse interface
+  courseList: Course[];
 
   constructor(private dataService: DataServiceService) { }
 
@@ -21,8 +18,10 @@ export class CourseListComponent implements OnInit {
   }
 
 
+  // get courses
   getCourses() {
-    this.dataService.getCourses().subscribe(course => { // subscribe to the Observable
+    this.dataService.getCourses().subscribe(course => {
+      console.log(course);
       this.courseList = course;
     });
   }

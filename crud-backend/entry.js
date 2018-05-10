@@ -23,6 +23,7 @@ app.use(cors());
 
 //body-parser for json format, another middleware
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
 
 
 // when: '/api will use the routes in this folder

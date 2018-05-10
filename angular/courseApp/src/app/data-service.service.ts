@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
-// import {Http, Response, Headers} from '@angular/http';
-// import 'rxjs/add/operator/map';
+import {Http, Response, Headers} from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-// Modeling through an interface
-import {XCourse} from './course-list/xCourse';
-// Modeling through a class.
-import {Course} from './Course';
+// modeling data
+import {Course} from './course-list/Course';
+import {User} from './users/User';
 
 
 
@@ -17,14 +15,19 @@ import {Course} from './Course';
 })
 export class DataServiceService {
 
-  private url = 'http://localhost:3000/api/courses';  // it could be even /api/users
+  private url = 'http://localhost:3000/api/courses';
+  private url2 = 'http://localhost:3000/api/users';
 
   constructor(private http: HttpClient) { }
 
   /* Fetch data from the backend.*/
-  // Currently trying to get me the data following an interface.
   getCourses() {
-    // return this.http.get<Course>(this.url);
-    return this.http.get<XCourse>(this.url);  // return type xCourse
+    return this.http.get<Course[]>(this.url); // interface
+  }
+
+
+  /* get users.*/
+  getUsers() {
+    return this.http.get<User>(this.url2);
   }
 }
