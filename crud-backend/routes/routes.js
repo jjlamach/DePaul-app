@@ -5,7 +5,9 @@ const User = require('../models/User');
 const Course = require('../models/Course');
 
 
-// get users
+/**
+ * Get all the users
+ */
 router.get('/users', (req, res, next) => {
     User.find(function(err, user){
         if(err) {
@@ -17,7 +19,9 @@ router.get('/users', (req, res, next) => {
     });
 });
 
-// get a user by ID
+/**
+ * Get a user by ID
+ */
 router.get('/user/:id', function(req, res, next) {
     User.findById({_id: req.params.id}, function(err, result) {
         if(err) {
@@ -30,7 +34,9 @@ router.get('/user/:id', function(req, res, next) {
 });
 
 
-// get courses
+/**
+ * Get all the courses.
+ */
 router.get('/courses', (req, res, next) => {
     Course.find(function(err, course){
         if(err) {
@@ -42,7 +48,9 @@ router.get('/courses', (req, res, next) => {
     });
 });
 
-// get a course by ID
+/**
+ * Get a course by ID.
+ */
 router.get('/course/:id', (req, res, next) => {
     Course.findById({_id: req.params.id}, function(err, result){
         if(err) {
@@ -56,7 +64,9 @@ router.get('/course/:id', (req, res, next) => {
 
 
 
-// post new user
+/**
+ * Creates a new user and adds it to the User table.
+ */
 router.post('/user', (req,res, next) => {
     let newUser = new User({
         depaulID: req.body.depaulID,
@@ -75,7 +85,9 @@ router.post('/user', (req,res, next) => {
     });
 });
 
-// post new course
+/**
+ * Creates a new course and adds it to the Course table.
+ */
 router.post('/course', (req, res, next) => {
     let newCourse = new Course({
         CRSE_ID: req.body.CRSE_ID,
@@ -110,7 +122,9 @@ router.post('/course', (req, res, next) => {
 });
 
 
-// update user
+/**
+ * Updates a user with that ID.
+ */
 router.put('/user/:id', (req, res, next) =>{
     User.findOneAndUpdate({_id: req.params.id}, {
         $set: {
@@ -129,7 +143,9 @@ router.put('/user/:id', (req, res, next) =>{
     })
 });
 
-// update course
+/**
+ * Updates a course with that ID.
+ */
 router.put('/course/:id', (req, res, next) => {
     Course.findOneAndUpdate({_id: req.params.id}, {
         $set: {
@@ -163,7 +179,9 @@ router.put('/course/:id', (req, res, next) => {
     })
 });
 
-// delete user
+/**
+ * Deletes a user with that ID.
+ */
 router.delete('/user/:id', (req, res, next) =>{
     User.remove({_id: req.params.id}, function(err, result){
         if(err){
@@ -175,7 +193,9 @@ router.delete('/user/:id', (req, res, next) =>{
     });
 });
 
-// delete a course
+/**
+ * Deletes a course with that ID.
+ */
 router.delete('/course/:id', (req, res, next) => {
     Course.remove({_id: req.params.id}, function(err, result){
         if(err) {
