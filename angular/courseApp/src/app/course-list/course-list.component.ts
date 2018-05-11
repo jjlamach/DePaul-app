@@ -14,15 +14,6 @@ export class CourseListComponent implements OnInit {
   constructor(private dataService: DataServiceService) { }
 
   ngOnInit() {
-    this.getCourses();
   }
 
-
-  // get courses
-  getCourses() {
-    this.dataService.getCourses().subscribe(course => {
-      console.log(course);
-      this.courseList = course;
-    });
-  }
 }

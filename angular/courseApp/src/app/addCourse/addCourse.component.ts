@@ -14,23 +14,6 @@ export class AddCourseComponent implements OnInit {
   constructor(private service: DataServiceService) { }
 
   ngOnInit() {
-    this.getCourses();
   }
 
-
-
-  getCourses() {
-    this.service.getCourses().subscribe((course: Course[]) => {
-      console.log(course);
-      this.courses = course;
-    });
-  }
-
-  addCourse(event) {
-    event.preventDefault();
-    const newCourse = new Course();
-    this.service.addCourse(newCourse).subscribe(course => {
-      this.courses.push(newCourse);
-    });
-  }
 }

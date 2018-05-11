@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import {DataServiceService} from '../data-service.service';
-import { User } from '../users/User';
 
-/* For Tables from Angular Material*/
-import {MatTableModule} from '@angular/material/table';
+import {DataServiceService} from '../data-service.service';
+import { User } from './User';
 
 
 
@@ -15,7 +13,7 @@ import {MatTableModule} from '@angular/material/table';
 })
 export class UsersComponent implements OnInit {
 
-    public users: User[];
+    public users: User[] = [];
 
   constructor(private dataService: DataServiceService) { }
 
@@ -27,9 +25,9 @@ export class UsersComponent implements OnInit {
 
 
   getStudents() {
-    this.dataService.getUsers().subscribe((users: User[]) => {
-      console.log(users);
-      this.users = users;
-    });
+    this.dataService.getUsers().subscribe((user:User[]) => {
+      this.users = user;
+      console.log(user);
+    })
   }
 }

@@ -16,9 +16,7 @@ import { User } from './users/User';
 })
 export class DataServiceService {
 
-  // so far these two urls are the only ones that have our info
-  private url = 'http://localhost:3000/api/courses';
-  private url2 = 'http://localhost:3000/api/users';
+
 
   constructor(private http: HttpClient) { }
 
@@ -29,57 +27,27 @@ export class DataServiceService {
    * @memberof DataServiceService
    */
   getCourses() {
-    return this.http.get<Course[]>(this.url);
+    return this.http.get('http://localhost:3000/api/courses');
   }
 
 
-  /**
-   *
-   *
-   * @returns {Observable<User[]>}
-   * @memberof DataServiceService
-   */
-  getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.url2);
-  }
-  /**
-   *
-   *
-   * @returns {Observable<User>}
-   * @memberof DataServiceService
-   */
-  getUser(): Observable<User> {
-    return this.http.get<User>(this.url2);
+  getCourse() {
+    return this.http.get('http://localhost:3000/api/course/:id')
   }
 
-  /**
-   *
-   *
-   * @param {any} newUser
-   * @memberof DataServiceService
-   */
+
+
+  // get users
+    getUsers() {
+    return this.http.get('http://localhost:3000/api/users');
+    }
+
+    /*
+    Should add user.
+    */
     addUser(newUser) {
-    const headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/api/user', JSON.stringify(newUser), {headers: headers});
-  }
-
-  /**
-   *
-   *
-   * @param {any} newCourse
-   * @memberof DataServiceService
-   */
-  addCourse(newCourse) {
-    const headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/api/course', JSON.stringify(newCourse), {headers: headers});
-  }
-
-  // TODO
-  deleteUser(id) {
-    return this.http.delete('http://localhost:3000/api/user/' + id);
-  }
-
-
+      let headers = new HttpHeaders();
+      headers.append('Content-Type', 'application/json');
+      return this.http.post('http://localhost:3000/api/user', newUser, {headers: headers});
+    }
 }

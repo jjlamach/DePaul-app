@@ -4,11 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import {RouterModule} from '@angular/router';
 
 
-// angular material
-import {NoopAnimationsModule} from '@angular/platform-browser/animations';
-
 import { AppComponent } from './app.component';
-import {CourseListComponent} from './course-list/course-list.component';
+import { CourseListComponent } from './course-list/course-list.component';
 import { DataServiceService } from './data-service.service';
 import { UsersComponent } from './users/users.component';
 import { AddUserComponent } from './addUser/addUser.component';
@@ -34,7 +31,6 @@ const routes = [
 ],
   imports: [
     BrowserModule,
-    NoopAnimationsModule,
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(routes)
