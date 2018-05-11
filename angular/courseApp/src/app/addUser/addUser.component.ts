@@ -3,7 +3,6 @@ import { DataServiceService } from '../data-service.service';
 import { User } from '../users/User'; // class User
 
 @Component({
-  // tslint:disable-next-line:component-selector
   selector: 'app-addUser',
   templateUrl: './addUser.component.html',
   styleUrls: ['./addUser.component.css']
@@ -50,4 +49,9 @@ export class AddUserComponent implements OnInit {
     });
   }
 
+
+  // TODO
+  deleteUser(id) {
+
+  }
 }

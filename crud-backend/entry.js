@@ -1,13 +1,23 @@
 var express = require('express');
+var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 
+
 var app = express();
 
-// 'app' will use these routes.
-const route = require('./routes/routes');
+
+// create a connection
+mongoose.connect('mongodb://jlama:juliolama@ds115360.mlab.com:15360/juliodb');
+
+mongoose.connection.on('connected', () => {
+    console.log('Mongoose connected to mLab');
+});
 
 
+mongoose.connection.on('error', (error) => {
+    console.log(error);
+});
 
 // port
 const PORT = 3000;
@@ -21,18 +31,28 @@ Middleware
 */
 app.use(cors());
 
+
+
 //body-parser for json format, another middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
+
+
+// 'app' will use these routes.
+const route = require('./routes/routes');
 
 
 // when: '/api will use the routes in this folder
 app.use('/api', route);
 
 
-app.get('/', (req, res, next) => {
-    res.send('Working');
+
+app.get('/', (req, res) => {
+    res.send('hi');
+    
 });
+
+
 app.listen(PORT, () => {
-    console.log('Server started on:' + PORT);
+    console.log('Server started at port:' + PORT);
 });

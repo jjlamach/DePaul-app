@@ -27,5 +27,17 @@
         </div>
       </form>
     </div>
+
+
+    <!-- TODO -->
+    <div class="col-md-4" *ngFor="let user of users">
+      <ul>
+        <li>{{user.first_name}}</li>
+      </ul>
+      <input type="button" (click)="deleteUser(user._id)" value="Delete">
+    </div>
+
+
   </body>
+
 </html>
