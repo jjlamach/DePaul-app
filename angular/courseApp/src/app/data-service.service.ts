@@ -76,7 +76,7 @@ export class DataServiceService {
     return this.http.post('http://localhost:3000/api/course', JSON.stringify(newCourse), {headers: headers});
   }
 
-  // TODO FIX this
+  // TODO
   deleteUser(id) {
     return this.http.delete('http://localhost:3000/api/user/' + id);
   }
