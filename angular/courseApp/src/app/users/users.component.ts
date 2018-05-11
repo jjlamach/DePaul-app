@@ -28,6 +28,7 @@ export class UsersComponent implements OnInit {
 
   getStudents() {
     this.dataService.getUsers().subscribe((users: User[]) => {
+      console.log(users);
       this.users = users;
     });
   }

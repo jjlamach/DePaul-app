@@ -71,7 +71,9 @@ export class DataServiceService {
    * @memberof DataServiceService
    */
   addCourse(newCourse) {
-
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/api/course', JSON.stringify(newCourse), {headers: headers});
   }
 
 

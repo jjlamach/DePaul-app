@@ -2,6 +2,7 @@ var express = require('express');
 var mongojs = require('mongojs');
 var router = express.Router();
 
+
 /*
     To run server:
     - Uses Nodemon to watch for changes.
@@ -92,12 +93,13 @@ router.post('/course', function(req, res, next) {
     COURSE_TITLE_LONG: req.body.COURSE_TITLE_LONG,
     COMPONENT_PRIMARY: req.body.COMPONENT_PRIMARY,
     DESCRLONG: req.body.DESCRLONG
-    };
+    }
     
-    database.COURSE.save(course, function(err, newCourse) {
+    database.COURSES.save(newCourse, function(err, newCourse) {
         if(err) {
             res.send(err);
         } else {
+            console.log('Course added Sucessfully.');
             res.json(newCourse);
         }
     });
@@ -106,12 +108,12 @@ router.post('/course', function(req, res, next) {
 /* Adding a new user.*/
 router.post('/user', function(req, res, next) {
     var newUser = {
-        depaul_id: req.body.depaul_id,
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
+        depaulID: req.body.depaulId,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
         password: req.body.password,
-        user_type: req.body.user_type
-    };
+        userType: req.body.userType
+    }
     databaseThree.USERS.save(newUser, function(error, newUser){
         if(error) {
             res.send(error);

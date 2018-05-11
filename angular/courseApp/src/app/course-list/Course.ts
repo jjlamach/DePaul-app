@@ -1,4 +1,3 @@
-
 export class Course {
   CRSE_ID: Number;
   ACAD_GROUP: String;

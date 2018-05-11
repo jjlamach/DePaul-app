@@ -13,12 +13,14 @@ import { DataServiceService } from './data-service.service';
 import { UsersComponent } from './users/users.component';
 import { AddUserComponent } from './addUser/addUser.component';
 import { FormsModule } from '@angular/forms';
+import { AddCourseComponent } from './addCourse/addCourse.component';
 
 /* Paths */
 const routes = [
   {path: 'users', component: UsersComponent},
   {path: 'courses', component: CourseListComponent},
-  {path: 'user', component: AddUserComponent}
+  {path: 'user', component: AddUserComponent},
+  {path: 'course', component: AddCourseComponent}
 ];
 
 
@@ -27,7 +29,8 @@ const routes = [
     AppComponent,
     CourseListComponent,
     UsersComponent,
-    AddUserComponent
+    AddUserComponent,
+    AddCourseComponent
 ],
   imports: [
     BrowserModule,
