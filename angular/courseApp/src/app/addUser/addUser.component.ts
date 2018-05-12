@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from '../data-service.service';
-import { User } from '../users/User'; // class User
+
+import { User } from '../users/User'; // class User // to register a user!
 
 @Component({
   selector: 'app-addUser',
@@ -13,11 +14,19 @@ export class AddUserComponent implements OnInit {
 
 
 
+
   constructor(private service: DataServiceService) { }
 
   ngOnInit() {
     this.getUsers();
   }
+
+
+
+
+
+
+
 
   /**
    *
@@ -49,9 +58,4 @@ export class AddUserComponent implements OnInit {
     });
   }
 
-
-  // TODO
-  deleteUser(id) {
-
-  }
 }

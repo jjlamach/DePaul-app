@@ -1,23 +1,26 @@
 <div class="container">
   <h1>Register to DePaul</h1>
 
-  <form>
+  <form (ngSubmit)="onSubmit()" #userForm ="ngForm">
+
     <div class="form-group">
       <label for="name">First</label>
-      <input type="text" class="form-control" id="name" required>
+      <input #firstName type="text" class="form-control" id="name" required>
     </div>
 
     <div class="form-group">
       <label for="lastName">Last</label>
-      <input type="text" class="form-control" id="last" required>
+      <input #lastName type="text" class="form-control" id="last" required>
     </div>
 
     <div class="form-group">
       <label for="studentID">ID</label>
-      <input type="text" class="form-control" id="stuID" required>
+      <input #studentID type="text" class="form-control" id="stuID" required>
     </div>
 
-    <button type="submit" class="btn btn-success">Submit</button>
+    <button type="submit" class="btn btn-success" [disabled]="!userForm.valid"
+    (click)="addUser(user); userForm.reset()">Register</button>
 
   </form>
 </div>
+

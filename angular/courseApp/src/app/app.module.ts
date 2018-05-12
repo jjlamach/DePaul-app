@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import {RouterModule} from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppComponent } from './app.component';
@@ -9,7 +10,6 @@ import { CourseListComponent } from './course-list/course-list.component';
 import { DataServiceService } from './data-service.service';
 import { UsersComponent } from './users/users.component';
 import { AddUserComponent } from './addUser/addUser.component';
-import { FormsModule } from '@angular/forms';
 import { AddCourseComponent } from './addCourse/addCourse.component';
 
 /* Paths */
