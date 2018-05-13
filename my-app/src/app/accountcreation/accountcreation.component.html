@@ -1,96 +1,194 @@
-<h1 style="margin-bottom: 10px; color: #005FB2">DePaul University </h1>
-<h4 style="margin-bottom: 10px;margin-top: 0px">College of Computing and Digital Media</h4>
-<img src='assets/images/Logo_top.png' style='position:absolute; top:30px; right:30px;' width="140px" height="" alt='' />
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<hr>
-<br>
-<h2>Registration Form</h2>
-<hr class="line">
-<br>
-<div>
-<form [formGroup]="depaulForm2" (ngSubmit)="seeValues(depaulForm2.value)">
-  <div class="forms-group">
-    <input type="first-name" class="form-control" name="firstnameField" id="firstname"
-           placeholder="First Name" required [formControl]="depaulForm2.controls['firstname']">
-  </div>
-  <div class="forms-group">
-    <input type="last-name" class="form-control" name="lastnameField" id="lastname"
-           placeholder="Last Name" required [formControl]="depaulForm2.controls['lastname']">
-  </div>
-  <div class="forms-group">
-    <input type="address" class="form-control" name="addressField" id="address"
-           placeholder="Address" required [formControl]="depaulForm2.controls['address']">
-  </div>
-  <div class="forms-group">
-    <input type="city" class="form-control" name="cityField" id="city"
-           placeholder="City" required [formControl]="depaulForm2.controls['city']">
-  </div>
-  <div class="forms-group">
-    <input type="state" class="form-control" name="stateField" id="state"
-           placeholder="State" required [formControl]="depaulForm2.controls['state']">
-  </div>
-  <div class="forms-group">
-    <input type="zip-code" class="form-control" name="zipcodeField" id="zipcode"
-           placeholder="Zip Code" required [formControl]="depaulForm2.controls['zipcode']">
-  </div>
-  <div class="forms-group">
-    <input type="depaulID" class="form-control" name="depaulIDField" id="depaulID"
-           placeholder="Depaul ID" required [formControl]="depaulForm2.controls['depaulID']">
-  </div>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  </head>
+  <body>
 
-  <div class="forms-group">
-    Degree:
-    <select type="degree" class="form-control" name="stateField" id="user_degree" class="form-control1"
-            required [formControl]="depaulForm2.controls['degree']">
-      <option value="CS">Computer Science</option>
-      <option value="IS">Information Technology</option>
-    </select>
-  </div>
+      <h1 style="margin-bottom: 10px; color: #005FB2">DePaul University </h1>
+      <h4 style="margin-bottom: 10px;margin-top: 0px">College of Computing and Digital Media</h4>
+      <img src='assets/images/Logo_top.png' style='position:absolute; top:30px; right:30px;' width="140px" height="" alt='' />
 
-  <div class="forms-group">
-    <input type="email" class="form-control" name="emailField" id="email"
-           placeholder="Email" required [formControl]="depaulForm2.controls['email']">
-  </div>
-  <div class="forms-group">
-    <input type="text" class="form-control" id="username" placeholder="user ID" name="userID"
-           required minlength="5" [formControl]="depaulForm2.controls['username']">
-  </div>
-  <div class="forms-group">
-    <input type="password" class="form-control" name="passwordField" id="password" ng-model="passwordField"
-           placeholder="Password" required minlength="7" [formControl]="depaulForm2.controls['password']">
-  </div>
-  <div class="forms-group">
-    <input type="password" class="form-control" name="confirmpasswordField" id="confirmpassword"
-           placeholder="Confirm Password" required [formControl]="depaulForm2.controls['confirmpassword']">
-  </div>
+      <hr>
+      <br>
+      <h2>Registration Form</h2>
+      <hr class="line">
+      <br>
 
 
-  <!-- Button submit is not available until the form is valid -->
-  <button (click)="checkForm(depaulForm2)" type="button" class="success-btn" [disabled]="!depaulForm2.valid">Next</button>
-  <hr class="line">
-</form>
+      <form novalidate [formGroup]= "depaulForm2" (ngSubmit)="addUser(depaulForm2)">
+
+        <!-- First Name area   -->
+        <div class="form-group">
+          <input class="form-control" type="text" formControlName="firstName" placeholder="First Name">
+        </div>
+
+        <!-- Error for First Name area -->
+        <div *ngIf="depaulForm2.get('firstName').touched && depaulForm2.get('firstName').invalid" class="alert alert-danger">
+          <div *ngIf="depaulForm2.get('firstName').hasError('required')">
+              First name field is required.
+          </div>
+          <div *ngIf="depaulForm2.get('firstName').invalid && depaulForm2.get('firstName').touched">
+            First name is invalid.
+          </div>
+        </div>
+
+        <!-- Last Name area -->
+        <div class="form-group">
+          <input class="form-control" type="text" formControlName="lastName" placeholder="Last Name">
+        </div>
+
+        <!-- Error for Last Name Area -->
+        <div *ngIf="depaulForm2.get('lastName').touched && depaulForm2.get('lastName').invalid" class="alert alert-danger">
+            <div *ngIf="depaulForm2.get('lastName').hasError('required')">
+                Last name field is required.
+            </div>
+            <div *ngIf="depaulForm2.get('lastName').invalid && depaulForm2.get('lastName').touched">
+              Last name is invalid.
+            </div>
+          </div>
+
+
+          <!-- Address area -->
+        <div class="form-group">
+          <input class="form-control" type="text" formControlName="address" placeholder="Address">
+        </div>
+
+        <!-- Error for address -->
+        <div *ngIf="depaulForm2.get('address').hasError('required') && depaulForm2.get('address').touched" class="alert alert-danger">
+          Address field is required.
+        </div>
+
+
+        <!-- City area -->
+        <div class="form-group">
+          <input class="form-control" type="text" formControlName="city" placeholder="City">
+        </div>
+
+        <!-- Error for City -->
+        <div *ngIf="depaulForm2.get('city').touched && depaulForm2.get('city').invalid" class="alert alert-danger">
+            <div *ngIf="depaulForm2.get('city').hasError('required')">
+                City field is required.
+            </div>
+            <div *ngIf="depaulForm2.get('city').invalid && depaulForm2.get('city').touched">
+              City field is invalid.
+            </div>
+        </div>
+
+
+        <!-- State area -->
+        <div class="form-group">
+          <input class="form-control" type="text" formControlName="state" placeholder="State">
+        </div>
+
+        <!-- Error for State area -->
+        <div *ngIf="depaulForm2.get('state').touched && depaulForm2.get('state').invalid" class="alert alert-danger">
+          <div *ngIf="depaulForm2.get('state').hasError('required')">
+            State field is required.
+          </div>
+          <div *ngIf="depaulForm2.get('state').invalid && depaulForm2.get('state').touched">
+            State field is invalid.
+          </div>
+        </div>
 
 
 
-<div class="text-left">
+        <!-- Zip area -->
+        <div class="form-group">
+          <input class="form-control" type="text" formControlName="zip" placeholder="Zip">
+        </div>
+        <!-- Zip error area -->
+        <div *ngIf="depaulForm2.get('zip').touched && depaulForm2.get('zip').invalid" class="alert alert-danger">
+          Zip field is required.
+        </div>
 
-  <div class="container-fluid">
-    <div *ngIf="username.touched && username.hasError('minlength')"
-         class="alert alert-warning alert-dismissible fade show" role="alert">
-      Your username must be at least five characters long.
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div *ngIf="confirmpassword.touched && confirmpassword.hasError('notEquivalent')"
-         class="alert alert-warning alert-dismissible fade show" role="alert">
-      The two passwords aren't the same.
-    </div>
-    <div *ngIf="password.touched && password.hasError('minlength')" class="alert alert-warning alert-dismissible fade show"
-         role="alert">
-      Your password must be at least ten characters long.
-    </div>
-  </div>
 
-</div>
-</div>
+        <!-- DePaul ID area -->
+        <div class="form-group">
+          <input class="form-control" type="text" formControlName="depaulID" placeholder="DePaul ID">
+        </div>
+        <!-- DePaul ID area error -->
+        <div *ngIf="depaulForm2.get('depaulID').touched && depaulForm2.get('depaulID').invalid" class="alert alert-danger">
+          DePaul ID field is required.
+        </div>
+
+
+        <!-- Degree area -->
+        <div class="form-group">
+          <input class="form-control" type="text" formControlName="degree" placeholder="Degree">
+        </div>
+        <!-- Degree area error -->
+        <div *ngIf="depaulForm2.get('degree').touched && depaulForm2.get('degree').invalid" class="alert alert-danger">
+          Degree field is required.
+        </div>
+
+
+        <!-- Email area -->
+        <div class="form-group">
+          <input class="form-control" type="email" formControlName="email" placeholder="Email">
+        </div>
+        <!-- Email area error -->
+        <div *ngIf="depaulForm2.get('email').touched && depaulForm2.get('email').invalid" class="alert alert-danger">
+          <div *ngIf="depaulForm2.get('email').hasError('required')">
+            Email field is required.
+          </div>
+          <div *ngIf="depaulForm2.get('email').touched && depaulForm2.get('email').invalid">
+            Email is invalid.
+          </div>
+        </div>
+
+
+        <!-- UserID area -->
+        <div class="form-group">
+          <input class="form-control" type="text" formControlName="userID" placeholder="User ID">
+        </div>
+        <!-- UserID area error -->
+        <div *ngIf="depaulForm2.get('userID').touched && depaulForm2.get('userID').invalid" class="alert alert-danger">
+          <div *ngIf="depaulForm2.get('userID').hasError('required')">
+            User ID field is required.
+          </div>
+          <div *ngIf="depaulForm2.get('userID').touched && depaulForm2.get('userID').touched">
+            User ID is required.
+          </div>
+        </div>
+
+        <!-- Password area -->
+        <div class="form-group">
+          <input class="form-control" type="password" formControlName="password" placeholder="Password">
+        </div>
+
+        <!-- Password area error -->
+        <div *ngIf="depaulForm2.get('password').touched && depaulForm2.get('password').invalid" class="alert alert-danger">
+          <div *ngIf="depaulForm2.get('password').hasError('required')">
+            Password field is required.
+          </div>
+          <div *ngIf="depaulForm2.get('password').touched && depaulForm2.get('password').invalid">
+            Password is invalid.<br>
+            Your password must have:
+            <ul>
+              <li>8 characters in length.</li>
+              <li>Lowercase letters.</li>
+              <li>Uppercase letters.</li>
+              <li>Numbers.</li>
+              <li>Special characters.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- If the form is not valid then don't submit (don't go to optmin)-->
+        <button class="success-btn" type="submit" name="button" [disabled]="depaulForm2.invalid">Next</button>
+      </form>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

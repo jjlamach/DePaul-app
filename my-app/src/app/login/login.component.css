@@ -71,7 +71,7 @@
 
 .footer a{
   color: #2972bb;
-  font-size: 13px;
+  font-size: 18px;
 
 }
 
@@ -125,4 +125,12 @@
 button:disabled,
 button[disabled] {
   background-color: darkgrey;
+}
+
+.ng-valid[required], .ng-valid.required  {
+  border-left: 5px solid #42A948;
+}
+
+.ng-invalid:not(form)  {
+  border-left: 5px solid #a94442;
 }

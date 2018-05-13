@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
 import {Router} from '@angular/router';
+
+
+import {User} from '../add-user/User';
+import { DataService } from '../Data.service';
+
 
 @Component({
   selector: 'app-accountcreation',
@@ -8,60 +13,48 @@ import {Router} from '@angular/router';
   styleUrls: ['./accountcreation.component.css']
 })
 export class AccountcreationComponent implements OnInit {
-  depaulForm2: FormGroup;
+  public depaulForm2: FormGroup;
+  public user: User; // Store the new user in this User object
 
-  username: AbstractControl;
-  password: AbstractControl;
-  firstname: AbstractControl;
-  lastname: AbstractControl;
-  address: AbstractControl;
-  city: AbstractControl;
-  state: AbstractControl;
-  zipcode: AbstractControl;
-  depaulID: AbstractControl;
-  degree: AbstractControl;
-  email: AbstractControl;
-  confirmpassword: AbstractControl;
 
-  constructor(private fb: FormBuilder, private router: Router) {
-    this.depaulForm2 = fb.group( {
-      // same as username: new FormControl('', Validators.required)
-      username: [null, Validators.required],
-      password: [null, Validators.required],
-      firstname: [null, Validators.required],
-      lastname: [null, Validators.required],
-      address: [null, Validators.required],
-      city: [null, Validators.required],
-      state: [null, Validators.required],
-      zipcode: [null, Validators.required],
-      depaulID: [null, Validators.required],
-      degree: [null, Validators.required],
-      email: [null, Validators.required],
-      confirmpassword: [null, Validators.required],
-    }, {validator: this.matchingPasswords('password', 'confirmpassword')}
-    );
-    this.username = this.depaulForm2.controls['username'];
-    this.password = this.depaulForm2.controls['password'];
-    this.firstname = this.depaulForm2.controls['firstname'];
-    this.lastname = this.depaulForm2.controls['lastname'];
-    this.address = this.depaulForm2.controls['address'];
-    this.city = this.depaulForm2.controls['city'];
-    this.state = this.depaulForm2.controls['state'];
-    this.zipcode = this.depaulForm2.controls['zipcode'];
-    this.depaulID = this.depaulForm2.controls['depaulID'];
-    this.degree = this.depaulForm2.controls['degree'];
-    this.email = this.depaulForm2.controls['email'];
-    this.confirmpassword = this.depaulForm2.controls['confirmpassword'];
+
+  constructor(private router: Router, private service: DataService) { }
+
+  // on Init then create form
+  ngOnInit() {
+    this.depaulForm2 = new FormGroup({
+      firstName: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
+      lastName: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
+      address: new FormControl('',Validators.required),
+      city: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
+      state: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
+      zip: new FormControl('',Validators.required),
+      depaulID: new FormControl('',Validators.required),
+      degree: new FormControl('',Validators.required),
+      email: new FormControl('',[Validators.required, Validators.email]),
+      userID: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
+      password: new FormControl('',[Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')])
+    });
   }
-  checkForm(form: FormGroup) {
-    if (form.valid ) {
+
+
+  /**
+   *
+   *
+   * @param {FormGroup} depaulForm2
+   * @memberof AccountcreationComponent
+   */
+  addUser(depaulForm2) {
+    if(depaulForm2.valid) {
+      this.user = this.depaulForm2.value;
+      console.log(this.user);
+      this.service.addUser(this.user).subscribe(x => {
+        console.log('New user has been registered.');
+      });
       this.router.navigateByUrl('/optin');
-      this.seeValues(form);
     }
   }
-  seeValues(form: FormGroup) {
-    console.log(form.value);
-  }
+
   matchingPasswords(passwordKey: string, passwordConfirmationKey: string) {
     return (group: FormGroup) => {
       const passwordInput = group.controls[passwordKey];
@@ -71,8 +64,4 @@ export class AccountcreationComponent implements OnInit {
       }
     };
   }
-
-  ngOnInit() {
-  }
-
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators, FormGroup, AbstractControl} from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, AbstractControl, FormControl} from '@angular/forms';
 import {Router} from '@angular/router';
+import { DataService } from '../Data.service';  // service
+import { User } from '../add-user/User';
 
 @Component({
   selector: 'app-login',
@@ -8,48 +10,34 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  depaulForm: FormGroup;
+
+  loginForm: FormGroup;
+  public user: User;
 
 
-
-  /**
-   Individually access so that it can be seen anywhere in the View.
-   */
-  username: AbstractControl;
-  password: AbstractControl;
-
-
-  constructor(private fb: FormBuilder, private router: Router) {
-
-    this.depaulForm = fb.group( {
-      // same as username: new FormControl('', Validators.required)
-      username: [null, Validators.required],
-      password: [null, Validators.required]
-    });
-
-    /* Setting the values of the username and password to the instance variables. */
-    this.username = this.depaulForm.controls['username'];
-    this.password = this.depaulForm.controls['password'];
-  }
-
-
-
-  // to see if it is valid and send to student page
-  checkForm(form: FormGroup) {
-    if (form.valid ) {
-      this.router.navigateByUrl('/home');
-      this.seeValues(form);
-    }
-  }
-
-  // to see what username and password the form got
-  seeValues(form: FormGroup) {
-    console.log(form.value);
-  }
-
+  constructor(private router: Router, private service: DataService) { }
 
   ngOnInit() {
-
+    this.loginForm = new FormGroup({
+      userID: new FormControl(),
+      password: new FormControl()
+    });
   }
-
+  /**
+   * Logs in an existing user.
+   * @param form
+   */
+  logIn(form) {
+      if(form.valid) {
+        this.user = this.loginForm.value;
+        this.service.verifyUser(this.user).subscribe(user =>{
+          console.log('User exists');
+          console.log('User logged in');
+          this.router.navigateByUrl('/home');
+        });
+      }
+      else {
+        return;
+      }
+    }
 }
