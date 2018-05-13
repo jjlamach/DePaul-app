@@ -23,14 +23,14 @@
   padding: 10px;
 }
 .push{
-  margin: -80px;
+  margin-bottom: -90px;
 }
 
 .bot-footer{
   position:absolute;
   right: 0;
   left: 0;
-  height:80px;
+  height:90px;
   background: ghostwhite;
 }
 
