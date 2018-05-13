@@ -315,21 +315,12 @@ router.delete('/course/:id', (req, res, next) => {
  */
 router.post('/login', (req, res, next) => {
     let userInfo = req.body;
-    // using mongoose.find method
-    User.findOne({userID: userInfo.userID}, (err, user) => {
-        if(err) {
-            res.json(err);
-        } else {
-            if(!user) {
-                res.status(401).send('User does not exist.');
-            } else {
-                if(user.password !== userInfo.password) {
-                    res.status(401).send('User password not found.');
-                } else {
-                    res.status(200).send(userInfo);
-                }
-            }
-        }
+    User.findOne({userID: userInfo.userID}, {password: userInfo.password}, (err, user) =>{
+       if(err) {
+           res.json(err);
+       } else {
+           res.json(user);
+       }
     });
 });
 
