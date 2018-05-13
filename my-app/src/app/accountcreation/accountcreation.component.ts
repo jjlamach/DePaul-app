@@ -26,7 +26,7 @@ export class AccountcreationComponent implements OnInit {
       firstName: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
       lastName: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
       address: new FormControl('',Validators.required),
-      city: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
+      city: new FormControl('',Validators.required),
       state: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
       zip: new FormControl('',Validators.required),
       depaulID: new FormControl('',Validators.required),
