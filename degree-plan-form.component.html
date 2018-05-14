@@ -1,0 +1,23 @@
+<form (ngSubmit)="onSubmit(classesForm)" #classesForm="ngForm">
+<p>What's your degree program?</p>
+<select class="form-control" id="degree_program" [(ngModel)]="degree" name="degree_program" #name="ngModel">
+        <option *ngFor="let program of degreePrograms">{{program}}</option>
+  </select>
+<p>In which quarter do you want to begin?</p>
+<select class="form-control" id="start_quarter" [(ngModel)]="beginQuarter" name="start_quarter" #name="ngModel">
+        <option *ngFor="let quarter of startQuarter">{{quarter}}</option>
+  </select>
+<p>How many classes do you want to take per quarter?</p>
+<select class="form-control" id="num_classes" [(ngModel)]="numCPQ" name="num_classes" #name="ngModel">
+        <option *ngFor="let class of numberOfClasses">{{class}}</option>
+  </select>
+<button type="submit">Submit</button>
+</form>
+<table>
+    <th>Quarter</th>
+    <th>Classes</th>
+    <tr *ngFor="let quarter of degreePlanFinal">
+        <td>{{quarter.term}}</td>
+        <td>{{quarter.classes}}</td>
+    </tr>
+</table>
