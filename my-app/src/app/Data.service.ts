@@ -55,6 +55,7 @@ export class DataService {
     return this.http.post<any>('http://localhost:3000/api/login', user);
   }
 
+
   /************************* Methods for new table start here ********************/
   getxCourses() {
     return this.http.get<xCourse[]>('http://localhost:3000/api/xcourses');

@@ -316,24 +316,24 @@ router.delete('/course/:id', (req, res, next) => {
 /**
  * Login verification
  */
-router.post('/login', (req, res, next) => {
+router.post('/login', (req, res) => {
     let userInfo = req.body;
-    User.findOne({userID: userInfo.userID}, {password: userInfo.password}, (err, user) =>{
-       if(err) {
-           res.json(err);
+    User.findOne({userID: userInfo.userID}, (error, user) =>{
+       if(error) {
+           console.log(error);
        } else {
-           res.json(user);
+           if(!user) {
+               res.status(401).send('Invalid user ID');
+           } else
+               if(user.password !== userInfo.password) {
+                res.status(401).send('Invalid password');
+               } else {
+                        res.status(200).send(user);
+               }
        }
     });
+    console.log(userInfo);
 });
-
-
-
-
-
-
-
-
 
 
 module.exports = router;
