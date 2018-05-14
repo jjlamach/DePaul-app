@@ -4,6 +4,8 @@ var router = express.Router();
 const User = require('../models/User');
 const Course = require('../models/Course');
 const Test = require('../models/Test');
+const Admin = require('../models/Administrator');
+
 
 /**
  * Get all the users
@@ -323,6 +325,7 @@ router.post('/login', (req, res, next) => {
        }
     });
 });
+
 
 
 

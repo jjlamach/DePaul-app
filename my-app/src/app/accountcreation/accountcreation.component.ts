@@ -3,7 +3,7 @@ import {AbstractControl, FormBuilder, FormGroup, Validators, FormControl} from '
 import {Router} from '@angular/router';
 
 
-import {User} from '../add-user/User';
+import {User} from '../../models/User';
 import { DataService } from '../Data.service';
 
 

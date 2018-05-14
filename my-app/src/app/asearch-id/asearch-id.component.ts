@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../Data.service';
-import { User } from '../add-user/User';
+import { User } from '../../models/User';
+import {xCourse} from "../../models/xCourse";
 
 @Component({
   selector: 'app-asearch-id',
@@ -10,6 +11,7 @@ import { User } from '../add-user/User';
 export class AsearchIdComponent implements OnInit {
 
   private userList: User[] = [];
+  private courseList: xCourse[] = [];
 
   constructor(private service: DataService) { }
 
@@ -25,6 +27,16 @@ export class AsearchIdComponent implements OnInit {
     return this.service.getUsers().subscribe((user: User[]) => {
       this.userList = user;
       console.log(this.userList);
+    });
+  }
+
+  /**
+   * Get all courses
+   */
+  getCourses() {
+    return this.service.getFallCourses().subscribe((course: xCourse[]) => {
+      this.courseList = course;
+      console.log(this.courseList);
     });
   }
 
