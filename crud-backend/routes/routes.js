@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var passport = require('passport');
 
 const User = require('../models/User');
 const Course = require('../models/Course');
 const Test = require('../models/Test');
-const Admin = require('../models/Administrator');
+
 
 
 /**
