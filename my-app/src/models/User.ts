@@ -11,5 +11,6 @@ export class User {
   email: string;
   userID: string;
   password: string;
+  static userType: string;
   constructor(values: Object ={}) {Object.assign(this,values); }
 }

@@ -82,7 +82,8 @@ router.post('/user', (req,res, next) => {
         degree: req.body.degree,
         email: req.body.email,
         userID: req.body.userID,
-        password: req.body.password
+        password: req.body.password,
+        userType: 'Student'
     });
     newUser.save((err, user) => {
         if(err) {

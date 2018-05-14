@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 /* Importing the Service.  JL*/
 import { DataService } from './Data.service';
+import {DataGuard} from "./data.guard";
 
 import { AppComponent } from './app.component';
 import { StudentComponent } from './student/student.component';
@@ -90,7 +91,8 @@ const appRoutes: Routes = [
   { path: 'registration', component: AccountcreationComponent },
   { path: 'recover', component: RecoverPasswordComponent },
   { path: 'add', component: AddUserComponent },
-  { path: '**', component: NotFoundComponent }
+  { path: '**', component: NotFoundComponent },
+  { path: 'home3', component: AdminComponent, canActivate: [DataGuard]}
 ];
 
 @NgModule({
@@ -146,7 +148,7 @@ const appRoutes: Routes = [
       appRoutes
     )
   ],
-  providers: [DataService], // <= Provider added
+  providers: [DataService, DataGuard], // <= Provider added
   bootstrap: [AppComponent]
 })
 
