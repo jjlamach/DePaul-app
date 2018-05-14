@@ -2,7 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {HttpHeaders} from '@angular/common/http';
-import {User} from './add-user/User';
+import {User} from '../models/User';
+import {xCourse} from '../models/xCourse';
 
 @Injectable()
 export class DataService {
@@ -56,23 +57,23 @@ export class DataService {
 
   /************************* Methods for new table start here ********************/
   getxCourses() {
-    return this.http.get('http://localhost:3000/api/xcourses');
+    return this.http.get<xCourse[]>('http://localhost:3000/api/xcourses');
   }
 
   getSummerCourses() {
-    return this.http.get('http://localhost:3000/api/summer');
+    return this.http.get<xCourse[]>('http://localhost:3000/api/summer');
   }
 
   getWinterCourses() {
-    return this.http.get('http://localhost:3000/api/winter');
+    return this.http.get<xCourse[]>('http://localhost:3000/api/winter');
   }
 
   getSpringCourses() {
-    return this.http.get('http://localhost:3000/api/spring');
+    return this.http.get<xCourse[]>('http://localhost:3000/api/spring');
   }
 
   getFallCourses() {
-    return this.http.get('http://localhost:3000/api/fall');
+    return this.http.get<xCourse[]>('http://localhost:3000/api/fall');
   }
 
   addxCourse(xCourse) {
@@ -81,8 +82,5 @@ export class DataService {
     return this.http.post('http://localhost:3000/api/user', xCourse, {headers: headers});
   }
   /************************* Methods for new table end here ********************/
-
-
-
 
 }
