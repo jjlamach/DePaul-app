@@ -15,8 +15,8 @@ export class LoginComponent implements OnInit {
   public user: User;
 
 
-
-  constructor(private router: Router, private service: DataService) { }
+  constructor(private router: Router, private service: DataService) {
+  }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -24,21 +24,23 @@ export class LoginComponent implements OnInit {
       password: new FormControl()
     });
   }
+
+
   /**
    * Logs in an existing user.
    * @param form
    */
   logIn(form) {
-      if(form.valid) {
-        this.user = this.loginForm.value;
-        this.service.verifyUser(this.user).subscribe(user =>{
-          console.log('User exists');
-          console.log('User logged in');
-          this.router.navigateByUrl('/home');
-        });
-      }
-      else {
-        return;
-      }
+    if(form.valid) {
+      this.user = this.loginForm.value;
+      this.service.verifyUser(this.user).subscribe(user =>{
+        console.log('User exists');
+        console.log('User logged in');
+        this.router.navigateByUrl('/home');
+      });
     }
+    else {
+      return;
+    }
+  }
 }
