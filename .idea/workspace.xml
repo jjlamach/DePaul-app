@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3f156f60-d240-4204-949d-439d008c524c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-    </list>
+    <list default="true" id="3f156f60-d240-4204-949d-439d008c524c" name="Default" comment="" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,25 +134,25 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1526316308609</updated>
-      <workItem from="1526316310072" duration="15542000" />
+      <workItem from="1526316310072" duration="15799000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="469000" />
+    <option name="totallyTimeSpent" value="726000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
       <window_info anchor="bottom" id="TypeScript" order="5" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.12161269" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.12161269" />
       <window_info anchor="bottom" id="TODO" order="11" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Run" order="7" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="2" visible="true" weight="0.66951567" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="2" visible="true" weight="0.66951567" />
       <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.4" />
       <window_info anchor="bottom" id="Find" order="6" />

@@ -1,0 +1,31 @@
+[33mcommit c34aa6e82fbfbd430e4f1cf825b2279b683f5801[m[33m ([m[1;36mHEAD -> [m[1;32mDaniel[m[33m)[m
+Author: JDoza89 <Daniel.mendoza576@gmail.com>
+Date:   Tue May 15 13:02:56 2018 -0500
+
+    login
+
+[33mcommit fcfbfc03399c7930f30b992129f27f40fff88e56[m[33m ([m[1;31morigin/Daniel[m[33m)[m
+Author: JDoza89 <Daniel.mendoza576@gmail.com>
+Date:   Thu May 3 18:08:04 2018 -0500
+
+    DataBase connection
+    
+    File that connects to the database and prints query data into your localhost
+
+[33mcommit 18c04d04056bec90b07a6eb110500c78d3a2d88c[m
+Author: JDoza89 <Daniel.mendoza576@gmail.com>
+Date:   Thu Apr 12 21:39:40 2018 -0500
+
+    Demographics(create profile)
+
+[33mcommit 060d31294a77fd76985f6d9d284ad9188cc73dd2[m
+Author: Julio L <32489610+jlama94@users.noreply.github.com>
+Date:   Thu Apr 5 10:36:55 2018 -0500
+
+    Update README.md
+
+[33mcommit da1852d7e3c417b814dc51109312fd8602ecb280[m
+Author: Julio L <32489610+jlama94@users.noreply.github.com>
+Date:   Thu Apr 5 10:22:27 2018 -0500
+
+    Create README.md
