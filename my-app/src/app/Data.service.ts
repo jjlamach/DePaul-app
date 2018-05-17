@@ -8,6 +8,8 @@ import {xCourse} from '../models/xCourse';
 @Injectable()
 export class DataService {
 
+
+
   constructor(private http: HttpClient) { }
 
   /**
@@ -47,18 +49,38 @@ export class DataService {
   }
 
   /**
+   * For Registration.
+   * @param newUser
+   * @returns {Observable<Object>}
+   */
+  registration(newUser) {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post<any>('http://localhost:3000/api/registration', newUser, {headers: headers});
+  }
+
+
+
+  /**
    * Logins the user if it exists.
    * @param user
    */
   verifyUser(user) {
     // any to avoid errors
-    return this.http.post<any>('http://localhost:3000/api/login', user);
+    return this.http.post<User>('http://localhost:3000/api/login', user);
   }
 
   loggedIn(){
     console.log(User.userType);
     return User.userType == 'Admin';
   }
+
+
+
+
+
+
+
 
   /************************* Methods for new table start here ********************/
   getxCourses() {
