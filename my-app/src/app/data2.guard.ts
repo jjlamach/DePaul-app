@@ -5,12 +5,12 @@ import * as type from "./globals";
 
 
 @Injectable()
-export class DataGuard implements CanActivate {
+export class Data2Guard implements CanActivate {
   constructor(private _dataService: DataService,
               private _router: Router) {}
 
   canActivate(): boolean {
-    if(this._dataService.loggedIn(type.userType)){
+    if(this._dataService.loggedIn2(type.userType) || this._dataService.loggedIn(type.userType)){
       return true
     }
     else{

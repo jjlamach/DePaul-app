@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 /* Importing the Service.  JL*/
 import { DataService } from './Data.service';
 import {DataGuard} from "./data.guard";
+import {Data2Guard} from "./data2.guard";
 
 import { AppComponent } from './app.component';
 import { StudentComponent } from './student/student.component';
@@ -53,46 +54,46 @@ import { HttpClientModule } from '@angular/common/http';
 const appRoutes: Routes = [
   { path: '', redirectTo: 'allpages', pathMatch: 'full' },
   { path: 'home', component: StudentComponent },
+  { path: 'home3', component: AdminComponent, canActivate: [DataGuard]},
+  { path: 'home-faculty', component: FacultyComponent, canActivate: [Data2Guard]},
   { path: 'view-profile', component: ViewProfileComponent },
   { path: 'edit-profile', component: EditProfileComponent },
   { path: 'optin', component: OptinComponent },
   { path: 'registration-complete', component: RegistrationConfirmedComponent },
   { path: 'home-faculty', component: FacultyComponent },
-  { path: 'SearchID', component: SearchIDComponent },
+  { path: 'SearchID', component: SearchIDComponent, canActivate: [Data2Guard] },
   { path: 'courses', component: CoursesComponent },
   { path: 'requirements', component: RequirementsComponent },
   { path: 'start-plan', component: StartplanComponent },
   { path: 'login', component: LoginComponent },
   { path: 'degree-progress', component: DegreeprogressComponent },
   { path: 'logged-out', component: LoggedOutComponent },
-  { path: 'view-profile1', component: FviewProfileStuComponent },
-  { path: 'view-profile2', component: FviewProfileComponent },
-  { path: 'start-plan1', component: FstartPlanComponent },
-  { path: 'requirements1', component: FrequirementsComponent },
-  { path: 'edit-profile1', component: FeditProfileComponent },
-  { path: 'degree-progress1', component: FdegreeProgressComponent },
-  { path: 'courses1', component: FcoursesComponent },
-  { path: 'view-profile3', component: AviewProfileComponent },
-  { path: 'view-profile4', component: AviewProfileFacComponent },
-  { path: 'view-profile5', component: AviewProfileStuComponent },
-  { path: 'list-students', component: AstudentsComponent },
-  { path: 'start-plan3', component: AstartPlanComponent },
-  { path: 'SearchID3', component: AsearchIdComponent },           // WORKING ON THIS COMPONENT
+  { path: 'view-profile1', component: FviewProfileStuComponent, canActivate: [Data2Guard] },
+  { path: 'view-profile2', component: FviewProfileComponent, canActivate: [Data2Guard] },
+  { path: 'start-plan1', component: FstartPlanComponent, canActivate: [Data2Guard] },
+  { path: 'requirements1', component: FrequirementsComponent, canActivate: [Data2Guard] },
+  { path: 'edit-profile1', component: FeditProfileComponent, canActivate: [Data2Guard] },
+  { path: 'degree-progress1', component: FdegreeProgressComponent, canActivate: [Data2Guard] },
+  { path: 'courses1', component: FcoursesComponent, canActivate: [Data2Guard] },
+  { path: 'view-profile3', component: AviewProfileComponent, canActivate: [DataGuard] },
+  { path: 'view-profile4', component: AviewProfileFacComponent, canActivate: [DataGuard] },
+  { path: 'view-profile5', component: AviewProfileStuComponent, canActivate: [DataGuard] },
+  { path: 'list-students', component: AstudentsComponent, canActivate: [DataGuard] },
+  { path: 'start-plan3', component: AstartPlanComponent, canActivate: [DataGuard] },
+  { path: 'SearchID3', component: AsearchIdComponent, canActivate: [DataGuard] },           // WORKING ON THIS COMPONENT
   { path: 'requirements3', component: ArequirementsComponent },
-  { path: 'remove', component: AremoveUserComponent },
+  { path: 'remove', component: AremoveUserComponent, canActivate: [DataGuard] },
   { path: 'allpages', component: AllpagesComponent },
-  { path: 'programs', component: AprogramsComponent },
-  { path: 'enrollment', component: AenrollmentComponent },
-  { path: 'edit-profile3', component: AeditProfileComponent },
-  { path: 'home3', component: AdminComponent },
-  { path: 'degree-progress3', component: AdegreeProgressComponent },
-  { path: 'courses3', component: AcoursesComponent },
-  { path: 'classes', component: AclassesComponent },
+  { path: 'programs', component: AprogramsComponent, canActivate: [DataGuard] },
+  { path: 'enrollment', component: AenrollmentComponent, canActivate: [DataGuard] },
+  { path: 'edit-profile3', component: AeditProfileComponent, canActivate: [DataGuard] },
+  { path: 'degree-progress3', component: AdegreeProgressComponent, canActivate: [DataGuard] },
+  { path: 'courses3', component: AcoursesComponent, canActivate: [DataGuard] },
+  { path: 'classes', component: AclassesComponent, canActivate: [DataGuard] },
   { path: 'registration', component: AccountcreationComponent },
   { path: 'recover', component: RecoverPasswordComponent },
-  { path: 'add', component: AddUserComponent },
-  { path: '**', component: NotFoundComponent },
-  { path: 'home3', component: AdminComponent, canActivate: [DataGuard]}
+  { path: 'add', component: AddUserComponent, canActivate: [DataGuard] },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
@@ -148,7 +149,7 @@ const appRoutes: Routes = [
       appRoutes
     )
   ],
-  providers: [DataService, DataGuard], // <= Provider added
+  providers: [DataService, DataGuard, Data2Guard], // <= Provider added
   bootstrap: [AppComponent]
 })
 

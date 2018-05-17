@@ -55,9 +55,14 @@ export class DataService {
     return this.http.post<any>('http://localhost:3000/api/login', user);
   }
 
-  loggedIn(){
-    console.log(User.userType);
-    return User.userType == 'Admin';
+  loggedIn(userType){
+    console.log(userType);
+    return userType == 'Admin';
+  }
+
+  loggedIn2(userType){
+    console.log(userType);
+    return userType == 'Faculty';
   }
 
   /************************* Methods for new table start here ********************/
