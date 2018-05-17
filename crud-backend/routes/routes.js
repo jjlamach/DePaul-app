@@ -69,6 +69,7 @@ router.get('/course/:id', (req, res, next) => {
  * Creates a new user and adds it to the User table.
  */
 router.post('/user', (req,res, next) => {
+
     let userData = req.body;
     let user = new User(userData);
     user.save((error, newUser) => {
@@ -77,7 +78,22 @@ router.post('/user', (req,res, next) => {
        } else {
            res.json(newUser);
        }
-    });
+
+  /*  let newUser = new User({
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        address: req.body.address,
+        city: req.body.city,
+        state: req.body.state,
+        zip: req.body.zip,
+        depaulID: req.body.depaulID,
+        degree: req.body.degree,
+        email: req.body.email,
+        userID: req.body.userID,
+        password: req.body.password,
+        userType: 'Student'
+
+    }); */
 });
 
 /**

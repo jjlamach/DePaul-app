@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 
 /* Importing the Service.*/
 import { DataService } from './Data.service';
+import {DataGuard} from "./data.guard";
 
 
 import { AppComponent } from './app.component';
@@ -94,9 +95,7 @@ const appRoutes: Routes = [
   { path: 'recover', component: RecoverPasswordComponent },
   { path: 'add', component: AddUserComponent },
   { path: '**', component: NotFoundComponent },
-
-
-
+  { path: 'home3', component: AdminComponent, canActivate: [DataGuard]}
 
 ];
 
@@ -153,10 +152,9 @@ const appRoutes: Routes = [
       appRoutes
     )
   ],
-  providers: [
-    DataService
 
-  ], // <= Provider added
+  providers: [DataService, DataGuard], // <= Provider added
+
   bootstrap: [AppComponent]
 })
 

@@ -28,4 +28,7 @@ export class User {
   password: string;
   userType: string;
   constructor() { }
+userType: string;
+  constructor(values: Object ={}) {Object.assign(this,values); }
+
 }
