@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl} from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, AbstractControl, FormControl} from '@angular/forms';
 import {Router} from '@angular/router';
 import { DataService } from '../Data.service';  // service
 import { User } from '../../models/User';
@@ -15,13 +15,13 @@ export class LoginComponent implements OnInit {
   public user: User;
 
 
-  constructor(private router: Router, private service: DataService) { }
-
+  constructor(private router: Router, private service: DataService) {
+  }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
       userID: new FormControl(),
-      password: new FormControl(),
+      password: new FormControl()
     });
   }
 
@@ -33,12 +33,9 @@ export class LoginComponent implements OnInit {
   logIn(form) {
     if(form.valid) {
       this.user = this.loginForm.value;
-      let otherUser = new User();
       this.service.verifyUser(this.user).subscribe(user =>{
         console.log('User exists');
         console.log('User logged in');
-        otherUser = user;
-        // console.log(otherUser);
         this.router.navigateByUrl('/home');
       });
     }
