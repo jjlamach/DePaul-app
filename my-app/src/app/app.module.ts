@@ -1,8 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-/* Importing the Service.  JL*/
+/* Importing the Service.*/
 import { DataService } from './Data.service';
+
 
 import { AppComponent } from './app.component';
 import { StudentComponent } from './student/student.component';
@@ -49,7 +50,9 @@ import { RecoverPasswordComponent } from './recover-password/recover-password.co
 import { AddUserComponent } from './add-user/add-user.component';
 import { HttpClientModule } from '@angular/common/http';
 
+
 const appRoutes: Routes = [
+
   { path: '', redirectTo: 'allpages', pathMatch: 'full' },
   { path: 'home', component: StudentComponent },
   { path: 'view-profile', component: ViewProfileComponent },
@@ -83,14 +86,18 @@ const appRoutes: Routes = [
   { path: 'programs', component: AprogramsComponent },
   { path: 'enrollment', component: AenrollmentComponent },
   { path: 'edit-profile3', component: AeditProfileComponent },
-  { path: 'home3', component: AdminComponent },
+  { path: 'home3', component: AdminComponent},
   { path: 'degree-progress3', component: AdegreeProgressComponent },
   { path: 'courses3', component: AcoursesComponent },
   { path: 'classes', component: AclassesComponent },
   { path: 'registration', component: AccountcreationComponent },
   { path: 'recover', component: RecoverPasswordComponent },
   { path: 'add', component: AddUserComponent },
-  { path: '**', component: NotFoundComponent }
+  { path: '**', component: NotFoundComponent },
+
+
+
+
 ];
 
 @NgModule({
@@ -146,7 +153,10 @@ const appRoutes: Routes = [
       appRoutes
     )
   ],
-  providers: [DataService], // <= Provider added
+  providers: [
+    DataService
+
+  ], // <= Provider added
   bootstrap: [AppComponent]
 })
 

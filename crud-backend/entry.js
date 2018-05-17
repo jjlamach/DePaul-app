@@ -9,6 +9,31 @@ var cors = require('cors');
 var app = express();
 
 
+// /**
+//  * Securing the Backend API
+//  */
+// const jwt = require('express-jwt');
+// const jwks = require('jwks-rsa');
+//
+// /*  We are going to implement a JWT middleware that will ensure the validity of our token.
+//     We'll require each protected route to have a valid access_token sent in the Authorization header
+//  */
+// const authorizationChecker = jwt({
+//     secret: jwks.expressJwtSecret({
+//         cache: true,
+//         rateLimit: true,
+//         jwksRequestsPerMinute: 5,
+//         jwksUri: "https://csc394.auth0.com/.well-known/jwks.json"
+//     }),
+//     audience: 'http://localhost:3000',
+//     issuer: "https://csc394.auth0.com/",
+//     algorithms: ['RS256']
+// });
+
+
+
+
+
 // create a connection
 mongoose.connect('mongodb://jlama:juliolama@ds115360.mlab.com:15360/juliodb');
 
@@ -56,6 +81,8 @@ app.get('/', (req, res) => {
     res.send('hi');
     
 });
+
+
 
 
 app.listen(PORT, () => {
