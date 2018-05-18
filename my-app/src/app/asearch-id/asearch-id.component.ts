@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { DataService } from '../Data.service';
-import { User } from '../../models/User';
-import {FormGroup, FormControl} from "@angular/forms";
+import {Component, OnInit} from '@angular/core';
+import {DataService} from '../Data.service';
+import {User} from '../../models/User';
+import {FormGroup, FormControl, Validators} from "@angular/forms";
+import {Student} from "../../models/Student";
 
 @Component({
   selector: 'app-asearch-id',
@@ -10,32 +11,38 @@ import {FormGroup, FormControl} from "@angular/forms";
 })
 export class AsearchIdComponent implements OnInit {
 
-  private  userList: User[] = [];
+  private duMembers: User[] = [];
+  private wasFound: boolean;
+  private studentForm: FormGroup;
+  private wasSubmitted: boolean;
 
-  private student: User = new User();
-  private isFound: boolean;
-  private studentInfo: FormGroup;
+  private student: Student = new Student();
 
+
+  /**
+   *
+   * @param {DataService} service
+   */
   constructor(private service: DataService) { }
 
 
   ngOnInit() {
     this.getUsers();
-    this.studentInfo = new FormGroup({
+    this.studentForm = new FormGroup({
       firstName: new FormControl(null),
       lastName: new FormControl(null),
-      depaulID: new FormControl(null)
+      depaulID: new FormControl(null, Validators.required)
     });
   }
 
-
-  /*
-  Get all users.
-  */
+  /**
+   * Get all the users from the database.
+   * @returns {Subscription}
+   */
   getUsers() {
     return this.service.getUsers().subscribe((user: User[]) => {
-      this.userList = user;
-      console.log(this.userList);
+      this.duMembers = user;
+      console.log(this.duMembers);
     });
   }
 
@@ -48,10 +55,17 @@ export class AsearchIdComponent implements OnInit {
     if (!form) {
       form.reset();
     }
-    for (let i = 0; i < this.userList.length; i++) {
-      if (this.userList[i].firstName == form.get('firstName').value && this.userList[i].depaulID == form.get('depaulID').value) {
-        this.student = form.value;
-        this.isFound = true;
+    this.wasSubmitted = true;
+    for (let i = 0; i < this.duMembers.length; i++) {
+      if (this.duMembers[i].firstName == form.get('firstName').value
+        && this.duMembers[i].depaulID == form.get('depaulID').value) {
+        this.student = form.value;  /* First Name and DePaul ID. */
+        this.student.lastName = this.duMembers[i].lastName;
+        this.student.degree = this.duMembers[i].degree;
+        this.student.address = this.duMembers[i].address;
+        // hard coded courses
+        this.student.coursesTaken = ['CSC 200', 'CSC 300', 'CSC 301', 'Wtf!'];
+        this.wasFound = true;
       }
     }
   }
@@ -60,16 +74,8 @@ export class AsearchIdComponent implements OnInit {
    * Reset the form.
    */
   reset() {
-    this.studentInfo.reset();
-    this.isFound = false;
+    this.studentForm.reset();
+    this.wasSubmitted = false;
+    this.wasFound = false;
   }
 }
-
-
-
-
-
-
-
-
-
