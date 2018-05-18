@@ -33,10 +33,10 @@ export class LoginComponent implements OnInit {
    * @param form
    */
   logIn(form) {
-    if(form.valid) {
+    if (form.valid) {
       this.user = this.loginForm.value;
       let otherUser = new User();
-      this.service.verifyUser(this.user).subscribe(user =>{
+      this.service.verifyUser(this.user).subscribe(user => {
         console.log('User exists');
         console.log('User logged in');
         otherUser = user;
@@ -45,13 +45,13 @@ export class LoginComponent implements OnInit {
         console.log(this.user);
         console.log(user);
         console.log(otherUser);
-        if(type.userType == 'Student') {
+        if (type.userType == 'Student') {
           this.router.navigateByUrl('/home');
         }
-        else if(type.userType == 'Admin'){
+        else if (type.userType == 'Admin') {
           this.router.navigateByUrl('/home3');
         }
-        else if(type.userType == 'Faculty'){
+        else if (type.userType == 'Faculty') {
           this.router.navigateByUrl('/home-faculty');
         }
       });

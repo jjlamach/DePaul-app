@@ -53,16 +53,51 @@
     </ul>
   </div>
 </nav>
+
 <br>
 
+<form novalidate [formGroup]="studentInfo" (ngSubmit)="verify(studentInfo)" class="pure-form pure-form-aligned">
+<fieldset>
+  <div class="pure-control-group">
+    <input class="form-control" type="text" formControlName="firstName" placeholder="First Name">
+  </div>
 
+  <!-- Last Name area -->
+  <div class="pure-control-group">
+    <input class="form-control" type="text" formControlName="lastName" placeholder="Last Name">
+  </div>
 
-<!-- Search form -->
-<!-- <div *ngFor="let user of userList">
-  {{user.firstName}}
-</div> -->
-<form class="pure-form">
-    <input type="text" class="pure-input-rounded" placeholder="DePaul ID">
-    <button type="submit" class="pure-button" style="size:">Search</button>
+  <!-- DePaul ID area -->
+  <div class="pure-control-group">
+    <input class="form-control" type="text" formControlName="depaulID" placeholder="DePaul ID">
+  </div>
+
+  <!--TODO FIX SHITTY BUTTONS-->
+  <div>
+  <button type="submit" name="button" class="pure-button pure-button-primary" id="button1">Search</button>
+
+  <button (click)="reset()" type="reset" name="button2" class="pure-button pure-button-primary-row 2"
+          id="button2">Reset</button>
+  </div>
+
+</fieldset>
 </form>
+
+<div *ngIf="isFound">
+  <strong>Results:</strong>
+  {{student.firstName + ',' + student.lastName + ' ' +  student.depaulID}}
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -80,7 +80,13 @@ const appRoutes: Routes = [
   { path: 'view-profile5', component: AviewProfileStuComponent, canActivate: [DataGuard] },
   { path: 'list-students', component: AstudentsComponent, canActivate: [DataGuard] },
   { path: 'start-plan3', component: AstartPlanComponent, canActivate: [DataGuard] },
-  { path: 'SearchID3', component: AsearchIdComponent, canActivate: [DataGuard] },           // WORKING ON THIS COMPONENT
+
+
+  // { path: 'SearchID3', component: AsearchIdComponent, canActivate: [DataGuard] },           // WORKING ON THIS COMPONENT
+
+  { path: 'SearchID3', component: AsearchIdComponent },
+
+
   { path: 'requirements3', component: ArequirementsComponent },
   { path: 'remove', component: AremoveUserComponent, canActivate: [DataGuard] },
   { path: 'allpages', component: AllpagesComponent },
@@ -149,7 +155,8 @@ const appRoutes: Routes = [
       appRoutes
     )
   ],
-  providers: [DataService, DataGuard, Data2Guard], // <= Provider added
+  // providers: [DataService, DataGuard, Data2Guard], // <= Provider added
+  providers:[DataService],
   bootstrap: [AppComponent]
 })
 

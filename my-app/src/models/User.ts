@@ -12,5 +12,11 @@ export class User {
   userID: string;
   password: string;
   userType: string;
-  constructor(values: Object ={}) {Object.assign(this,values); }
+  constructor() { }
+
+  getFirstName(): String {
+    return this.firstName;
+  }
+
+
 }
