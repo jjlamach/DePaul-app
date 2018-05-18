@@ -5,12 +5,16 @@
 h1{
   font-family: "Times New Roman", Times, serif;
   font-size: 60px;
+  font-weight: 700;
+  line-height: 1;
   padding-top: 40px;
-  margin-top: 0px;
 }
 h4{
   font-family: "Times New Roman", Times, serif;
   color: black;
+  line-height: 1;
+  font-weight: 700;
+  font-size: 1rem;
 }
 
 hr{
