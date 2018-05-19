@@ -80,7 +80,14 @@ const appRoutes: Routes = [
   { path: 'view-profile5', component: AviewProfileStuComponent, canActivate: [DataGuard] },
   { path: 'list-students', component: AstudentsComponent, canActivate: [DataGuard] },
   { path: 'start-plan3', component: AstartPlanComponent, canActivate: [DataGuard] },
-  { path: 'SearchID3', component: AsearchIdComponent, canActivate: [DataGuard] },
+
+
+  // { path: 'SearchID3', component: AsearchIdComponent, canActivate: [DataGuard] },    // Julio
+
+  {path: 'SearchID3', component: AsearchIdComponent},
+
+
+
   { path: 'requirements3', component: ArequirementsComponent },
 
 

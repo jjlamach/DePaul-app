@@ -11,6 +11,8 @@ import {DataService} from "../Data.service";
 export class AremoveUserComponent implements OnInit {
   private students: Student[] = [];
 
+  wasTouched: boolean = false;
+
 
   constructor(private service: DataService) { }
 
@@ -41,7 +43,7 @@ export class AremoveUserComponent implements OnInit {
     }, (error) =>{
       console.log(error);
     });
-
   }
+
 
 }
