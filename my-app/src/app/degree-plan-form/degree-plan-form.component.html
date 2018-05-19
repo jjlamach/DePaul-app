@@ -1,0 +1,48 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">CDM Degree Planner</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-arrow-left"></span> Go Back</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-floppy-disk"></span> Save</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="col-md-7">
+    <form (ngSubmit)="onSubmit(classesForm)" #classesForm="ngForm">
+        <p>What's your degree program?</p>
+            <select class="form-control" id="degree_program" [(ngModel)]="degree" name="degree_program" #name="ngModel">
+                <option *ngFor="let program of degreePrograms">{{program}}</option>
+            </select>
+        <p>In which quarter do you want to begin?</p>
+            <select class="form-control" id="start_quarter" [(ngModel)]="beginQuarter" name="start_quarter" #name="ngModel">
+                <option *ngFor="let quarter of startQuarter">{{quarter}}</option>
+            </select>
+        <p>How many classes do you want to take per quarter?</p>
+            <select class="form-control" id="num_classes" [(ngModel)]="numCPQ" name="num_classes" #name="ngModel">
+                <option *ngFor="let class of numberOfClasses">{{class}}</option>
+            </select>
+        <br>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+<div class="col-md-5">
+    <table *ngIf="show" class="table table-striped">
+        <th>Quarter</th>
+        <th>Classes</th>
+        <tr *ngFor="let quarter of degreePlanFinal">
+            <td>{{quarter.acadYearString}}</td>
+            <td>{{quarter.classes}}</td>
+        </tr>
+    </table>
+</div>
+</body>
+

@@ -50,6 +50,7 @@ import { AccountcreationComponent } from './accountcreation/accountcreation.comp
 import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 import { AddUserComponent } from './add-user/add-user.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DegreePlanFormComponent } from './degree-plan-form/degree-plan-form.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'allpages', pathMatch: 'full' },
@@ -80,7 +81,7 @@ const appRoutes: Routes = [
   { path: 'view-profile5', component: AviewProfileStuComponent, canActivate: [DataGuard] },
   { path: 'list-students', component: AstudentsComponent, canActivate: [DataGuard] },
   { path: 'start-plan3', component: AstartPlanComponent, canActivate: [DataGuard] },
-
+  { path: 'degree-plan-form', component: DegreePlanFormComponent },
 
   // { path: 'SearchID3', component: AsearchIdComponent, canActivate: [DataGuard] },  // Julio
 
@@ -147,7 +148,8 @@ const appRoutes: Routes = [
     AllpagesComponent,
     AccountcreationComponent,
     RecoverPasswordComponent,
-    AddUserComponent
+    AddUserComponent,
+    DegreePlanFormComponent
   ],
   imports: [
     BrowserModule,
