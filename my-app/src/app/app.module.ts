@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-/* Importing the Service.  JL*/
+
 import { DataService } from './Data.service';
 import {DataGuard} from "./data.guard";
 import {Data2Guard} from "./data2.guard";
@@ -80,15 +80,19 @@ const appRoutes: Routes = [
   { path: 'view-profile5', component: AviewProfileStuComponent, canActivate: [DataGuard] },
   { path: 'list-students', component: AstudentsComponent, canActivate: [DataGuard] },
   { path: 'start-plan3', component: AstartPlanComponent, canActivate: [DataGuard] },
-
-
-  // { path: 'SearchID3', component: AsearchIdComponent, canActivate: [DataGuard] },  // Julio
-
-  { path: 'SearchID3', component: AsearchIdComponent },
-
-
+  { path: 'SearchID3', component: AsearchIdComponent, canActivate: [DataGuard] },
   { path: 'requirements3', component: ArequirementsComponent },
-  { path: 'remove', component: AremoveUserComponent, canActivate: [DataGuard] },
+
+
+
+  // { path: 'remove', component: AremoveUserComponent, canActivate: [DataGuard] }, // Julio
+
+  {path: 'remove', component: AremoveUserComponent},
+
+
+
+
+
   { path: 'allpages', component: AllpagesComponent },
   { path: 'programs', component: AprogramsComponent, canActivate: [DataGuard] },
   { path: 'enrollment', component: AenrollmentComponent, canActivate: [DataGuard] },
@@ -98,9 +102,11 @@ const appRoutes: Routes = [
   { path: 'classes', component: AclassesComponent, canActivate: [DataGuard] },
   { path: 'registration', component: AccountcreationComponent },
   { path: 'recover', component: RecoverPasswordComponent },
-  // { path: 'add', component: AddUserComponent, canActivate: [DataGuard] },
 
-  { path: 'add', component: AddUserComponent},    // Julio
+  // { path: 'add', component: AddUserComponent, canActivate: [DataGuard] },  // Julio
+
+  {path: 'add', component: AddUserComponent},
+
 
   { path: '**', component: NotFoundComponent }
 ];
@@ -158,8 +164,7 @@ const appRoutes: Routes = [
       appRoutes
     )
   ],
-  // providers: [DataService, DataGuard, Data2Guard], // <= Provider added
-  providers:[DataService],
+  providers: [DataService, DataGuard, Data2Guard],
   bootstrap: [AppComponent]
 })
 
