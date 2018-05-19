@@ -67,7 +67,7 @@
   </div>
   <div class="btn-toolbar">
     <button type="submit" class="btn btn-success" id="searchBTN" name="button" [disabled]="studentForm.invalid"> Search</button>
-    <button (click)="reset()" type="reset" class="btn btn-warning" id="resetBTN"> Reset</button>
+    <button (click)="reset()" type="reset" class="btn btn-warning" style="background-color: #FF1111;color: white; border: none;" id="resetBTN"> Reset</button>
   </div>
 </form>
 </div>
@@ -81,10 +81,10 @@
       Student Information
     </div>
       <div class="card-block">
-        <h4 class="card-title">{{student.lastName + ' ' + student.firstName}}</h4>
+        <h6 class="card-title" style="margin-top: 7px;font-weight: bold;">{{student.lastName + ' ' + student.firstName}}</h6>
       <h6 class="card-subtitle mb-2 text-muted">{{student.degree}}</h6>
-      <p><strong>Address:</strong>{{student.address}}</p>
-        <p><strong>Courses taken:</strong>{{student.coursesTaken}}</p>
+      <p><strong>Address:</strong></p><p style="margin-top: 0px;">{{student.address}}</p>
+        <p><strong>Courses taken:</strong></p><p style="margin-top: 0px;">{{student.coursesTaken}}</p>
       </div>
   </div>
 </div>
