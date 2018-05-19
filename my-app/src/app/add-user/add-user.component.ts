@@ -12,15 +12,25 @@ import {Student} from "../../models/Student";
 
 export class AddUserComponent implements OnInit {
 
+  private studentCollection: Student[];
+  private userCollection: User[];
+
   private registration: FormGroup;
   private user: User = new User();
   private student: Student = new Student();
-  private isStudent: boolean;
   private wasSubmitted: boolean;
+  private studentExists: boolean = false;
+  private facultyExists: boolean = false;
 
   constructor(private service: DataService) { }
 
+  /**
+   * Gets all the students and users first to prevent adding existing users or students.
+   */
   ngOnInit() {
+    this.getStudents();
+    this.getUsers();
+
     this.registration = new FormGroup({
       firstName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
@@ -45,7 +55,16 @@ export class AddUserComponent implements OnInit {
       if (stuID !== null) {
         this.student.depaulID = Number(stuID.value);
       }
-      // console.log(this.student);
+      for(let i = 0; i < this.studentCollection.length; i++) {
+        if(this.studentCollection[i].firstName === this.student.firstName
+        && this.studentCollection[i].lastName === this.student.lastName) {
+          console.log('Could not add existing student.');
+          this.studentExists = true;
+          this.wasSubmitted = false;
+          return;
+        }
+      }
+      /* If the student does not exist then we register him.*/
       this.service.addStudent(this.student).subscribe((stu => {
         console.log('Student added to Student table');
       }));
@@ -55,7 +74,17 @@ export class AddUserComponent implements OnInit {
       if (facID != null) {
         this.user.depaulID = Number(facID.value);
       }
-      // console.log(this.user);
+
+      for(let i = 0; i < this.userCollection.length; i++) {
+        if(this.userCollection[i].firstName === this.user.firstName
+        && this.userCollection[i].lastName === this.user.lastName) {
+          console.log('Could not add existing faculty.');
+          this.facultyExists = true;
+          this.wasSubmitted = false;
+          return;
+        }
+      }
+      /* If faculty does not exist then we register him.*/
       this.service.addUser(this.user).subscribe((user) => {
         console.log('Faculty or Admin added to User table.');
       });
@@ -76,7 +105,28 @@ export class AddUserComponent implements OnInit {
    */
   resetForm() {
     this.registration.reset();
-    this.isStudent = false;
     this.wasSubmitted = false;
+    this.studentExists = false;
+    this.facultyExists = false;
+  }
+
+  /**
+   * Get all the students.
+   */
+  getStudents() {
+    this.service.getStudents().subscribe(x =>{
+      this.studentCollection = x;
+      console.log(this.studentCollection);
+    });
+  }
+
+  /**
+   * Get all the users.
+   */
+  getUsers() {
+    this.service.getUsers().subscribe(x => {
+      this.userCollection = x;
+      console.log(this.userCollection);
+    })
   }
 }

@@ -70,6 +70,17 @@ export class DataService {
 
 
   /**
+   *
+   * @param {number} DuId
+   * @returns {Observable<Object>}
+   */
+  deleteStudent(DuId: number) {
+    let headers = new HttpHeaders();
+    return this.http.delete('http://localhost:3000/api/student/' + DuId, {headers: headers});
+  }
+
+
+  /**
    * Logins the user if it exists.
    * @param user
    */
