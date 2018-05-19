@@ -54,7 +54,7 @@
 <br>
 
 <!--Form Starts Here-->
-<div class="jumbotron">
+<div class="jumbotron" style="background-color: #eeeeee">
 <form novalidate [formGroup]="registration" (ngSubmit)="create(registration)">
 
   <!--Form completed message-->
@@ -108,9 +108,9 @@
   <div class="form-group">
     <label for="IDgenerator">Generate a DePaul ID</label>
     <div>
-      <input type="text" id="IDgenerator" placeholder="Generated ID">
+      <input type="text" id="IDgenerator" style="text-align: center; margin-right: 20px;" placeholder="Generated ID">
 
-      <button type="button" (click)="generateID()" id="buttonGenerator" class="btn btn-primary"> Generate </button>
+      <button type="button" (click)="generateID()" style="background-color: #005FB2; border: none;" id="buttonGenerator" class="btn btn-primary"> Generate </button>
     </div>
   </div>
 
@@ -132,6 +132,6 @@
   </div>
   <!--Submit Button-->
   <button class="btn btn-primary" type="submit" name="button" id="createButton" [disabled]="registration.invalid">Create</button>
-  <button type="reset" (click)="resetForm()" id="resetButton" class="btn btn-warning">Reset</button>
+  <button type="reset" (click)="resetForm()" style="background-color: #FF1111;color: white; border: none;" id="resetButton" class="btn btn-warning">Reset</button>
 </form>
 </div>
