@@ -5,6 +5,7 @@ var passport = require('passport');
 const User = require('../models/User');
 const Course = require('../models/Course');
 const Test = require('../models/Test'); // should be changed later
+const Student = require('../models/Student');
 
 
 
@@ -30,6 +31,21 @@ router.get('/users', (req, res, next) => {
 });
 
 /**
+ * Gets all the students.
+ */
+router.get('/students', (req, res, next) => {
+   Student.find(function (error, students) {
+       if(error) {
+           res.status(401).send('Could not find students');
+       } else {
+           res.status(200).send(students);
+       }
+   }) 
+});
+
+
+
+/**
  * Get a user by ID
  */
 router.get('/user/:depaulID', function(req, res, next) {
@@ -48,6 +64,19 @@ router.get('/user/:depaulID', function(req, res, next) {
             res.status(200).send(result);
         }
     });
+});
+
+/**
+ * Get a Student by DePaul ID.
+ */
+router.get('/student/:depaulID', function(req, res, next) {
+   Student.findOne({depaulID: req.params.depaulID}, function(error, result) {
+       if(error) {
+           res.status(401).send('Could not find student.');
+       } else {
+           res.status(200).send(result);
+       }
+   });
 });
 
 
@@ -125,12 +154,32 @@ router.post('/user', (req,res, next) => {
     let newUser = new User(userData);
     newUser.save((error, user) => {
        if(error){
-           res.status(401).send('User could not be added.');
+           res.json(error);
        }  else {
-           res.status(200).send(user);
+           res.json({mssg: 'User added'});
        }
     });
 });
+
+
+/*
+    Add a student to the Student table.
+ */
+router.post('/student',(req, res, next) => {
+    let studentData = req.body;
+    let newStudent = new Student(studentData);
+    newStudent.save((error, student) => {
+       if(error) {
+           res.json(error);
+       } else {
+           res.json({mssg: 'Student added'});
+       }
+    });
+});
+
+
+
+
 
 /**
  * Creates a new course and adds it to the Course table.
@@ -314,6 +363,31 @@ router.put('/user/:id', (req, res, next) =>{
     })
 });
 
+
+/**
+ * Update a Student with that ID.
+ */
+router.put('/student/:id', (req, res, next) => {
+   Student.findOneAndUpdate({_id: req.params.id}, {
+       $set: {
+           depaulID: req.body.depaulID,
+           firstName: req.body.firstName,
+           lastName: req.body.lastName,
+           password: req.body.password,
+           userType: req.body.userType
+       }
+   }, function (error, result) {
+       if(error) {
+           res.json(error);
+       } else {
+           res.json(result);
+       }
+   })
+});
+
+
+
+
 /**
  * Updates a course with that ID.
  */
@@ -363,6 +437,23 @@ router.delete('/user/:id', (req, res, next) =>{
         }
     });
 });
+
+
+/**
+ * Delete a Student with that ID.
+ */
+router.delete('/student/:id', (req, res, next) => {
+   Student.remove({_id: req.params.id}, function (error, result) {
+       if(error){
+           res.json(error);
+       } else {
+           res.json(result);
+       }
+   });
+});
+
+
+
 
 /**
  * Deletes a course with that ID.

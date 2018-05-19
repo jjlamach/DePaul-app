@@ -52,4 +52,51 @@
   </div>
 </nav>
 <br>
-Add User
+<!--Form Starts Here-->
+<div class="jumbotron">
+<form novalidate [formGroup]="registration" (ngSubmit)="create(registration)">
+  <div class="form-group">
+    <label for="fName">First Name</label>
+    <input type="text" id="fName" class="form-control" formControlName="firstName">
+  </div>
+
+  <div class="form-group">
+    <label for="lName">Last Name</label>
+    <input type="text" id="lName" class="form-control" formControlName="lastName">
+  </div>
+
+  <div class="form-group">
+    <label for="address">Address</label>
+    <input type="text" id="address" class="form-control" formControlName="address">
+  </div>
+
+  <div class="form-group">
+    <label for="IDgenerator">Generate a DePaul ID</label>
+    <div>
+      <input type="text" id="IDgenerator" placeholder="Generated ID">
+
+      <button type="button" (click)="generateID()" id="buttonGenerator" class="btn btn-primary"> Generate </button>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="userType">User Type</label>
+    <select id="userType" formControlName="userType">
+      <option></option>
+      <option>Administrator</option>
+      <option>Faculty</option>
+      <option>Student</option>
+    </select>
+  </div>
+  <!--If the Admin selects the userType as student then the degree input appears-->
+  <div *ngIf="registration.get('userType').touched && registration.get('userType').value === 'Student'">
+  <div class="form-group">
+    <label for="degreeName">Degree</label>
+    <input type="text" id="degreeName" class="form-control" formControlName="degree">
+  </div>
+  </div>
+  <!--Submit Button-->
+  <button class="btn btn-primary" type="submit" name="button" id="createButton" [disabled]="registration.invalid">Create</button>
+  <button type="reset" (click)="resetForm()" id="resetButton" class="btn btn-warning">Reset</button>
+</form>
+</div>

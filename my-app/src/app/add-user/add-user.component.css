@@ -81,3 +81,20 @@ h4{
 .logo{
   text-decoration: none;
 }
+
+#IDgenerator {
+  margin-right: 5px;
+  border-radius: 25px;
+}
+
+#buttonGenerator {
+  margin-right: 5px;
+}
+
+#createButton {
+  margin-right: 5px;
+}
+
+#resetButton {
+  margin-right: 5px;
+}

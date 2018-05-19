@@ -82,7 +82,7 @@ const appRoutes: Routes = [
   { path: 'start-plan3', component: AstartPlanComponent, canActivate: [DataGuard] },
 
 
-  // { path: 'SearchID3', component: AsearchIdComponent, canActivate: [DataGuard] },           // WORKING ON THIS COMPONENT
+  // { path: 'SearchID3', component: AsearchIdComponent, canActivate: [DataGuard] },  // Julio
 
   { path: 'SearchID3', component: AsearchIdComponent },
 
@@ -98,7 +98,10 @@ const appRoutes: Routes = [
   { path: 'classes', component: AclassesComponent, canActivate: [DataGuard] },
   { path: 'registration', component: AccountcreationComponent },
   { path: 'recover', component: RecoverPasswordComponent },
-  { path: 'add', component: AddUserComponent, canActivate: [DataGuard] },
+  // { path: 'add', component: AddUserComponent, canActivate: [DataGuard] },
+
+  { path: 'add', component: AddUserComponent},    // Julio
+
   { path: '**', component: NotFoundComponent }
 ];
 

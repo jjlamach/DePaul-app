@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {HttpHeaders} from '@angular/common/http';
 import {User} from '../models/User';
+import {Student} from "../models/Student";
 import {xCourse} from '../models/xCourse';
 
 @Injectable()
@@ -36,6 +37,16 @@ export class DataService {
   }
 
   /**
+   * Gets all the students.
+   * @returns {Observable<Student[]>}
+   */
+  getStudents() {
+    return this.http.get<Student[]>('http://localhost:3000/api/students');
+  }
+
+
+
+  /**
    * Adds a new user
    * @param newUser
    * @returns {Observable<Object>}
@@ -45,6 +56,18 @@ export class DataService {
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/api/user', newUser, {headers: headers});
   }
+
+  /**
+   * Adds a new Student.
+   * @param newStudent
+   * @returns {Observable<Object>}
+   */
+  addStudent(newStudent) {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    return this.http.post('http://localhost:3000/api/student', newStudent, {headers: headers});
+  }
+
 
   /**
    * Logins the user if it exists.
