@@ -2,7 +2,12 @@
 <h4 style="margin-bottom: 10px;margin-top: 0px">College of Computing and Digital Media</h4>
 <img src='assets/images/Logo_top.png' style='position:absolute; top:30px; right:30px;' width="140px" height="" alt='' />
 
+<head>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<!--Font awesome-->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
 
 <nav role="navigation1">
   <div class="navigate1">
@@ -53,5 +58,18 @@
 </nav>
 <br>
 
+<div class="card-deck">
+  <div class="card" *ngFor="let student of students">
+    <i class="fa fa-user fa-5x"></i>
+    <hr>
+    <div class="card-body">
+      <h4 class="card-title">{{student.lastName + ', ' + student.firstName}}</h4>
+      <p class="card-text"><strong>Degree:</strong> {{student.degree}}</p>
+      <p class="card-text"><strong>Address:</strong> {{student.address}}</p>
+      <p class="card-text"><strong>DePaul ID:</strong> {{student.depaulID}}</p>
+      <button class="btn btn-danger">Delete</button>
+    </div>
+  </div>
+</div>
 
-<h2>Students</h2>
+

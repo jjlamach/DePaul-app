@@ -44,6 +44,4 @@ export class AremoveUserComponent implements OnInit {
       console.log(error);
     });
   }
-
-
 }
