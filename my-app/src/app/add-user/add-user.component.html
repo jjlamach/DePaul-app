@@ -55,8 +55,8 @@
 
 <!--Form Starts Here-->
 <div class="jumbotron" style="background-color: #eeeeee">
-<form novalidate [formGroup]="registration" (ngSubmit)="create(registration)">
 
+<form novalidate [formGroup]="registration" (ngSubmit)="create(registration)">
   <!--Form completed message-->
   <div *ngIf="wasSubmitted && registration.valid" class="alert alert-success">
     Form complete!
@@ -108,7 +108,7 @@
   <div class="form-group">
     <label for="IDgenerator">Generate a DePaul ID</label>
     <div>
-      <input type="text" id="IDgenerator" style="text-align: center; margin-right: 20px;" placeholder="Generated ID">
+      <input type="text" id="IDgenerator" style="text-align: center; margin-right: 20px;" formControlName="depaulID" placeholder="Generated ID">
 
       <button type="button" (click)="generateID()" style="background-color: #005FB2; border: none;" id="buttonGenerator" class="btn btn-primary"> Generate </button>
     </div>
