@@ -98,3 +98,41 @@ h4{
 #resetButton {
   margin-right: 5px;
 }
+
+button:disabled,
+button[disabled] {
+  background-color: darkgrey;
+  border: none;
+}
+
+.btn-success:active{
+  text-decoration: none;
+  background-color: #005FB2;
+  border: none;
+  box-shadow: none;
+}
+.btn-success:hover{
+  text-decoration: none;
+  background-color: #005FB2;
+  border: none;
+}
+
+.btn-success{
+  background-color: #005FB2;
+  border: none;
+  color: white;
+
+}
+
+.btn-success:not(:disabled):not(.disabled):active{
+  text-decoration: none;
+  background-color: #005FB2;
+  border: none;
+}
+.btn-success:not(:disabled):not(.disabled):active:focus{
+  box-shadow: none;
+}
+
+.btn-success:focus {
+  box-shadow: none;
+}

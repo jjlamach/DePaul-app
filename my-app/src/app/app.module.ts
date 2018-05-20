@@ -81,18 +81,22 @@ const appRoutes: Routes = [
   { path: 'view-profile5', component: AviewProfileStuComponent, canActivate: [DataGuard] },
   { path: 'list-students', component: AstudentsComponent, canActivate: [DataGuard] },
   { path: 'start-plan3', component: AstartPlanComponent, canActivate: [DataGuard] },
+<<<<<<< HEAD
+
+=======
+>>>>>>> e8b14f77a5d308473880b87ba54e58a46adecdb8
 
 
 
   // { path: 'SearchID3', component: AsearchIdComponent, canActivate: [DataGuard] },    // Julio
 
-  {path: 'SearchID3', component: AsearchIdComponent},
-
-
 
   { path: 'degree-plan-form', component: DegreePlanFormComponent },
   { path: 'SearchID3', component: AsearchIdComponent, canActivate: [DataGuard] },
+<<<<<<< HEAD
 
+=======
+>>>>>>> e8b14f77a5d308473880b87ba54e58a46adecdb8
   { path: 'requirements3', component: ArequirementsComponent },
 
 
