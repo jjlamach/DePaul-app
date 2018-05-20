@@ -23,7 +23,6 @@ import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DegreeprogressComponent } from './degreeprogress/degreeprogress.component';
 import { FviewProfileComponent } from './fview-profile/fview-profile.component';
-import { FviewProfileStuComponent } from './fview-profile-stu/fview-profile-stu.component';
 import { FrequirementsComponent } from './frequirements/frequirements.component';
 import { FstartPlanComponent } from './fstart-plan/fstart-plan.component';
 import { FeditProfileComponent } from './fedit-profile/fedit-profile.component';
@@ -35,8 +34,6 @@ import { AeditProfileComponent } from './aedit-profile/aedit-profile.component';
 import { ArequirementsComponent } from './arequirements/arequirements.component';
 import { AstartPlanComponent } from './astart-plan/astart-plan.component';
 import { AviewProfileComponent } from './aview-profile/aview-profile.component';
-import { AviewProfileStuComponent } from './aview-profile-stu/aview-profile-stu.component';
-import { AviewProfileFacComponent } from './aview-profile-fac/aview-profile-fac.component';
 import { AcoursesComponent } from './acourses/acourses.component';
 import { FcoursesComponent } from './fcourses/fcourses.component';
 import { AenrollmentComponent } from './aenrollment/aenrollment.component';
@@ -69,7 +66,6 @@ const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'degree-progress', component: DegreeprogressComponent },
   { path: 'logged-out', component: LoggedOutComponent },
-  { path: 'view-profile1', component: FviewProfileStuComponent, canActivate: [Data2Guard] },
   { path: 'view-profile2', component: FviewProfileComponent, canActivate: [Data2Guard] },
   { path: 'start-plan1', component: FstartPlanComponent, canActivate: [Data2Guard] },
   { path: 'requirements1', component: FrequirementsComponent, canActivate: [Data2Guard] },
@@ -77,8 +73,6 @@ const appRoutes: Routes = [
   { path: 'degree-progress1', component: FdegreeProgressComponent, canActivate: [Data2Guard] },
   { path: 'courses1', component: FcoursesComponent, canActivate: [Data2Guard] },
   { path: 'view-profile3', component: AviewProfileComponent, canActivate: [DataGuard] },
-  { path: 'view-profile4', component: AviewProfileFacComponent, canActivate: [DataGuard] },
-  { path: 'view-profile5', component: AviewProfileStuComponent, canActivate: [DataGuard] },
   { path: 'list-students', component: AstudentsComponent, canActivate: [DataGuard] },
   { path: 'start-plan3', component: AstartPlanComponent, canActivate: [DataGuard] },
 
@@ -137,7 +131,6 @@ const appRoutes: Routes = [
     LoginComponent,
     DegreeprogressComponent,
     FviewProfileComponent,
-    FviewProfileStuComponent,
     FrequirementsComponent,
     FstartPlanComponent,
     FeditProfileComponent,
@@ -149,8 +142,6 @@ const appRoutes: Routes = [
     ArequirementsComponent,
     AstartPlanComponent,
     AviewProfileComponent,
-    AviewProfileStuComponent,
-    AviewProfileFacComponent,
     AcoursesComponent,
     FcoursesComponent,
     AenrollmentComponent,
