@@ -26,8 +26,6 @@
         <a class="dropbtn1">Profile</a>
         <div class="dropdown-content1">
           <a routerLink="/view-profile3">View profile</a>
-          <a routerLink="/view-profile4">View faculty's profile</a>
-          <a routerLink="/view-profile5">View student's profile</a>
           <a routerLink="/edit-profile3">Edit profile</a>
         </div>
       </li>
@@ -60,11 +58,18 @@
 <br>
 
 <div class="card-deck">
+<<<<<<< HEAD
   <div class="card" *ngFor="let student of students">
     <i class="fa fa-user fa-5x"></i>
 
   <div class="card" *ngFor="let student of students">
     <i class="fa fa-user fa-5x" style="margin-top: 16px"></i>
+=======
+
+  <div class="card" *ngFor="let student of students">
+    <i class="fa fa-user fa-5x" style="margin-top: 16px"></i>
+
+>>>>>>> 428f105abb2a22889238cf1b5bf31cfa3e77dd16
     <hr>
     <div class="card-body">
       <h4 class="card-title">{{student.lastName + ', ' + student.firstName}}</h4>
