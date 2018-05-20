@@ -60,13 +60,18 @@
 <br>
 
 <div class="card-deck">
+<<<<<<< HEAD
   <div class="card" *ngFor="let student of students; let index = i">
     <i class="fa fa-user fa-5x"></i>
+=======
+  <div class="card" *ngFor="let student of students">
+    <i class="fa fa-user fa-5x" style="margin-top: 16px"></i>
+>>>>>>> 38e1abebdde6b4fb17b1ffcf21ace2b3c0dc4206
     <hr>
     <div class="card-body">
       <h4 class="card-title">{{student.lastName + ', ' + student.firstName}}</h4>
       <p class="card-text"><strong>Degree:</strong> {{student.degree}}</p>
-      <p class="card-text"><strong>Address:</strong> {{student.address}}</p>
+      <p class="card-text"><strong>Address:</strong></p><p style="margin-top: 0px;"> {{student.address}}</p>
       <p class="card-text"><strong>DePaul ID:</strong> {{student.depaulID}}</p>
       <button (click)="delete(student.depaulID)" class="btn btn-danger">Delete</button>
     </div>
