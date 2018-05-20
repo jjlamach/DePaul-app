@@ -86,9 +86,13 @@ h4{
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
+  max-width: 250px;
   margin: auto;
   text-align: center;
+  min-width: 250px;
+}
+.card-deck .card {
+  margin-bottom: 15px;
 }
 
 .title {
