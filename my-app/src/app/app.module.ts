@@ -48,6 +48,7 @@ import { RecoverPasswordComponent } from './recover-password/recover-password.co
 import { AddUserComponent } from './add-user/add-user.component';
 import { HttpClientModule } from '@angular/common/http';
 import { DegreePlanFormComponent } from './degree-plan-form/degree-plan-form.component';
+import { TeamComponent } from './team/team.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'allpages', pathMatch: 'full' },
@@ -75,23 +76,14 @@ const appRoutes: Routes = [
   { path: 'view-profile3', component: AviewProfileComponent, canActivate: [DataGuard] },
   { path: 'list-students', component: AstudentsComponent, canActivate: [DataGuard] },
   { path: 'start-plan3', component: AstartPlanComponent, canActivate: [DataGuard] },
-
-
-
-  // { path: 'SearchID3', component: AsearchIdComponent, canActivate: [DataGuard] },    // Julio
-
-
   { path: 'degree-plan-form', component: DegreePlanFormComponent },
   { path: 'SearchID3', component: AsearchIdComponent, canActivate: [DataGuard] },
-
   { path: 'requirements3', component: ArequirementsComponent },
+  { path: 'remove', component: AremoveUserComponent, canActivate: [DataGuard] },
 
 
 
-  // { path: 'remove', component: AremoveUserComponent, canActivate: [DataGuard] }, // Julio
-
-  {path: 'remove', component: AremoveUserComponent},
-
+  {path: 'team', component: TeamComponent}, // JL
 
 
 
@@ -101,15 +93,20 @@ const appRoutes: Routes = [
   { path: 'enrollment', component: AenrollmentComponent, canActivate: [DataGuard] },
   { path: 'edit-profile3', component: AeditProfileComponent, canActivate: [DataGuard] },
   { path: 'degree-progress3', component: AdegreeProgressComponent, canActivate: [DataGuard] },
-  { path: 'courses3', component: AcoursesComponent, canActivate: [DataGuard] },
+
+
+  // { path: 'courses3', component: AcoursesComponent, canActivate: [DataGuard] },
+
+  {path: 'courses3', component: AcoursesComponent},   // Working on this component. JL
+
+
+
+
   { path: 'classes', component: AclassesComponent, canActivate: [DataGuard] },
   { path: 'registration', component: AccountcreationComponent },
   { path: 'recover', component: RecoverPasswordComponent },
 
-  // { path: 'add', component: AddUserComponent, canActivate: [DataGuard] },  // Julio
-
-  {path: 'add', component: AddUserComponent},
-
+  { path: 'add', component: AddUserComponent, canActivate: [DataGuard] },
 
   { path: '**', component: NotFoundComponent }
 ];
@@ -154,7 +151,8 @@ const appRoutes: Routes = [
     AccountcreationComponent,
     RecoverPasswordComponent,
     AddUserComponent,
-    DegreePlanFormComponent
+    DegreePlanFormComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule,
