@@ -2,8 +2,12 @@
 <h4 style="margin-bottom: 10px;margin-top: 0px">College of Computing and Digital Media</h4>
 <img src='assets/images/Logo_top.png' style='position:absolute; top:30px; right:30px;' width="140px" height="" alt='' />
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
+  <!--Font awesome-->
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
 <nav role="navigation1">
   <div class="navigate1">
     <ul>
@@ -55,12 +59,15 @@
 
 <h2>List of students</h2>
 <hr>
-<div class="student">
-<h6 class="name">Miko Stulajter:</h6><h6 class="id">1234567</h6>
-</div>
-<div class="student">
-<h6 class="name">John Ross:</h6><h6 class="id">1234568</h6>
-</div>
-<div class="student">
-<h6 class="name">Elizabeth Kramer:</h6><h6 class="id">1234569</h6>
+<div class="card-deck">
+  <div class="card" *ngFor="let student of students">
+    <i class="fa fa-user fa-5x" style="margin-top: 16px"></i>
+    <hr>
+    <div class="card-body">
+      <h4 class="card-title">{{student.lastName + ', ' + student.firstName}}</h4>
+      <p class="card-text"><strong>Degree:</strong> {{student.degree}}</p>
+      <p class="card-text"><strong>Address:</strong></p><p style="margin-top: 0px;"> {{student.address}}</p>
+      <p class="card-text"><strong>DePaul ID:</strong> {{student.depaulID}}</p>
+    </div>
+  </div>
 </div>

@@ -60,12 +60,12 @@
 
 <div class="card-deck">
   <div class="card" *ngFor="let student of students">
-    <i class="fa fa-user fa-5x"></i>
+    <i class="fa fa-user fa-5x" style="margin-top: 16px"></i>
     <hr>
     <div class="card-body">
       <h4 class="card-title">{{student.lastName + ', ' + student.firstName}}</h4>
       <p class="card-text"><strong>Degree:</strong> {{student.degree}}</p>
-      <p class="card-text"><strong>Address:</strong> {{student.address}}</p>
+      <p class="card-text"><strong>Address:</strong></p><p style="margin-top: 0px;"> {{student.address}}</p>
       <p class="card-text"><strong>DePaul ID:</strong> {{student.depaulID}}</p>
       <button class="btn btn-danger">Delete</button>
     </div>

@@ -89,12 +89,6 @@ h4{
   text-decoration: none;
 }
 
-p{
-  font-family: "Times New Roman", Times, serif;
-  display: inline-block;
-  margin-bottom: 13px;
-  margin-top: 13px;
-}
 
 h2{
   font-family: "Times New Roman", Times, serif;
@@ -118,16 +112,15 @@ h6{
   font-weight: bold;
 }
 
-.id{
-  position: absolute;
-  left: 300px;
-  margin: 0px;
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
 }
 
-.student{
-  margin-top: 10px;
-  margin-bottom: 10px;
-  border-bottom: 1px solid darkgrey;
-  width: 350px;
+.title {
+  color: grey;
+  font-size: 18px;
 }
-
