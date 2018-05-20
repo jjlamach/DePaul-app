@@ -9,10 +9,8 @@ import {DataService} from "../Data.service";
   styleUrls: ['./aremove-user.component.css']
 })
 export class AremoveUserComponent implements OnInit {
+
   private students: Student[] = [];
-
-  wasTouched: boolean = false;
-
 
   constructor(private service: DataService) { }
 
@@ -32,16 +30,23 @@ export class AremoveUserComponent implements OnInit {
     });
   }
 
+
   /**
    *
-   * @param {Student} student
-   * @returns {Subscription}
+   * @param {number} id
    */
-  delete(student: Student) {
-    this.service.deleteStudent(student.depaulID).subscribe(res =>{
+  delete(id: number) {
+    this.service.deleteStudent(id).subscribe(res =>{
       console.log('Deleted');
     }, (error) =>{
       console.log(error);
     });
+    // delete it also from the view
+    for(let i = 0; i < this.students.length; i++) {
+      if(this.students[i].depaulID === id) {
+        this.students.splice(i, 1);
+        break;
+      }
+    }
   }
 }
