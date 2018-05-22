@@ -18,6 +18,6 @@ export class StudentComponent implements OnInit {
 
 
   ngOnInit() {
-    this.studentuser=type.firstName;
+    this.studentuser=type.firstName+" "+type.lastName;
   }
 }

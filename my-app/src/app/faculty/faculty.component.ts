@@ -18,7 +18,7 @@ export class FacultyComponent implements OnInit {
 
 
   ngOnInit() {
-    this.studentuser=type.firstName;
+    this.studentuser=type.firstName+" "+type.lastName;
   }
 
 }

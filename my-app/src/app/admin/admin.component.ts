@@ -19,7 +19,7 @@ export class AdminComponent implements OnInit {
 
 
   ngOnInit() {
-    this.studentuser=type.firstName;
+    this.studentuser=type.firstName+" "+type.lastName;
   }
 
 }

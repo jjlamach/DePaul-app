@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { DataService } from './Data.service';
 import {DataGuard} from "./data.guard";
 import {Data2Guard} from "./data2.guard";
+import {Data3Guard} from "./data3.guard";
 
 import { AppComponent } from './app.component';
 import { StudentComponent } from './student/student.component';
@@ -52,20 +53,19 @@ import { TeamComponent } from './team/team.component';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'allpages', pathMatch: 'full' },
-  { path: 'home', component: StudentComponent },
+  { path: 'home', component: StudentComponent, canActivate: [Data3Guard] },
   { path: 'home3', component: AdminComponent, canActivate: [DataGuard]},
   { path: 'home-faculty', component: FacultyComponent, canActivate: [Data2Guard]},
-  { path: 'view-profile', component: ViewProfileComponent },
-  { path: 'edit-profile', component: EditProfileComponent },
+  { path: 'view-profile', component: ViewProfileComponent, canActivate: [Data3Guard] },
+  { path: 'edit-profile', component: EditProfileComponent, canActivate: [Data3Guard] },
   { path: 'optin', component: OptinComponent },
   { path: 'registration-complete', component: RegistrationConfirmedComponent },
-  { path: 'home-faculty', component: FacultyComponent },
   { path: 'SearchID', component: SearchIDComponent, canActivate: [Data2Guard] },
-  { path: 'courses', component: CoursesComponent },
-  { path: 'requirements', component: RequirementsComponent },
-  { path: 'start-plan', component: StartplanComponent },
+  { path: 'courses', component: CoursesComponent, canActivate: [Data3Guard] },
+  { path: 'requirements', component: RequirementsComponent, canActivate: [Data3Guard] },
+  { path: 'start-plan', component: StartplanComponent, canActivate: [Data3Guard] },
   { path: 'login', component: LoginComponent },
-  { path: 'degree-progress', component: DegreeprogressComponent },
+  { path: 'degree-progress', component: DegreeprogressComponent, canActivate: [Data3Guard] },
   { path: 'logged-out', component: LoggedOutComponent },
   { path: 'view-profile2', component: FviewProfileComponent, canActivate: [Data2Guard] },
   { path: 'start-plan1', component: FstartPlanComponent, canActivate: [Data2Guard] },
@@ -78,7 +78,7 @@ const appRoutes: Routes = [
   { path: 'start-plan3', component: AstartPlanComponent, canActivate: [DataGuard] },
   { path: 'degree-plan-form', component: DegreePlanFormComponent },
   { path: 'SearchID3', component: AsearchIdComponent, canActivate: [DataGuard] },
-  { path: 'requirements3', component: ArequirementsComponent },
+  { path: 'requirements3', component: ArequirementsComponent, canActivate: [DataGuard]},
   { path: 'remove', component: AremoveUserComponent, canActivate: [DataGuard] },
 
 
@@ -97,7 +97,7 @@ const appRoutes: Routes = [
 
   // { path: 'courses3', component: AcoursesComponent, canActivate: [DataGuard] },
 
-  {path: 'courses3', component: AcoursesComponent},   // Working on this component. JL
+  {path: 'courses3', component: AcoursesComponent, canActivate: [DataGuard]},   // Working on this component. JL
 
 
 
@@ -163,7 +163,7 @@ const appRoutes: Routes = [
       appRoutes
     )
   ],
-  providers: [DataService, DataGuard, Data2Guard],
+  providers: [DataService, DataGuard, Data2Guard,Data3Guard],
   bootstrap: [AppComponent]
 })
 
