@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
         console.log('User logged in');
         otherUser = user;
         type.setValue(otherUser.userType);
+        type.setValue(otherUser.userID);
         console.log("type: " + type.userType)
         console.log(this.user);
         console.log(user);

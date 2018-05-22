@@ -83,7 +83,10 @@ const appRoutes: Routes = [
 
 
 
-  // {path: 'team', component: TeamComponent}, // We dont need this
+  {path: 'team', component: TeamComponent}, // JL
+
+
+
 
   { path: 'allpages', component: AllpagesComponent },
   { path: 'programs', component: AprogramsComponent, canActivate: [DataGuard] },
@@ -92,7 +95,13 @@ const appRoutes: Routes = [
   { path: 'degree-progress3', component: AdegreeProgressComponent, canActivate: [DataGuard] },
 
 
-  { path: 'courses3', component: AcoursesComponent, canActivate: [DataGuard] },
+  // { path: 'courses3', component: AcoursesComponent, canActivate: [DataGuard] },
+
+  {path: 'courses3', component: AcoursesComponent},   // Working on this component. JL
+
+
+
+
   { path: 'classes', component: AclassesComponent, canActivate: [DataGuard] },
   { path: 'registration', component: AccountcreationComponent },
   { path: 'recover', component: RecoverPasswordComponent },
@@ -142,8 +151,8 @@ const appRoutes: Routes = [
     AccountcreationComponent,
     RecoverPasswordComponent,
     AddUserComponent,
-    DegreePlanFormComponent
-    // TeamComponent
+    DegreePlanFormComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule,
