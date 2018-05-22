@@ -41,11 +41,12 @@ export class LoginComponent implements OnInit {
         console.log('User logged in');
         otherUser = user;
         type.setValue(otherUser.userType);
-        type.setValue(otherUser.userID);
+        type.setUser(this.user.userID, this.user.password, otherUser.firstName, otherUser.lastName, otherUser.degree);
         console.log("type: " + type.userType)
         console.log(this.user);
         console.log(user);
         console.log(otherUser);
+        console.log("User: "+type.userName + " " + type.password);
         if (type.userType == 'Student') {
           this.router.navigateByUrl('/home');
         }
