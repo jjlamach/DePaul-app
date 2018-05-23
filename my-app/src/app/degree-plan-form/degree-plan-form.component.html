@@ -16,25 +16,6 @@
   </div>
 </nav>
 <div class="col-md-7">
-<<<<<<< HEAD
-  <form (ngSubmit)="onSubmit(classesForm)" #classesForm="ngForm">
-    <p>What's your degree program?</p>
-    <select class="form-control" id="degree_program" [(ngModel)]="degree" name="degree_program" #name="ngModel">
-      <option *ngFor="let program of degreePrograms">{{program}}</option>
-    </select>
-    <p>In which quarter do you want to begin?</p>
-    <select class="form-control" id="start_quarter" [(ngModel)]="beginQuarter" name="start_quarter" #name="ngModel">
-      <option *ngFor="let quarter of startQuarter">{{quarter}}</option>
-    </select>
-    <p>How many classes do you want to take per quarter?</p>
-    <select class="form-control" id="num_classes" [(ngModel)]="numCPQ" name="num_classes" #name="ngModel">
-      <option *ngFor="let class of numberOfClasses">{{class}}</option>
-    </select>
-    <br>
-    <br>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-=======
     <form (ngSubmit)="onSubmit(classesForm)" #classesForm="ngForm">
         <p>What's your degree program?</p>
             <select class="form-control" id="degree_program" [(ngModel)]="degree" name="degree_program" #name="ngModel">
@@ -52,7 +33,6 @@
         <br>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
->>>>>>> c505659cc474d6a6e9ddeb1c295e07e37179399e
 </div>
 <div class="col-md-5">
     <table *ngIf="show" class="table table-striped">
@@ -65,3 +45,6 @@
     </table>
 </div>
 </body>
+
+
+
