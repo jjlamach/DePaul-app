@@ -102,12 +102,16 @@ export class DataService {
 
   loggedIn(userType){
     console.log(userType);
-    return userType == 'Admin';
+    return userType == 'Admin' || userType == 'admin';
   }
 
   loggedIn2(userType){
     console.log(userType);
     return userType == 'Faculty';
+  }
+  loggedIn3(userType){
+    console.log(userType);
+    return userType == 'Student';
   }
 
   /************************* Methods for new table start here ********************/

@@ -41,23 +41,35 @@ export class LoginComponent implements OnInit {
         console.log('User logged in');
         otherUser = user;
         type.setValue(otherUser.userType);
+        type.setUser(this.user.userID, this.user.password, otherUser.firstName, otherUser.lastName, otherUser.degree,otherUser.address,this.titleCase(otherUser.city),otherUser.zip.toString(),otherUser.state,otherUser.depaulID.toString(),otherUser.email);
         console.log("type: " + type.userType)
         console.log(this.user);
         console.log(user);
         console.log(otherUser);
+        console.log("User: "+type.userName + " " + type.password);
         if (type.userType == 'Student') {
-          this.router.navigateByUrl('/home');
+          return this.router.navigateByUrl("/home");
         }
         else if (type.userType == 'Admin') {
-          this.router.navigateByUrl('/home3');
+          return this.router.navigateByUrl('/home3');
+        }
+        else if (type.userType == "admin") {
+          return this.router.navigateByUrl('/home3');
         }
         else if (type.userType == 'Faculty') {
-          this.router.navigateByUrl('/home-faculty');
+          return this.router.navigateByUrl('/home-faculty');
         }
       });
     }
     else {
       return;
     }
+  }
+  titleCase(str) {
+    str = str.toLowerCase().split(' ');
+    for (var i = 0; i < str.length; i++) {
+      str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+    }
+    return str.join(' ');
   }
 }

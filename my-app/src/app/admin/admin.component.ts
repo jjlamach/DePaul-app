@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from "../Data.service";
+import * as type from "../globals";
 
 @Component({
   selector: 'app-admin',
@@ -8,9 +9,17 @@ import {DataService} from "../Data.service";
 })
 export class AdminComponent implements OnInit {
 
+  private studentuser: string;
+
+  /**
+   *
+   * @param {DataService} service
+   */
   constructor(private service: DataService) { }
 
+
   ngOnInit() {
+    this.studentuser=type.firstName+" "+type.lastName;
   }
 
 }
