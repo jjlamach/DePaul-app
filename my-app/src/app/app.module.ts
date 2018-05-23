@@ -57,7 +57,7 @@ const appRoutes: Routes = [
   { path: 'home3', component: AdminComponent, canActivate: [DataGuard]},
   { path: 'home-faculty', component: FacultyComponent, canActivate: [Data2Guard]},
   { path: 'view-profile', component: ViewProfileComponent, canActivate: [Data3Guard] },
-  { path: 'edit-profile', component: EditProfileComponent, canActivate: [Data3Guard] },
+  { path: 'edit-profile', component: EditProfileComponent, canActivate: [Data3Guard]},
   { path: 'optin', component: OptinComponent },
   { path: 'registration-complete', component: RegistrationConfirmedComponent },
   { path: 'SearchID', component: SearchIDComponent, canActivate: [Data2Guard] },
