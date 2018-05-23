@@ -12,8 +12,7 @@ export class LoggedOutComponent implements OnInit {
 
   ngOnInit() {
     type.setUser('','','','','','','','','','','');
-    type.setValue('')
-    type.constructor
+    type.setValue('');
   }
 
 }
