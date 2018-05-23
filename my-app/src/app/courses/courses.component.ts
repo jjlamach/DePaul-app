@@ -8,7 +8,7 @@ import {xCourse} from "../../models/xCourse";
   styleUrls: ['./courses.component.css']
 })
 export class CoursesComponent implements OnInit {
-  private courses: xCourse[] = [];
+   courses: xCourse[] = [];
 
   constructor(private service: DataService) { }
 

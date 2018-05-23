@@ -10,7 +10,7 @@ import {DataService} from "../Data.service";
 })
 export class AremoveUserComponent implements OnInit {
 
-  private students: Student[] = [];
+   students: Student[] = [];
 
   constructor(private service: DataService) { }
 

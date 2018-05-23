@@ -15,9 +15,7 @@ import {formGroupNameProvider} from "@angular/forms/src/directives/reactive_dire
 export class EditProfileComponent implements OnInit {
   public depaulForm2: FormGroup;
   public user: User; // Store the new user in this User object
-  private DepaulID: string;
-
-
+  public DepaulID: string;
 
 
   constructor(private router: Router, private service: DataService) { }

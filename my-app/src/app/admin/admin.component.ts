@@ -9,7 +9,7 @@ import * as type from "../globals";
 })
 export class AdminComponent implements OnInit {
 
-  private studentuser: string;
+   studentuser: string;
 
   /**
    *

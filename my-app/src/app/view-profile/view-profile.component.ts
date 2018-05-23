@@ -8,12 +8,12 @@ import {DataService} from "../Data.service";
   styleUrls: ['./view-profile.component.css']
 })
 export class ViewProfileComponent implements OnInit {
-  private studentuser: string;
-  private studentaddress: string;
-  private id: string;
-  private degree: string;
-  private email: string;
-  private user: string;
+   studentuser: string;
+   studentaddress: string;
+   id: string;
+   degree: string;
+   email: string;
+   user: string;
   /**
    *
    * @param {DataService} service

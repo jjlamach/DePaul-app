@@ -8,7 +8,7 @@ import {DataService} from "../Data.service";
   styleUrls: ['./faculty.component.css']
 })
 export class FacultyComponent implements OnInit {
-  private studentuser: string;
+   studentuser: string;
 
   /**
    *

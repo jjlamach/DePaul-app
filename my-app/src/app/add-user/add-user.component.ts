@@ -12,15 +12,15 @@ import {Student} from "../../models/Student";
 
 export class AddUserComponent implements OnInit {
 
-  private studentCollection: Student[];
-  private userCollection: User[];
+   studentCollection: Student[];
+   userCollection: User[];
 
-  private registration: FormGroup;
-  private user: User = new User();
-  private student: Student = new Student();
-  private wasSubmitted: boolean = false;
-  private studentExists: boolean = false;
-  private facultyExists: boolean = false;
+   registration: FormGroup;
+   user: User = new User();
+   student: Student = new Student();
+   wasSubmitted: boolean = false;
+   studentExists: boolean = false;
+   facultyExists: boolean = false;
 
   constructor(private service: DataService) {
   }

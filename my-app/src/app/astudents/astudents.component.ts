@@ -8,9 +8,7 @@ import {DataService} from "../Data.service";
   styleUrls: ['./astudents.component.css']
 })
 export class AstudentsComponent implements OnInit {
-  private students: Student[] = [];
-
-  wasTouched: boolean = false;
+  students: Student[] = [];
 
 
   constructor(private service: DataService) { }

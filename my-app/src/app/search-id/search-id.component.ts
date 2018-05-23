@@ -11,12 +11,12 @@ import {Student} from "../../models/Student";
 })
 export class SearchIDComponent implements OnInit {
 
-  private duMembers: User[] = [];
-  private wasFound: boolean;
-  private studentForm: FormGroup;
-  private wasSubmitted: boolean;
+   duMembers: User[] = [];
+   wasFound: boolean;
+   studentForm: FormGroup;
+   wasSubmitted: boolean;
 
-  private student: Student = new Student();
+   student: Student = new Student();
 
 
   /**
