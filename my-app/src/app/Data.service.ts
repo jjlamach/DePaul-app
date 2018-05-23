@@ -81,6 +81,17 @@ export class DataService {
 
 
   /**
+   *
+   * @param {number} DuId
+   * @returns {Observable<Object>}
+   */
+  deleteUser(DuId: number) {
+    let headers = new HttpHeaders();
+    return this.http.delete('http://localhost:3000/api/user/' + DuId, {headers: headers});
+  }
+
+
+  /**
    * Logins the user if it exists.
    * @param user
    */
