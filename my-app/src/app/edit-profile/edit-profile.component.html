@@ -34,101 +34,166 @@
   <h2>Edit Profile</h2>
   <hr>
 
-      <form class="form-horizontal" role="form">
-        <div class="form-group">
-          <label class="labeling">First name:</label>
-          <div class="labelbox">
-            <input class="form-control" type="text" value="Robert">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="labeling">Last name:</label>
-          <div class="labelbox">
-            <input class="form-control" type="text" value="Colbert">
-          </div>
-        </div>
+  <form novalidate [formGroup]= "depaulForm2">
 
-        <div class="form-group">
-          <label class="labeling">Address:</label>
-          <div class="labelbox">
-            <input class="form-control" type="text" value="494 Sycamore Road">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="labeling">City:</label>
-          <div class="labelbox">
-            <input class="form-control" type="text" value="Lebanon">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="labeling">State:</label>
-          <div class="labelbox">
-            <input class="form-control" type="text" value="OR">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="labeling">Zip Code:</label>
-          <div class="labelbox">
-            <input class="form-control" type="text" value="97355">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="labeling">DePaul ID:</label>
-          <div class="labox">
-            <p>1478654</p>
-          </div>
-        </div>
-
-
-        <div class="form-group">
-          <label class="labeling">Degree:</label>
-          <div class="labelbox">
-            <select id="user_degree" class="form-control">
-              <option value="CS">Computer Science</option>
-              <option value="IS">Information Technology</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="labeling">Email:</label>
-          <div class="labelbox">
-            <input class="form-control" type="text" value="rcolbert@gmail.com">
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="labeling">Username:</label>
-          <div class="labox">
-            <p>rcolbert</p>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label class="labeling">Password:</label>
-          <div class="labelbox">
-            <input class="form-control" type="password" value="11111122333">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="labeling">Confirm password:</label>
-          <div class="labelbox">
-            <input class="form-control" type="password" value="11111122333">
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="labeling"></label>
-          <div class="labelbutton">
-            <input class="button" type="button" value="Save Changes">
-            <span></span>
-            <input type="reset" class="button" value="Cancel">
-          </div>
-        </div>
-      </form>
+    <!-- First Name area   -->
+    <div class="form-group">
+      <input class="form-control" type="text" formControlName="firstName" placeholder="First Name">
     </div>
+
+    <!-- Error for First Name area -->
+    <div *ngIf="depaulForm2.get('firstName').touched && depaulForm2.get('firstName').invalid" class="alert alert-danger">
+      <div *ngIf="depaulForm2.get('firstName').hasError('required')">
+        First name field is required.
+      </div>
+      <div *ngIf="depaulForm2.get('firstName').invalid && depaulForm2.get('firstName').touched">
+        First name is invalid.
+      </div>
+    </div>
+
+    <!-- Last Name area -->
+    <div class="form-group">
+      <input class="form-control" type="text" formControlName="lastName" placeholder="Last Name">
+    </div>
+
+    <!-- Error for Last Name Area -->
+    <div *ngIf="depaulForm2.get('lastName').touched && depaulForm2.get('lastName').invalid" class="alert alert-danger">
+      <div *ngIf="depaulForm2.get('lastName').hasError('required')">
+        Last name field is required.
+      </div>
+      <div *ngIf="depaulForm2.get('lastName').invalid && depaulForm2.get('lastName').touched">
+        Last name is invalid.
+      </div>
+    </div>
+
+
+    <!-- Address area -->
+    <div class="form-group">
+      <input class="form-control" type="text" formControlName="address" placeholder="Address">
+    </div>
+
+    <!-- Error for address -->
+    <div *ngIf="depaulForm2.get('address').hasError('required') && depaulForm2.get('address').touched" class="alert alert-danger">
+      Address field is required.
+    </div>
+
+
+    <!-- City area -->
+    <div class="form-group">
+      <input class="form-control" type="text" formControlName="city" placeholder="City">
+    </div>
+
+    <!-- Error for City -->
+    <div *ngIf="depaulForm2.get('city').touched && depaulForm2.get('city').invalid" class="alert alert-danger">
+      <div *ngIf="depaulForm2.get('city').hasError('required')">
+        City field is required.
+      </div>
+      <div *ngIf="depaulForm2.get('city').invalid && depaulForm2.get('city').touched">
+        City field is invalid.
+      </div>
+    </div>
+
+
+    <!-- State area -->
+    <div class="form-group">
+      <input class="form-control" type="text" formControlName="state" placeholder="State">
+    </div>
+
+    <!-- Error for State area -->
+    <div *ngIf="depaulForm2.get('state').touched && depaulForm2.get('state').invalid" class="alert alert-danger">
+      <div *ngIf="depaulForm2.get('state').hasError('required')">
+        State field is required.
+      </div>
+      <div *ngIf="depaulForm2.get('state').invalid && depaulForm2.get('state').touched">
+        State field is invalid.
+      </div>
+    </div>
+
+
+
+    <!-- Zip area -->
+    <div class="form-group">
+      <input class="form-control" type="text" formControlName="zip" placeholder="Zip">
+    </div>
+    <!-- Zip error area -->
+    <div *ngIf="depaulForm2.get('zip').touched && depaulForm2.get('zip').invalid" class="alert alert-danger">
+      Zip field is required.
+    </div>
+
+
+    <!-- DePaul ID area -->
+    <p class="form-control-static">{{DepaulID}} </p>
+
+
+    <!-- Degree area -->
+    <div class="form-group">
+      <input class="form-control" type="text" formControlName="degree" placeholder="Degree">
+    </div>
+    <!-- Degree area error -->
+    <div *ngIf="depaulForm2.get('degree').touched && depaulForm2.get('degree').invalid" class="alert alert-danger">
+      Degree field is required.
+    </div>
+
+
+    <!-- Email area -->
+    <div class="form-group">
+      <input class="form-control" type="email" formControlName="email" placeholder="Email">
+    </div>
+    <!-- Email area error -->
+    <div *ngIf="depaulForm2.get('email').touched && depaulForm2.get('email').invalid" class="alert alert-danger">
+      <div *ngIf="depaulForm2.get('email').hasError('required')">
+        Email field is required.
+      </div>
+      <div *ngIf="depaulForm2.get('email').touched && depaulForm2.get('email').invalid">
+        Email is invalid.
+      </div>
+    </div>
+
+
+    <!-- UserID area -->
+    <div class="form-group">
+      <input class="form-control" type="text" formControlName="userID" placeholder="User ID">
+    </div>
+    <!-- UserID area error -->
+    <div *ngIf="depaulForm2.get('userID').touched && depaulForm2.get('userID').invalid" class="alert alert-danger">
+      <div *ngIf="depaulForm2.get('userID').hasError('required')">
+        User ID field is required.
+      </div>
+      <div *ngIf="depaulForm2.get('userID').touched && depaulForm2.get('userID').touched">
+        User ID is required.
+      </div>
+    </div>
+
+    <!-- Password area -->
+    <div class="form-group">
+      <input class="form-control" type="password" formControlName="password" placeholder="Password">
+    </div>
+
+    <!-- Password area error -->
+    <div *ngIf="depaulForm2.get('password').touched && depaulForm2.get('password').invalid" class="alert alert-danger">
+      <div *ngIf="depaulForm2.get('password').hasError('required')">
+        Password field is required.
+      </div>
+      <div *ngIf="depaulForm2.get('password').touched && depaulForm2.get('password').invalid">
+        Password is invalid.<br>
+        Your password must have:
+        <ul>
+          <li>8 characters in length.</li>
+          <li>Lowercase letters.</li>
+          <li>Uppercase letters.</li>
+          <li>Numbers.</li>
+          <li>Special characters.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- If the form is not valid then don't submit (don't go to optmin)-->
+    <button (click)="addUser(depaulForm2)" class="success-btn" type="button" name="button" [disabled]=!depaulForm2.valid>Edit</button>
+    <button (click)=reset() type="reset1" class="btn btn-warning" style="background-color: #FF1111;color: white; border: none;" id="resetBTN"> Reset</button>
+  </form>
+
+
+
+</div>
 
 <hr>

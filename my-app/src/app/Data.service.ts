@@ -68,7 +68,6 @@ export class DataService {
     return this.http.post('http://localhost:3000/api/student', newStudent, {headers: headers});
   }
 
-
   /**
    *
    * @param {number} DuId
@@ -79,17 +78,10 @@ export class DataService {
     return this.http.delete('http://localhost:3000/api/student/' + DuId, {headers: headers});
   }
 
-
-  /**
-   *
-   * @param {number} DuId
-   * @returns {Observable<Object>}
-   */
   deleteUser(DuId: number) {
     let headers = new HttpHeaders();
-    return this.http.delete('http://localhost:3000/api/user/' + DuId, {headers: headers});
+    return this.http.delete('http://localhost:3000/api/User/' + DuId, {headers: headers});
   }
-
 
   /**
    * Logins the user if it exists.
@@ -111,7 +103,7 @@ export class DataService {
   }
   loggedIn3(userType){
     console.log(userType);
-    return userType == 'Student';
+    return userType == 'Student'||userType == 'student';
   }
 
   /************************* Methods for new table start here ********************/

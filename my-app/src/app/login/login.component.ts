@@ -50,6 +50,9 @@ export class LoginComponent implements OnInit {
         if (type.userType == 'Student') {
           return this.router.navigateByUrl("/home");
         }
+        else if (type.userType == 'student') {
+          return this.router.navigateByUrl("/home");
+        }
         else if (type.userType == 'Admin') {
           return this.router.navigateByUrl('/home3');
         }
