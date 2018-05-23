@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as type from "../globals";
 
 @Component({
   selector: 'app-logged-out',
@@ -10,6 +11,9 @@ export class LoggedOutComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    type.setUser('','','','','','','','','','','');
+    type.setValue('')
+    type.constructor
   }
 
 }

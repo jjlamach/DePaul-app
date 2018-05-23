@@ -4,8 +4,6 @@ import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {User} from "../../models/User";
 import * as type from "../globals";
-import {assertNumber} from "@angular/core/src/render3/assert";
-import {formGroupNameProvider} from "@angular/forms/src/directives/reactive_directives/form_group_name";
 
 @Component({
   selector: 'app-edit-profile',
@@ -34,7 +32,7 @@ export class EditProfileComponent implements OnInit {
       email: new FormControl(type.email,[Validators.required, Validators.email]),
       userID: new FormControl(type.userName,[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
       password: new FormControl(type.password,[Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]),
-      usertype: new FormControl('Student'),
+      userType: new FormControl(type.userType),
     });
     this.DepaulID=type.DepaulID;
   }
@@ -48,17 +46,17 @@ export class EditProfileComponent implements OnInit {
    */
   addUser(depaulForm2) {
     if(depaulForm2.valid) {
+
       this.service.deleteUser(parseInt(type.DepaulID)).subscribe(res =>{
         console.log("Profile delete");
       });
       this.user = this.depaulForm2.value;
-      console.log(this.user);
-      type.setValue(this.user._id)
       type.setUser(this.user.userID, this.user.password, this.user.firstName, this.user.lastName, this.user.degree,this.user.address,this.user.city,this.user.zip.toString(),this.user.state,this.user.depaulID.toString(),this.user.email);
       this.service.addUser(this.user).subscribe((user: User) => {
         console.log("Profile editted");
-        console.log(type.userType)
+
       });
+      this.router.navigateByUrl("/view-profile");
       return this.reset();
     }
     return this.reset();
@@ -75,7 +73,7 @@ export class EditProfileComponent implements OnInit {
       userID: type.userName,
       password: type.password,
       depaulID:type.DepaulID,
-      usertype: "Student"
+      userType: type.userType
     });
   }
 
