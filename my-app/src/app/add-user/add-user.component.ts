@@ -28,15 +28,6 @@ export class AddUserComponent implements OnInit {
     this.getUsers();
 
     this.registration = new FormGroup({
-<<<<<<< HEAD
-      firstName: new FormControl('', Validators.required),
-      lastName: new FormControl('', Validators.required),
-      address: new FormControl('', Validators.required),
-      userType: new FormControl('', Validators.required),
-      depaulID: new FormControl('', Validators.pattern('^[1-9]\d{0,2}$')),
-      userID: new FormControl('', Validators.required),
-      degree: new FormControl('')
-=======
       firstName: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
       lastName: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
       address: new FormControl('',Validators.required),
@@ -49,7 +40,6 @@ export class AddUserComponent implements OnInit {
       userID: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
       password: new FormControl('',[Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]),
       userType: new FormControl('')
->>>>>>> 931713b5bfcbafb6ad9828cdf2e933b9c930f5ee
     });
   }
 
