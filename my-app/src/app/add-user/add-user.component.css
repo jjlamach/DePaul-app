@@ -136,3 +136,14 @@ button[disabled] {
 .btn-success:focus {
   box-shadow: none;
 }
+.forms-group{
+  padding: 5px;
+}
+
+.form-control{
+  font-size: 15px;
+  width: 300px;
+}
+.form-control1{
+  font-size: 15px;
+}

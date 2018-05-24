@@ -70,46 +70,45 @@
   </div>
   <!--//////////////////////// //////////////////////// ////////////////////////-->
 
+  <!-- First Name area   -->
   <div class="form-group">
-    <label for="fName">First Name</label>
-    <input type="text" id="fName" class="form-control" formControlName="firstName">
+    <input class="form-control" type="text" formControlName="firstName" placeholder="First Name">
   </div>
 
-  <!--Error for First Name-->
-  <div *ngIf="registration.get('firstName').touched && registration.get('firstName').hasError('required')"
-  class="alert alert-danger">
-    First Name is required.
-  </div>
-
-  <div class="form-group">
-    <label for="lName">Last Name</label>
-    <input type="text" id="lName" class="form-control" formControlName="lastName">
-  </div>
-
-  <!--Error for Last Name-->
-  <div *ngIf="registration.get('lastName').touched && registration.get('lastName').hasError('required')"
-       class="alert alert-danger">
-    Last Name is required.
-  </div>
-
-  <div class="form-group">
-    <label for="address">Address</label>
-    <input type="text" id="address" class="form-control" formControlName="address">
-  </div>
-
-  <!--Error for Address -->
-  <div *ngIf="registration.get('address').touched && registration.get('address').hasError('required')"
-       class="alert alert-danger">
-    An address is required.
-  </div>
-
-  <div class="form-group">
-    <label for="IDgenerator">Generate a DePaul ID</label>
-    <div>
-      <input type="text" id="IDgenerator" style="text-align: center; margin-right: 20px;" formControlName="depaulID" placeholder="Generated ID">
-
-      <button type="button" (click)="generateID()" style="background-color: #005FB2; border: none;" id="buttonGenerator" class="btn btn-primary"> Generate </button>
+  <!-- Error for First Name area -->
+  <div *ngIf="registration.get('firstName').touched && registration.get('firstName').invalid" class="alert alert-danger">
+    <div *ngIf="registration.get('firstName').hasError('required')">
+      First name field is required.
     </div>
+    <div *ngIf="registration.get('firstName').invalid && registration.get('firstName').touched">
+      First name is invalid.
+    </div>
+  </div>
+
+  <!-- Last Name area -->
+  <div class="form-group">
+    <input class="form-control" type="text" formControlName="lastName" placeholder="Last Name">
+  </div>
+
+  <!-- Error for Last Name Area -->
+  <div *ngIf="registration.get('lastName').touched && registration.get('lastName').invalid" class="alert alert-danger">
+    <div *ngIf="registration.get('lastName').hasError('required')">
+      Last name field is required.
+    </div>
+    <div *ngIf="registration.get('lastName').invalid && registration.get('lastName').touched">
+      Last name is invalid.
+    </div>
+  </div>
+
+
+  <!-- Address area -->
+  <div class="form-group">
+    <input class="form-control" type="text" formControlName="address" placeholder="Address">
+  </div>
+
+  <!-- Error for address -->
+  <div *ngIf="registration.get('address').hasError('required') && registration.get('address').touched" class="alert alert-danger">
+    Address field is required.
   </div>
 
   <!-- City area -->
@@ -165,6 +164,15 @@
     </div>
     <div *ngIf="registration.get('email').touched && registration.get('email').invalid">
       Email is invalid.
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="IDgenerator">Generate a DePaul ID</label>
+    <div>
+      <input type="text" id="IDgenerator" style="text-align: center; margin-right: 20px;" formControlName="depaulID" placeholder="Generated ID">
+
+      <button type="button" (click)="generateID()" style="background-color: #005FB2; border: none;" id="buttonGenerator" class="btn btn-primary"> Generate </button>
     </div>
   </div>
 
