@@ -33,12 +33,18 @@ export class AddUserComponent implements OnInit {
     this.getUsers();
 
     this.registration = new FormGroup({
-      firstName: new FormControl('', Validators.required),
-      lastName: new FormControl('', Validators.required),
-      address: new FormControl('', Validators.required),
-      userType: new FormControl('', Validators.required),
-      depaulID: new FormControl('', Validators.pattern('^[1-9]\d{0,2}$')),
-      degree: new FormControl('')
+      firstName: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
+      lastName: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
+      address: new FormControl('',Validators.required),
+      city: new FormControl('',Validators.required),
+      state: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
+      zip: new FormControl('',Validators.required),
+      depaulID: new FormControl('',Validators.required),
+      degree: new FormControl('',Validators.required),
+      email: new FormControl('',[Validators.required, Validators.email]),
+      userID: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
+      password: new FormControl('',[Validators.required, Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')]),
+      userType: new FormControl('')
     });
   }
 

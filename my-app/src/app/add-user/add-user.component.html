@@ -112,6 +112,99 @@
     </div>
   </div>
 
+  <!-- City area -->
+  <div class="form-group">
+    <input class="form-control" type="text" formControlName="city" placeholder="City">
+  </div>
+
+  <!-- Error for City -->
+  <div *ngIf="registration.get('city').touched && registration.get('city').invalid" class="alert alert-danger">
+    <div *ngIf="registration.get('city').hasError('required')">
+      City field is required.
+    </div>
+    <div *ngIf="registration.get('city').invalid && registration.get('city').touched">
+      City field is invalid.
+    </div>
+  </div>
+
+
+  <!-- State area -->
+  <div class="form-group">
+    <input class="form-control" type="text" formControlName="state" placeholder="State">
+  </div>
+
+  <!-- Error for State area -->
+  <div *ngIf="registration.get('state').touched && registration.get('state').invalid" class="alert alert-danger">
+    <div *ngIf="registration.get('state').hasError('required')">
+      State field is required.
+    </div>
+    <div *ngIf="registration.get('state').invalid && registration.get('state').touched">
+      State field is invalid.
+    </div>
+  </div>
+
+
+
+  <!-- Zip area -->
+  <div class="form-group">
+    <input class="form-control" type="text" formControlName="zip" placeholder="Zip">
+  </div>
+  <!-- Zip error area -->
+  <div *ngIf="registration.get('zip').touched && registration.get('zip').invalid" class="alert alert-danger">
+    Zip field is required.
+  </div>
+
+  <!-- Email area -->
+  <div class="form-group">
+    <input class="form-control" type="email" formControlName="email" placeholder="Email">
+  </div>
+  <!-- Email area error -->
+  <div *ngIf="registration.get('email').touched && registration.get('email').invalid" class="alert alert-danger">
+    <div *ngIf="registration.get('email').hasError('required')">
+      Email field is required.
+    </div>
+    <div *ngIf="registration.get('email').touched && registration.get('email').invalid">
+      Email is invalid.
+    </div>
+  </div>
+
+  <!-- UserID area -->
+  <div class="form-group">
+    <input class="form-control" type="text" formControlName="userID" placeholder="User ID">
+  </div>
+  <!-- UserID area error -->
+  <div *ngIf="registration.get('userID').touched && registration.get('userID').invalid" class="alert alert-danger">
+    <div *ngIf="registration.get('userID').hasError('required')">
+      User ID field is required.
+    </div>
+    <div *ngIf="registration.get('userID').touched && registration.get('userID').touched">
+      User ID is required.
+    </div>
+  </div>
+
+  <!-- Password area -->
+  <div class="form-group">
+    <input class="form-control" type="password" formControlName="password" placeholder="Password">
+  </div>
+
+  <!-- Password area error -->
+  <div *ngIf="registration.get('password').touched && registration.get('password').invalid" class="alert alert-danger">
+    <div *ngIf="registration.get('password').hasError('required')">
+      Password field is required.
+    </div>
+    <div *ngIf="registration.get('password').touched && registration.get('password').invalid">
+      Password is invalid.<br>
+      Your password must have:
+      <ul>
+        <li>8 characters in length.</li>
+        <li>Lowercase letters.</li>
+        <li>Uppercase letters.</li>
+        <li>Numbers.</li>
+        <li>Special characters.</li>
+      </ul>
+    </div>
+  </div>
+
   <div class="form-group">
     <label for="userType">User Type</label>
     <select id="userType" formControlName="userType">
