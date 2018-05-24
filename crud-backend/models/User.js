@@ -48,6 +48,9 @@ const UserSchema = mongoose.Schema({
     userType: {
         type: String
         // required: true
+    },
+    coursesTaken: {
+        type: Array
     }
 });
 const User = module.exports = mongoose.model('User', UserSchema);

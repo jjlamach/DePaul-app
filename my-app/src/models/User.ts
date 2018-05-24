@@ -12,5 +12,6 @@ export class User {
   userID?: string;
   password?: string;
   userType?: string;
+  coursesTaken?: Array<any>;
   constructor() { }
 }

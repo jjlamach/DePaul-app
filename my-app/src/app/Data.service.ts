@@ -3,8 +3,10 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {HttpHeaders} from '@angular/common/http';
 import {User} from '../models/User';
-import {Student} from "../models/Student";
-import {xCourse} from '../models/xCourse';
+import {Courses} from '../models/Courses';
+
+// import {Student} from "../models/Student";
+// import {courses} from '../models/courses';
 
 @Injectable()
 export class DataService {
@@ -36,13 +38,13 @@ export class DataService {
     return this.http.get<User[]>('http://localhost:3000/api/users');
   }
 
-  /**
-   * Gets all the students.
-   * @returns {Observable<Student[]>}
-   */
-  getStudents() {
-    return this.http.get<Student[]>('http://localhost:3000/api/students');
-  }
+  // /**
+  //  * Gets all the students.
+  //  * @returns {Observable<Student[]>}
+  //  */
+  // getStudents() {
+  //   return this.http.get<User[]>('http://localhost:3000/api/students');
+  // }
 
 
 
@@ -57,26 +59,27 @@ export class DataService {
     return this.http.post('http://localhost:3000/api/user', newUser, {headers: headers});
   }
 
-  /**
-   * Adds a new Student.
-   * @param newStudent
-   * @returns {Observable<Object>}
-   */
-  addStudent(newStudent) {
-    let headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/api/student', newStudent, {headers: headers});
-  }
+  // /**
+  //  * Adds a new Student.
+  //  * @param newStudent
+  //  * @returns {Observable<Object>}
+  //  */
+  // addStudent(newStudent) {
+  //   let headers = new HttpHeaders();
+  //   headers.append('Content-Type', 'application/json');
+  //   return this.http.post('http://localhost:3000/api/student', newStudent, {headers: headers});
+  // }
 
-  /**
-   *
-   * @param {number} DuId
-   * @returns {Observable<Object>}
-   */
-  deleteStudent(DuId: number) {
-    let headers = new HttpHeaders();
-    return this.http.delete('http://localhost:3000/api/student/' + DuId, {headers: headers});
-  }
+
+  // /**
+  //  *
+  //  * @param {number} DuId
+  //  * @returns {Observable<Object>}
+  //  */
+  // deleteStudent(DuId: number) {
+  //   let headers = new HttpHeaders();
+  //   return this.http.delete('http://localhost:3000/api/student/' + DuId, {headers: headers});
+  // }
 
   deleteUser(DuId: number) {
     let headers = new HttpHeaders();
@@ -108,30 +111,29 @@ export class DataService {
 
   /************************* Methods for new table start here ********************/
   getxCourses() {
-    return this.http.get<xCourse[]>('http://localhost:3000/api/xcourses');
+    return this.http.get<Courses[]>('http://localhost:3000/api/courses');
   }
 
   getSummerCourses() {
-    return this.http.get<xCourse[]>('http://localhost:3000/api/summer');
+    return this.http.get<Courses[]>('http://localhost:3000/api/summer');
   }
 
   getWinterCourses() {
-    return this.http.get<xCourse[]>('http://localhost:3000/api/winter');
+    return this.http.get<Courses[]>('http://localhost:3000/api/winter');
   }
 
   getSpringCourses() {
-    return this.http.get<xCourse[]>('http://localhost:3000/api/spring');
+    return this.http.get<Courses[]>('http://localhost:3000/api/spring');
   }
 
   getFallCourses() {
-    return this.http.get<xCourse[]>('http://localhost:3000/api/fall');
+    return this.http.get<Courses[]>('http://localhost:3000/api/fall');
   }
 
-  addxCourse(xCourse) {
+  addxCourse(Course) {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/api/user', xCourse, {headers: headers});
+    return this.http.post('http://localhost:3000/api/course', Course, {headers: headers});
   }
   /************************* Methods for new table end here ********************/
-
 }

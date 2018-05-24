@@ -60,14 +60,10 @@
     Form complete!
   </div>
   <!-- Error to let the user know that the person it wants to register already exists-->
-    <div *ngIf="studentExists" class="alert alert-danger">
-      Seems the student you are trying to add is already registered.
+    <div *ngIf="userExists" class="alert alert-danger">
+      Seems the person you are trying to add is already registered.
       Please try again.
     </div>
-  <div *ngIf="facultyExists" class="alert alert-danger">
-    Seems the person you are trying to register as faculty is already
-    registered. Please try again.
-  </div>
   <!--//////////////////////// //////////////////////// ////////////////////////-->
 
   <div class="form-group">
@@ -102,6 +98,18 @@
        class="alert alert-danger">
     An address is required.
   </div>
+
+  <div class="form-group">
+    <label for="userID">User ID</label>
+    <input type="text" id="userID" class="form-control" formControlName="userID">
+  </div>
+  <!--Error for UserID-->
+  <div *ngIf="registration.get('userID').touched && registration.get('userID').hasError('required')"
+   class="alert alert-danger">
+    User ID is required.
+  </div>
+
+
 
   <div class="form-group">
     <label for="IDgenerator">Generate a DePaul ID</label>

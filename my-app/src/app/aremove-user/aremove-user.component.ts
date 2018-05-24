@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Student} from "../../models/Student";
 import {User} from "../../models/User";
 import {DataService} from "../Data.service";
 
@@ -10,7 +9,7 @@ import {DataService} from "../Data.service";
 })
 export class AremoveUserComponent implements OnInit {
 
-   students: Student[] = [];
+   students: User[] = [];
 
   constructor(private service: DataService) { }
 
@@ -18,15 +17,14 @@ export class AremoveUserComponent implements OnInit {
     this.getStudents();
   }
 
-
   /**
-   * Get all the students.
+   * Get users.
    */
   getStudents() {
-    this.service.getStudents().subscribe((stdnts: Student[]) => {
-      this.students = stdnts;
+    this.service.getUsers().subscribe((students: User[]) => {
+      this.students = students;
       console.log(this.students);
-      this.students.forEach((x) => console.log(x));
+      this.students.forEach((stu) => console.log(stu));
     });
   }
 
@@ -36,7 +34,7 @@ export class AremoveUserComponent implements OnInit {
    * @param {number} id
    */
   delete(id: number) {
-    this.service.deleteStudent(id).subscribe(res =>{
+    this.service.deleteUser(id).subscribe(res =>{
       console.log('Deleted');
     }, (error) =>{
       console.log(error);

@@ -1,4 +1,4 @@
-export class xCourse {
+export class Courses {
  COURSE_ID: String;
  OFFERED_FALL: String;
  OFFERED_WINTER: String;
@@ -6,5 +6,6 @@ export class xCourse {
  OFFERED_SUMMER: String;
  PREREQS: String;
  ONLINE: String;
- constructor(values: Object = {} ) {Object.assign(this, values);}
+ // constructor(values: Object = {} ) {Object.assign(this, values);}
+  constructor() { }
 }

@@ -3,10 +3,12 @@ const router = express.Router();
 const passport = require('passport');
 
 const User = require('../models/User');
-const Course = require('../models/Course');
-const Test = require('../models/Test');
-const Student = require('../models/Student');
+const Courses = require('../models/Courses');
 
+/* Old tables. */
+// const Course = require('../models/Course');
+// const Student = require('../models/Student');
+// const Test = require('../models/Test');
 
 
 /**
@@ -26,13 +28,20 @@ router.get('/users', (req, res, next) => {
  * Gets all the students.
  */
 router.get('/students', (req, res, next) => {
-   Student.find(function (error, students) {
-       if(error) {
-           res.status(401).send('Could not find students');
-       } else {
-           res.status(200).send(students);
-       }
-   }) 
+   // Student.find(function (error, students) {
+   //     if(error) {
+   //         res.status(401).send('Could not find students');
+   //     } else {
+   //         res.status(200).send(students);
+   //     }
+   // })
+    User.find(function (error, students) {
+        if(error) {
+            res.status(401).send('Could not find students');
+        } else {
+            res.status(200).send(students);
+        }
+    })
 });
 
 
@@ -54,13 +63,20 @@ router.get('/user/:depaulID', function(req, res, next) {
  * Get a student by DePaul ID.
  */
 router.get('/student/:depaulID', function(req, res, next) {
-   Student.findOne({depaulID: req.params.depaulID}, function(error, result) {
-       if(error) {
-           res.status(401).send('Could not find student.');
-       } else {
-           res.status(200).send(result);
-       }
-   });
+   // Student.findOne({depaulID: req.params.depaulID}, function(error, result) {
+   //     if(error) {
+   //         res.status(401).send('Could not find student.');
+   //     } else {
+   //         res.status(200).send(result);
+   //     }
+   // });
+    User.findOne({depaulID: req.params.depaulID}, function (error, result) {
+        if(error) {
+            res.status(401).send('Could not find student.');
+        } else {
+            res.status(200).send(result);
+        }
+    });
 });
 
 
@@ -68,32 +84,46 @@ router.get('/student/:depaulID', function(req, res, next) {
  * Get all the courses.
  */
 router.get('/courses', (req, res, next) => {
-    Course.find(function (error, courses) {
-        if(error) {
-            res.status(401).send('Courses not found.');
-        } else {
-            res.status(200).send(courses);
-        }
+    // Course.find(function (error, courses) {
+    //     if(error) {
+    //         res.status(401).send('Courses not found.');
+    //     } else {
+    //         res.status(200).send(courses);
+    //     }
+    // });
+    Courses.find(function (error, courses) {
+       if (error) {
+           res.status(401).send('Courses not found.');
+       } else {
+           res.status(200).send(courses);
+       }
     });
 });
 
 /**
  * Get a course by ID.
  */
-router.get('/course/:CRSE_ID', (req, res, next) => {
-    Course.findOne({CRSE_ID: req.params.CRSE_ID}, function (error, course) {
-        if(error) {
-            res.status(401).send('Course not found.');
-        } else {
-            res.status(200).send(course);
-        }
-    })
+router.get('/course/:COURSE_ID', (req, res, next) => {
+    // Course.findOne({CRSE_ID: req.params.CRSE_ID}, function (error, course) {
+    //     if(error) {
+    //         res.status(401).send('Course not found.');
+    //     } else {
+    //         res.status(200).send(course);
+    //     }
+    // })
+    Courses.findOne({COURSE_ID: req.params.COURSE_ID}, function (error, course) {
+       if (error) {
+           res.status(401).send('Course not found.');
+       } else {
+           res.status(200).send(course);
+       }
+    });
 });
 
 
 
 /**
- * Creates a new user and adds it to the User table.
+ * Creates a new user.
  */
 router.post('/user', (req,res, next) => {
     let userData = req.body;
@@ -108,22 +138,6 @@ router.post('/user', (req,res, next) => {
 });
 
 
-/*
-    Add a student to the Student table.
- */
-router.post('/student',(req, res, next) => {
-    let studentData = req.body;
-    let newStudent = new Student(studentData);
-    newStudent.save((error, student) => {
-       if(error) {
-           res.json(error);
-       } else {
-           res.json({mssg: 'Student added'});
-       }
-    });
-});
-
-
 
 
 
@@ -132,7 +146,7 @@ router.post('/student',(req, res, next) => {
  */
 router.post('/course', (req, res, next) => {
     let courseData = req.body;
-    let newCourse = new Course(courseData);
+    let newCourse = new Courses(courseData);
     newCourse.save((error, course) => {
        if(error) {
            res.status(401).send('Course could not be added.');
@@ -143,40 +157,12 @@ router.post('/course', (req, res, next) => {
 
 });
 
-/********************************* NEW TABLE METHODS START HERE ********************************/
-/**
- * Post a course in the table (Ben's table).
- */
-router.post('/xcourse', (req, res, next) => {
-    let courseData = req.body;
-    let newCourse = new xCourse(courseData);
-    newCourse.save((error, course) => {
-       if(error) {
-           res.status(401).send('Course could not be added.');
-       } else {
-           res.status(200).send(course);
-       }
-    });
-});
-
-/**
- * All the courses
- */
-router.get('/xcourses', (req, res, next) => {
-    Test.find(function (error, courses) {
-        if(error){
-            res.status(401).send('Could not find courses.');
-        } else {
-            res.status(200).send(courses);
-        }
-    });
-});
 
 /**
  * All courses offered in the Fall
  */
 router.get('/fall', (req, res, next) => {
-    Test.find({OFFERED_FALL: "Y"}, (err, courses) =>{
+    Courses.find({OFFERED_FALL: "Y"}, (err, courses) =>{
        if(err) {
            res.json(err);
        }
@@ -190,7 +176,7 @@ router.get('/fall', (req, res, next) => {
  * All courses offered in the Winter
  */
 router.get('/winter', (req, res, next) => {
-   Test.find({OFFERED_WINTER: "Y"}, (err, courses) => {
+   Courses.find({OFFERED_WINTER: "Y"}, (err, courses) => {
       if(err) {
           res.json(err);
       } else {
@@ -203,7 +189,7 @@ router.get('/winter', (req, res, next) => {
  * All courses offered in the Summer
  */
 router.get('/summer', (req, res, next) => {
-   Test.find({OFFERED_SUMMER: "Y"}, (err, courses) => {
+   Courses.find({OFFERED_SUMMER: "Y"}, (err, courses) => {
       if(err) {
           res.json(err);
       } else {
@@ -216,7 +202,7 @@ router.get('/summer', (req, res, next) => {
  * All courses offered in the Spring
  */
 router.get('/spring', (req, res, next) => {
-    Test.find({OFFERED_SPRING: "Y"}, (err, courses) => {
+    Courses.find({OFFERED_SPRING: "Y"}, (err, courses) => {
        if(err) {
            res.json(err);
        } else{
@@ -224,11 +210,6 @@ router.get('/spring', (req, res, next) => {
        }
     });
 });
-
-
-/********************************* NEW TABLE METHODS END HERE ********************************/
-
-
 
 
 
@@ -242,7 +223,8 @@ router.put('/user/:id', (req, res, next) =>{
             firstName: req.body.firstName,
             lastName: req.body.lastName,
             password: req.body.password,
-            userType: req.body.userType
+            userType: req.body.userType,
+            coursesTaken: req.body.coursesTaken
         }
     },function(err, result) {
         if(err) {
@@ -254,56 +236,22 @@ router.put('/user/:id', (req, res, next) =>{
 });
 
 
-/**
- * Update a Student with that ID.
- */
-router.put('/student/:id', (req, res, next) => {
-   Student.findOneAndUpdate({_id: req.params.id}, {
-       $set: {
-           depaulID: req.body.depaulID,
-           firstName: req.body.firstName,
-           lastName: req.body.lastName,
-           password: req.body.password,
-           userType: req.body.userType
-       }
-   }, function (error, result) {
-       if(error) {
-           res.json(error);
-       } else {
-           res.json(result);
-       }
-   })
-});
-
 
 
 
 /**
  * Updates a course with that ID.
  */
-router.put('/course/:id', (req, res, next) => {
-    Course.findOneAndUpdate({_id: req.params.id}, {
+router.put('/course/:COURSE_ID', (req, res, next) => {
+    Courses.findOneAndUpdate({COURSE_ID: req.params.COURSE_ID}, {
         $set: {
-        CRSE_ID: req.body.CRSE_ID,
-        ACAD_GROUPD: req.body.ACAD_GROUPD,
-        SUBJECT: req.body.SUBJECT,
-        CATALOG_NBR: req.body.CATALOG_NBR,
-        DESCR: req.body.DESCR,
-        EFFDT: req.body.EFFDT,
-        EFF_STATUS: req.body.EFF_STATUS,
-        EQUIV_CRSE_ID: req.body.EQUIV_CRSE_ID,
-        CONSENT: req.body.CONSENT,
-        ALLOW_MULT_ENROLL: req.body.ALLOW_MULT_ENROLL,
-        UNITS_ACAD_PROG: req.body.UNITS_ACAD_PROG,
-        CRSE_REPEATABLE: req.body.CRSE_REPEATABLE,
-        UNITS_REPEAT_LIMIT: req.body.UNITS_REPEAT_LIMIT,
-        CRSE_REPEAT_LIMIT: req.body.CRSE_REPEAT_LIMIT,
-        GRADING_BASIS: req.body.GRADING_BASIS,
-        GRADE_ROSTER_PRINT: req.body.GRADE_ROSTER_PRINT,
-        SSR_COMPONENT: req.body.SSR_COMPONENT,
-        COURSE_TITLE_LONG: req.body.COURSE_TITLE_LONG,
-        COMPONENT_PRIMARY: req.body.COMPONENT_PRIMARY,
-        DESCRLONG: req.body.DESCRLONG
+            COURSE_ID: req.body.COURSE_ID,
+            OFFERED_FALL: req.body.OFFERED_FALL,
+            OFFERED_WINTER: req.body.OFFERED_WINTER,
+            OFFERED_SPRING: req.body.OFFERED_SPRING,
+            OFFERED_SUMMER: req.body.OFFERED_SUMMER,
+            PREREQS: req.body.PREREQS,
+            ONLINE: req.body.ONLINE
         }
     }, function(err, result) {
         if(err) {
@@ -331,27 +279,11 @@ router.delete('/user/:depaulID', (req, res, next) =>{
 
 
 /**
- * Deletes a student.
- */
-router.delete('/student/:depaulID', (req, res, next) => {
-    Student.remove({
-        depaulID : req.params.depaulID
-    }, function (error, _) {
-        if(error){
-            res.send(error);
-        } else {
-            console.log('Student was deleted.');
-        }
-    });
-});
-
-
-/**
  * Deletes a course.
  */
-router.delete('/course/:CRSE_ID', (req, res, next) => {
-    Course.remove({
-        CRSE_ID: req.params.CRSE_ID
+router.delete('/course/:COURSE_ID', (req, res, next) => {
+    Courses.remove({
+        COURSE_ID: req.params.COURSE_ID
     }, function (error, _) {
         if(error) {
             res.send(error);
@@ -381,9 +313,5 @@ router.post('/login', (req, res) => {
     });
     console.log(userInfo);
 });
-
-
-
-
 
 module.exports = router;

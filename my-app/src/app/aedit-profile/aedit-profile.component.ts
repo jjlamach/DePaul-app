@@ -13,7 +13,7 @@ import {Router} from "@angular/router";
 export class AeditProfileComponent implements OnInit {
   public depaulForm2: FormGroup;
   public user: User; // Store the new user in this User object
-  private DepaulID: string;
+   DepaulID: string;
 
 
 
