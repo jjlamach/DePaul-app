@@ -154,7 +154,6 @@ router.post('/course', (req, res, next) => {
            res.status(200).send(course);
        }
     });
-
 });
 
 
