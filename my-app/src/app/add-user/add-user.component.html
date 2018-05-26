@@ -163,17 +163,6 @@
     </div>
   </div>
 
-  <div class="form-group">
-    <label for="userID">User ID</label>
-    <input type="text" id="userID" class="form-control" formControlName="userID">
-  </div>
-  <!--Error for UserID-->
-  <div *ngIf="registration.get('userID').touched && registration.get('userID').hasError('required')"
-   class="alert alert-danger">
-    User ID is required.
-  </div>
-
-
 
   <div class="form-group">
     <label for="IDgenerator">Generate a DePaul ID</label>
