@@ -97,7 +97,7 @@ export class DataService {
 
   loggedIn(userType){
     console.log(userType);
-    return userType == 'Admin' || userType == 'admin';
+    return userType == 'Admin' || userType == 'admin' || userType =='Administrator';
   }
 
   loggedIn2(userType){

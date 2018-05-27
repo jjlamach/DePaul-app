@@ -22,22 +22,31 @@
   width: 30%;
   padding: 10px;
 }
-.push{
-  margin-bottom: -90px;
-}
+
 
 .bot-footer{
   position:absolute;
   right: 0;
   left: 0;
   height:90px;
+  bottom: 0px;
   background: ghostwhite;
+}
+
+@media (max-height: 750px) {
+  .bot-footer{
+    display: none;
+  }
+  .bottom-footer{
+    display: none;
+  }
 }
 
 .bottom-footer{
   font-size: 13px;
   text-align: right;
   position:absolute;
+  bottom: 30px;
   padding-top: 40px;
   width:92%;
   border-right: 30px;
