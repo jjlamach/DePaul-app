@@ -59,6 +59,9 @@ export class LoginComponent implements OnInit {
         else if (type.userType == "admin") {
           return this.router.navigateByUrl('/home3');
         }
+        else if (type.userType == "Administrator") {
+          return this.router.navigateByUrl('/home3');
+        }
         else if (type.userType == 'Faculty') {
           return this.router.navigateByUrl('/home-faculty');
         }

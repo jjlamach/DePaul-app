@@ -76,7 +76,7 @@ const appRoutes: Routes = [
   { path: 'view-profile3', component: AviewProfileComponent, canActivate: [DataGuard] },
   { path: 'list-students', component: AstudentsComponent, canActivate: [DataGuard] },
   { path: 'start-plan3', component: AstartPlanComponent, canActivate: [DataGuard] },
-  { path: 'degree-plan-form', component: DegreePlanFormComponent },
+  { path: 'degree-plan-form', component: DegreePlanFormComponent, canActivate: [Data3Guard] },
   { path: 'SearchID3', component: AsearchIdComponent, canActivate: [DataGuard] },
   { path: 'requirements3', component: ArequirementsComponent, canActivate: [DataGuard]},
   { path: 'remove', component: AremoveUserComponent, canActivate: [DataGuard] },

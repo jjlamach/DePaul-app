@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormsModule, FormControl, FormGroup} from "@angular/forms";
 // import {NgForm} from "@angular/forms";
-import {Quarter} from "./quarter";
-import {DataService} from "../data.service";
+import {Quarter} from "./Quarter";
+import {DataService} from "../Data.service";
 import { xCourse } from './xCourse';
 import { DegreePlanParameters } from './DegreePlanParameters';
 
