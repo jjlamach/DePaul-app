@@ -1,8 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+/* PDFExportModule */
+import {PDFExportModule} from "@progress/kendo-angular-pdf-export";
 
-import { DataService } from './Data.service';
+
+import {DataService } from './Data.service';
 import {DataGuard} from "./data.guard";
 import {Data2Guard} from "./data2.guard";
 import {Data3Guard} from "./data3.guard";
@@ -161,7 +164,8 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(
       appRoutes
-    )
+    ),
+    PDFExportModule
   ],
   providers: [DataService, DataGuard, Data2Guard,Data3Guard],
   bootstrap: [AppComponent]

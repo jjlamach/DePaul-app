@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import {FormsModule, FormControl, FormGroup} from "@angular/forms";
 // import {NgForm} from "@angular/forms";
-import {Quarter} from "./quarter";
-import {DataService} from "../data.service";
+import {Quarter} from "./Quarter";
+import {DataService} from "../Data.service";
 import { xCourse } from './xCourse';
 import { DegreePlanParameters } from './DegreePlanParameters';
+
+
 
 @Component({
   selector: 'app-degree-plan-form',
@@ -175,7 +177,10 @@ export class DegreePlanFormComponent implements OnInit {
 
   planForm: FormGroup;  // My form.
 
-  constructor(private dataService : DataService) { }
+
+
+  constructor(private dataService : DataService) {
+  }
 
   /*------------------------------------------------------------------------------
 
@@ -208,6 +213,7 @@ export class DegreePlanFormComponent implements OnInit {
       startQuarter: new FormControl(''),
       numClasses: new FormControl('')
     });
+
   }
 
   /*----------------------------------------------------------------------------
@@ -239,8 +245,6 @@ export class DegreePlanFormComponent implements OnInit {
     this.fillRqmnts(degreeProgram, numClasses, degreeRqmnts, this.degreePlanFinal);
     this.show = true;
   }
-
-
 
 
 
@@ -980,5 +984,7 @@ export class DegreePlanFormComponent implements OnInit {
         return "Fall";
     }
   }//end getNextTerm()
+
+
 
 }//end class
