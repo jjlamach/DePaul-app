@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 
 /* PDFExportModule */
 import {PDFExportModule} from "@progress/kendo-angular-pdf-export";
-
 
 import {DataService } from './Data.service';
 import {DataGuard} from "./data.guard";
@@ -159,6 +159,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,

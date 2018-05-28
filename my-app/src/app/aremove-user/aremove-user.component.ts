@@ -11,11 +11,14 @@ export class AremoveUserComponent implements OnInit {
 
    students: User[] = [];
 
+
   constructor(private service: DataService) { }
 
   ngOnInit() {
     this.getStudents();
   }
+
+
 
   /**
    * Get users.

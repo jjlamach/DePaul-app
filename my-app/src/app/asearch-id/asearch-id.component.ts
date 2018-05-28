@@ -3,6 +3,7 @@ import {DataService} from '../Data.service';
 import {User} from '../../models/User';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
 import {Student} from "../../models/Student";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-asearch-id',
@@ -23,7 +24,7 @@ export class AsearchIdComponent implements OnInit {
    *
    * @param {DataService} service
    */
-  constructor(private service: DataService) { }
+  constructor(private service: DataService, private router: Router) { }
 
 
   ngOnInit() {
@@ -75,6 +76,7 @@ export class AsearchIdComponent implements OnInit {
    */
   reset() {
     this.studentForm.reset();
+    this.router.navigateByUrl('/SearchID3');
     this.wasSubmitted = false;
     this.wasFound = false;
   }

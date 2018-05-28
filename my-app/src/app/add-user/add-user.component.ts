@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DataService} from "../Data.service";
 import {FormGroup, FormControl, Validators} from "@angular/forms";
 import {User} from "../../models/User";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-add-user',
@@ -19,7 +20,7 @@ export class AddUserComponent implements OnInit {
    userExists: boolean = false;
    wasSubmitted: boolean = false;
 
-  constructor(private service: DataService) { }
+  constructor(private service: DataService, private router: Router) { }
 
   /**
    * Gets all the students and users first to prevent adding existing users or students.
@@ -84,7 +85,7 @@ export class AddUserComponent implements OnInit {
    */
   resetForm() {
     this.registration.reset();
-    location.reload();
+    this.router.navigateByUrl('/add');
     this.wasSubmitted = false;
     this.userExists = false;
   }
