@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, Validators, FormControl} from '@angular/forms';
+import {FormGroup, Validators, FormControl} from '@angular/forms';
 import {Router} from '@angular/router';
 
 
@@ -14,13 +14,12 @@ import { DataService } from '../Data.service';
 })
 export class AccountcreationComponent implements OnInit {
   public depaulForm2: FormGroup;
-  public user: User; // Store the new user in this User object
-
+  public user: User;
 
 
   constructor(private router: Router, private service: DataService) { }
 
-  // on Init then create form
+
   ngOnInit() {
     this.depaulForm2 = new FormGroup({
       firstName: new FormControl('',[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
@@ -41,9 +40,7 @@ export class AccountcreationComponent implements OnInit {
 
   /**
    *
-   *
-   * @param {FormGroup} depaulForm2
-   * @memberof AccountcreationComponent
+   * @param depaulForm2
    */
   addUser(depaulForm2) {
     if(depaulForm2.valid) {
@@ -52,9 +49,13 @@ export class AccountcreationComponent implements OnInit {
       this.service.addUser(this.user).subscribe(x => {
         console.log('New user has been registered.');
       });
+      this.service.registrationConfirmed(this.user).subscribe(x => {
+        console.log('Email sent.');
+      });
       this.router.navigateByUrl('/optin');
     }
   }
+
 
   matchingPasswords(passwordKey: string, passwordConfirmationKey: string) {
     return (group: FormGroup) => {

@@ -5,6 +5,8 @@ import { NgModule } from '@angular/core';
 /* PDFExportModule */
 import {PDFExportModule} from "@progress/kendo-angular-pdf-export";
 
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 import {DataService } from './Data.service';
 import {DataGuard} from "./data.guard";
 import {Data2Guard} from "./data2.guard";
@@ -166,7 +168,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes
     ),
-    PDFExportModule
+    PDFExportModule,
+    MatFormFieldModule
   ],
   providers: [DataService, DataGuard, Data2Guard,Data3Guard],
   bootstrap: [AppComponent]

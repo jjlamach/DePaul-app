@@ -5,13 +5,23 @@ import {HttpHeaders} from '@angular/common/http';
 import {User} from '../models/User';
 import {Courses} from '../models/Courses';
 
-// import {Student} from "../models/Student";
-// import {courses} from '../models/courses';
+
 
 @Injectable()
 export class DataService {
 
   constructor(private http: HttpClient) { }
+
+
+  /**
+   * Send an email to the user that created an account.
+   * @returns {Observable<Object>}
+   */
+  registrationConfirmed(userData) {
+    let headers = new HttpHeaders();
+    headers.append('Content-type', 'application/json');
+    return this.http.post('http://localhost:3000/api/sendMail', userData, {headers: headers});
+  }
 
   /**
    * All the courses from the first table
@@ -38,18 +48,10 @@ export class DataService {
     return this.http.get<User[]>('http://localhost:3000/api/users');
   }
 
-  // /**
-  //  * Gets all the students.
-  //  * @returns {Observable<Student[]>}
-  //  */
-  // getStudents() {
-  //   return this.http.get<User[]>('http://localhost:3000/api/students');
-  // }
-
 
 
   /**
-   * Adds a new user
+   * Add a new user
    * @param newUser
    * @returns {Observable<Object>}
    */
@@ -59,41 +61,27 @@ export class DataService {
     return this.http.post('http://localhost:3000/api/user', newUser, {headers: headers});
   }
 
-  // /**
-  //  * Adds a new Student.
-  //  * @param newStudent
-  //  * @returns {Observable<Object>}
-  //  */
-  // addStudent(newStudent) {
-  //   let headers = new HttpHeaders();
-  //   headers.append('Content-Type', 'application/json');
-  //   return this.http.post('http://localhost:3000/api/student', newStudent, {headers: headers});
-  // }
-
-
-  // /**
-  //  *
-  //  * @param {number} DuId
-  //  * @returns {Observable<Object>}
-  //  */
-  // deleteStudent(DuId: number) {
-  //   let headers = new HttpHeaders();
-  //   return this.http.delete('http://localhost:3000/api/student/' + DuId, {headers: headers});
-  // }
-
+  /**
+   * Delete a user.
+   * @param {number} DuId
+   * @returns {Observable<Object>}
+   */
   deleteUser(DuId: number) {
     let headers = new HttpHeaders();
     return this.http.delete('http://localhost:3000/api/User/' + DuId, {headers: headers});
   }
 
+
   /**
-   * Logins the user if it exists.
+   * Logs in.
    * @param user
+   * @returns {Observable<any>}
    */
   verifyUser(user) {
     // any to avoid errors
     return this.http.post<any>('http://localhost:3000/api/login', user);
   }
+
 
   loggedIn(userType){
     console.log(userType);
@@ -109,31 +97,54 @@ export class DataService {
     return userType == 'Student'||userType == 'student';
   }
 
-  /************************* Methods for new table start here ********************/
+  /**
+   * Get all the courses.
+   * @returns {Observable<Courses[]>}
+   */
   getxCourses() {
     return this.http.get<Courses[]>('http://localhost:3000/api/courses');
   }
 
+  /**
+   * Get all summer courses.
+   * @returns {Observable<Courses[]>}
+   */
   getSummerCourses() {
     return this.http.get<Courses[]>('http://localhost:3000/api/summer');
   }
 
+  /**
+   * Get all winter courses.
+   * @returns {Observable<Courses[]>}
+   */
   getWinterCourses() {
     return this.http.get<Courses[]>('http://localhost:3000/api/winter');
   }
 
+  /**
+   * Get all spring courses.
+   * @returns {Observable<Courses[]>}
+   */
   getSpringCourses() {
     return this.http.get<Courses[]>('http://localhost:3000/api/spring');
   }
 
+  /**
+   * Get all fall courses.
+   * @returns {Observable<Courses[]>}
+   */
   getFallCourses() {
     return this.http.get<Courses[]>('http://localhost:3000/api/fall');
   }
 
+  /**
+   * Add a course.
+   * @param Course
+   * @returns {Observable<Object>}
+   */
   addxCourse(Course) {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
     return this.http.post('http://localhost:3000/api/course', Course, {headers: headers});
   }
-  /************************* Methods for new table end here ********************/
 }

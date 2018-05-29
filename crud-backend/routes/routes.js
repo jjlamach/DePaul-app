@@ -1,14 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
 
 const User = require('../models/User');
 const Courses = require('../models/Courses');
-
-/* Old tables. */
-// const Course = require('../models/Course');
-// const Student = require('../models/Student');
-// const Test = require('../models/Test');
+const nodemailer = require('nodemailer');
 
 
 /**
@@ -28,13 +23,6 @@ router.get('/users', (req, res, next) => {
  * Gets all the students.
  */
 router.get('/students', (req, res, next) => {
-   // Student.find(function (error, students) {
-   //     if(error) {
-   //         res.status(401).send('Could not find students');
-   //     } else {
-   //         res.status(200).send(students);
-   //     }
-   // })
     User.find(function (error, students) {
         if(error) {
             res.status(401).send('Could not find students');
@@ -63,13 +51,6 @@ router.get('/user/:depaulID', function(req, res, next) {
  * Get a student by DePaul ID.
  */
 router.get('/student/:depaulID', function(req, res, next) {
-   // Student.findOne({depaulID: req.params.depaulID}, function(error, result) {
-   //     if(error) {
-   //         res.status(401).send('Could not find student.');
-   //     } else {
-   //         res.status(200).send(result);
-   //     }
-   // });
     User.findOne({depaulID: req.params.depaulID}, function (error, result) {
         if(error) {
             res.status(401).send('Could not find student.');
@@ -84,13 +65,6 @@ router.get('/student/:depaulID', function(req, res, next) {
  * Get all the courses.
  */
 router.get('/courses', (req, res, next) => {
-    // Course.find(function (error, courses) {
-    //     if(error) {
-    //         res.status(401).send('Courses not found.');
-    //     } else {
-    //         res.status(200).send(courses);
-    //     }
-    // });
     Courses.find(function (error, courses) {
        if (error) {
            res.status(401).send('Courses not found.');
@@ -104,13 +78,6 @@ router.get('/courses', (req, res, next) => {
  * Get a course by ID.
  */
 router.get('/course/:COURSE_ID', (req, res, next) => {
-    // Course.findOne({CRSE_ID: req.params.CRSE_ID}, function (error, course) {
-    //     if(error) {
-    //         res.status(401).send('Course not found.');
-    //     } else {
-    //         res.status(200).send(course);
-    //     }
-    // })
     Courses.findOne({COURSE_ID: req.params.COURSE_ID}, function (error, course) {
        if (error) {
            res.status(401).send('Course not found.');
@@ -312,5 +279,47 @@ router.post('/login', (req, res) => {
     });
     console.log(userInfo);
 });
+
+/**
+ * Send an email after a user created an account.
+ */
+router.post('/sendMail', (req, response) => {
+    let userData = new User(); /* To avoid undefined we model the user data.*/
+    userData.firstName = req.body.firstName;
+    userData.lastName = req.body.lastName;
+    userData.password = req.body.password;
+    userData.userID = req.body.userID;
+    userData.email = req.body.email;
+    userData.depaulID = req.body.depaulID;
+
+    // Sends the email.
+    let transporter = nodemailer.createTransport({
+       service: 'gmail',
+       auth: {
+           user: 'ducsc394@gmail.com',
+           pass: 'depaul.123!'
+       }
+    });
+    let mailOptions = {
+        from: '"DePaul University, Chicago" ducsc394@gmail.com',
+        subject: 'Registration complete',
+        to: userData.email,
+        html:'<h1>Registration complete</h1> <br> <strong>Account Information</strong> <br>' +
+        '<strong>UserID: </strong>' + userData.userID + '<br> ' +
+        '<strong>Password: </strong>' + userData.password + '<br>' +
+        '<strong>Email: </strong>' + userData.email + '<br>' +
+        '<strong>DePaul ID: </strong>' + userData.depaulID
+    };
+
+    transporter.sendMail(mailOptions, function (error, response) {
+        if(error){
+            console.log(error);
+        } else {
+            console.log(response);
+        }
+    });
+});
+
+
 
 module.exports = router;
