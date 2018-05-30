@@ -142,9 +142,19 @@ export class DataService {
    * @param Course
    * @returns {Observable<Object>}
    */
-  addxCourse(Course) {
+  addxCourse(course) {
     let headers = new HttpHeaders();
     headers.append('Content-Type', 'application/json');
-    return this.http.post('http://localhost:3000/api/course', Course, {headers: headers});
+    return this.http.post('http://localhost:3000/api/course', course, {headers: headers});
+  }
+
+  /**
+   * Delete a course.
+   * @param {number} courseID
+   * @returns {Observable<Object>}
+   */
+  deleteCourse(courseID: number) {
+    let headers = new HttpHeaders();
+    return this.http.delete('http://localhost:3000/api/course/:COURSE_ID' + courseID, {headers: headers});
   }
 }
