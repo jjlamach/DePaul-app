@@ -50,14 +50,29 @@
   </div>
 </nav>
 <br>
-<h2>List of classes</h2>
-<hr>
-<div class="class">
-  <h6 class="id">CSC 421: </h6><h6 class="name">Applied Algorithms and Structures</h6>
-</div>
-<div class="class">
-  <h6 class="id">SE 450: </h6><h6 class="name">Object Oriented Software Development</h6>
-</div>
-<div class="class">
-  <h6 class="id">CSC 453: </h6><h6 class="name">Database Technologies</h6>
+<div class="text-center" style="overflow-x:auto;">
+  <table>
+    <thead>
+    <tr>
+      <th>Course ID</th>
+      <th>Offered Fall</th>
+      <th>Offered Winter</th>
+      <th>Offered Spring</th>
+      <th>Offered Summer</th>
+      <th>Prerequisites</th>
+      <th>Online</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let course of courses">
+      <td>{{course.COURSE_ID}}</td>
+      <td>{{course.OFFERED_FALL}}</td>
+      <td>{{course.OFFERED_WINTER}}</td>
+      <td>{{course.OFFERED_SPRING}}</td>
+      <td>{{course.OFFERED_SUMMER}}</td>
+      <td>{{course.PREREQS}}</td>
+      <td>{{course.ONLINE}}</td>
+    </tr>
+    </tbody>
+  </table>
 </div>
