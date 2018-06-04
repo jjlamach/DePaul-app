@@ -3,6 +3,7 @@ import {DataService} from '../Data.service';
 import {User} from '../../models/User';
 import {FormGroup, FormControl, Validators} from "@angular/forms";
 import {Student} from "../../models/Student";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-search-id',
@@ -23,7 +24,7 @@ export class SearchIDComponent implements OnInit {
    *
    * @param {DataService} service
    */
-  constructor(private service: DataService) { }
+  constructor(private service: DataService, private router: Router) { }
 
 
   ngOnInit() {
@@ -64,7 +65,7 @@ export class SearchIDComponent implements OnInit {
         this.student.degree = this.duMembers[i].degree;
         this.student.address = this.duMembers[i].address;
         // hard coded courses
-        this.student.coursesTaken = ['CSC 200', 'CSC 300', 'CSC 301', 'Wtf!'];
+        this.student.coursesTaken = this.duMembers[i].coursesTaken;
         this.wasFound = true;
       }
     }
@@ -75,6 +76,7 @@ export class SearchIDComponent implements OnInit {
    */
   reset() {
     this.studentForm.reset();
+    this.router.navigateByUrl('/SearchID3');
     this.wasSubmitted = false;
     this.wasFound = false;
   }
