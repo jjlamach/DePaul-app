@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as type from "../globals";
+import * as type from '../globals';
 
 @Component({
   selector: 'app-logged-out',

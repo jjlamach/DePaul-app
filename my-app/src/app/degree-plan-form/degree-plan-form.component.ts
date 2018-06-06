@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import {FormsModule, FormControl, FormGroup} from "@angular/forms";
 // import {NgForm} from "@angular/forms";
-import {Quarter} from "./Quarter";
-import {DataService} from "../Data.service";
-import { xCourse } from './xCourse';
-import { DegreePlanParameters } from './DegreePlanParameters';
+import {DegreePlanParameters} from "./degree-plan-parameters";
+import {Quarter} from "./quarter";
+import {DataService} from "../data.service";
+import {xCourse} from "./x-course";
 
+import {TransfererService} from "../transferer.service";
 
+import * as type from './../globals';
 
 @Component({
   selector: 'app-degree-plan-form',
@@ -175,12 +177,12 @@ export class DegreePlanFormComponent implements OnInit {
   public show:boolean = false; //hides then shows the data table
 
 
-  planForm: FormGroup;  // My form.
+  planForm: FormGroup;
 
 
 
-  constructor(private dataService : DataService) {
-  }
+
+  constructor(private dataService : DataService, private transferer: TransfererService) { }
 
   /*------------------------------------------------------------------------------
 
@@ -190,6 +192,7 @@ export class DegreePlanFormComponent implements OnInit {
     ----------------------------------------------------------------------------*/
 
   ngOnInit() {
+
     this.dataService.getFallCourses().subscribe((courses: xCourse[]) => {
       this.fallCourses = courses;
     });
@@ -223,18 +226,9 @@ export class DegreePlanFormComponent implements OnInit {
 
   ----------------------------------------------------------------------------*/
 
-  // onSubmit(degreeForm: NgForm){
-  //
-  //   // let degreeRqmnts = this.getDegreeRqmnts(degreeForm.value.degree_program);
-  //   // this.degreePlanFinal = this.buildQuarters(degreeForm.value.start_quarter, degreeForm.value.num_classes);
-  //   // this.fillRqmnts(degreeForm.value.degree_program, degreeForm.value.num_classes, degreeRqmnts, this.degreePlanFinal);
-  //   // this.show = true;
-  //
-  // }//end onSubmit()
 
-
-  /* New changes for the algo.*/
   submitForm(form : FormGroup) {
+    var counter = 0;
     let degreeProgram = form.get('degreeProgram').value;
     let degreeRqmnts = this.getDegreeRqmnts(degreeProgram);
 
@@ -244,7 +238,16 @@ export class DegreePlanFormComponent implements OnInit {
     this.degreePlanFinal = this.buildQuarters(startQuarter, numClasses);
     this.fillRqmnts(degreeProgram, numClasses, degreeRqmnts, this.degreePlanFinal);
     this.show = true;
+
+    // this.transferer.setData(this.degreePlanFinal);
+    // this.degreePlanFinal.forEach((x,y,z) => {console.log(JSON.stringify(x) + ' ' + JSON.stringify(y) + ' ' + JSON.stringify(z))});
+    var tmp: Array<any> = [];
+    this.degreePlanFinal.forEach((x) => tmp.push((JSON.parse(JSON.stringify(x)))));
+    type.setPath(tmp);
   }
+
+
+
 
 
 
@@ -984,7 +987,5 @@ export class DegreePlanFormComponent implements OnInit {
         return "Fall";
     }
   }//end getNextTerm()
-
-
 
 }//end class

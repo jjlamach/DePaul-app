@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
-import {DataService} from "../Data.service";
+import { Component, OnInit } from '@angular/core';
+import {DataService} from "../data.service";
 import {FormGroup, FormControl, Validators} from "@angular/forms";
-import {User} from "../../models/User";
+import {User} from "../models/user";
 import {Router} from "@angular/router";
 
 @Component({
@@ -9,22 +9,16 @@ import {Router} from "@angular/router";
   templateUrl: './add-user.component.html',
   styleUrls: ['./add-user.component.css']
 })
-
 export class AddUserComponent implements OnInit {
+  userCollection: User[];
 
-
-   userCollection: User[];
-
-   registration: FormGroup;
-   user: User = new User();
-   userExists: boolean = false;
-   wasSubmitted: boolean = false;
+  registration: FormGroup;
+  user: User = new User();
+  userExists: boolean = false;
+  wasSubmitted: boolean = false;
 
   constructor(private service: DataService, private router: Router) { }
 
-  /**
-   * Gets all the students and users first to prevent adding existing users or students.
-   */
   ngOnInit() {
     this.getUsers();
 
@@ -57,15 +51,15 @@ export class AddUserComponent implements OnInit {
     }
     for(let i = 0; i < this.userCollection.length; i++) {
       if(this.userCollection[i].firstName ===  this.user.firstName &&
-      this.userCollection[i].lastName === this.user.lastName &&
-      this.userCollection[i].address === this.user.address) {
-        console.log('User exists.');
+        this.userCollection[i].lastName === this.user.lastName &&
+        this.userCollection[i].address === this.user.address) {
+        // console.log('User exists.');
         this.userExists = true;
         return;
       }
     }
     this.service.addUser(this.user).subscribe( (user: User) => {
-      console.log('User registered.');
+      // console.log('User registered.');
       this.wasSubmitted = true;
       return;
     });
@@ -96,7 +90,7 @@ export class AddUserComponent implements OnInit {
   getUsers() {
     this.service.getUsers().subscribe(x => {
       this.userCollection = x;
-      console.log(this.userCollection);
+      // console.log(this.userCollection);
     })
   }
 }

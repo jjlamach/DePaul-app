@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from "../Data.service";
+import {DataService} from "../data.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
-import {User} from "../../models/User";
-import * as type from "../globals";
+import {User} from "../models/user";
+import * as type from '../globals';
 import {Router} from "@angular/router";
 
 @Component({
@@ -13,14 +13,10 @@ import {Router} from "@angular/router";
 export class AeditProfileComponent implements OnInit {
   public depaulForm2: FormGroup;
   public user: User; // Store the new user in this User object
-   DepaulID: string;
-
-
-
+  DepaulID: string;
 
   constructor(private router: Router, private service: DataService) { }
 
-  // on Init then create form
   ngOnInit() {
     this.depaulForm2 = new FormGroup({
       firstName: new FormControl(type.firstName,[Validators.required, Validators.pattern('[a-zA-Z][a-zA-Z]+')]),
@@ -42,20 +38,18 @@ export class AeditProfileComponent implements OnInit {
 
   /**
    *
-   *
-   * @param {FormGroup} depaulForm2
-   * @memberof AccountcreationComponent
+   * @param depaulForm2
    */
   addUser(depaulForm2) {
     if(depaulForm2.valid) {
 
       this.service.deleteUser(parseInt(type.DepaulID)).subscribe(res =>{
-        console.log("Profile delete");
+        // console.log("Profile delete");
       });
       this.user = this.depaulForm2.value;
       type.setUser(this.user.userID, this.user.password, this.user.firstName, this.user.lastName, this.user.degree,this.user.address,this.user.city,this.user.zip.toString(),this.user.state,this.user.depaulID.toString(),this.user.email);
       this.service.addUser(this.user).subscribe((user: User) => {
-        console.log("Profile editted");
+        // console.log("Profile editted");
 
       });
       this.router.navigateByUrl("/view-profile");
@@ -63,6 +57,7 @@ export class AeditProfileComponent implements OnInit {
     }
     return this.reset();
   }
+
   reset() {
     this.depaulForm2.reset({ firstName: type.firstName,
       lastName: type.lastName,
@@ -78,5 +73,4 @@ export class AeditProfileComponent implements OnInit {
       userType: type.userType
     });
   }
-
 }

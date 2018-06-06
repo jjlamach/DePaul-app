@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from "../Data.service";
-import {Courses} from "../../models/Courses";
+import {DataService} from "../data.service";
+import {Courses} from "../models/courses";
 
 @Component({
   selector: 'app-acourses',
@@ -8,8 +8,12 @@ import {Courses} from "../../models/Courses";
   styleUrls: ['./acourses.component.css']
 })
 export class AcoursesComponent implements OnInit {
-   courses: Courses[] = [];
+  courses: Courses[] = [];
 
+  /**
+   *
+   * @param {DataService} service
+   */
   constructor(private service: DataService) { }
 
   ngOnInit() {
@@ -20,9 +24,10 @@ export class AcoursesComponent implements OnInit {
    * Get all the CDM courses available.
    */
   getAllCDMcourses() {
-    this.service.getxCourses().subscribe((courses: Courses[]) => {
+    this.service.getCourses().subscribe((courses: Courses[]) => {
       this.courses = courses;
-      console.log(courses);
+      // console.log(courses);
     });
   }
+
 }

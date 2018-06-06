@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as type from "../globals";
-import {DataService} from "../Data.service";
+import { DataService} from "../data.service";
+import * as type from '../globals';
 
 @Component({
   selector: 'app-student',
@@ -8,7 +8,8 @@ import {DataService} from "../Data.service";
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
-   studentuser: string;
+
+  studentuser: string;
 
   /**
    *
@@ -16,8 +17,8 @@ export class StudentComponent implements OnInit {
    */
   constructor(private service: DataService) { }
 
-
   ngOnInit() {
-    this.studentuser=type.firstName+" "+type.lastName;
+    this.studentuser = type.firstName + " " + type.lastName;
   }
+
 }

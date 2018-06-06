@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
 <body>
-
-<!--Uses Kendo UI for Angular.
-The thing you want to export as PDF must be within the kento tag -->
 <kendo-pdf-export #pdf paperSize="A2" margin="2cm">
 <div class="col-md-7">
   <form novalidate [formGroup]="planForm" (ngSubmit)="submitForm(planForm)">
@@ -24,10 +21,10 @@ The thing you want to export as PDF must be within the kento tag -->
     </select>
     <br><br>
     <button type="submit" class="btn btn-primary" id="submitBTN">Submit</button>
-    <button class="btn btn-primary" kendo-button (click)="pdf.saveAs('StudentPlan.pdf')"
-    id="pdfBTN">Save</button>
+    <button class="btn btn-primary" kendo-button (click)="pdf.saveAs('DegreePlan.pdf')" id="pdfBTN">Save</button>
   </form>
 </div>
+
 <div class="col-md-5">
   <table *ngIf="show" class="table table-striped">
     <th>Quarter</th>

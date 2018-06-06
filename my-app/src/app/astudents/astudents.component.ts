@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {DataService} from "../Data.service";
-import {User} from "../../models/User";
+import {DataService} from "../data.service";
+import {User} from "../models/user";
 
 @Component({
   selector: 'app-astudents',
@@ -10,23 +10,21 @@ import {User} from "../../models/User";
 export class AstudentsComponent implements OnInit {
   students: User[] = [];
 
-
   constructor(private service: DataService) { }
 
   ngOnInit() {
     this.getStudents();
   }
 
-
   /**
-   * Get all the students.
+   * Get all the students registered.
    */
   getStudents() {
-    this.service.getUsers().subscribe((stu: User[]) => {
-      this.students = stu;
-      console.log(this.students);
-      this.students.forEach((stu) => console.log(stu));
+    this.service.getUsers().subscribe((stud: User[]) => {
+      this.students = stud;
+      // console.log(this.students);
+      // this.students.forEach((stu) => console.log(stu));
     });
   }
-}
 
+}
