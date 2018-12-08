@@ -10,3 +10,6 @@ Team design, implementation and testing of a large software project.<br/>
     <li>Miko Stulajter</li>
     <li>Wesley Albury</li>
 </ul>
+
+# Loading Time
+Since this application is hosted on Heroku for <strong>free</strong>, it takes a few seconds to load.
